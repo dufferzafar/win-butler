@@ -1,7 +1,9 @@
 /**
  * Windows Butler
  *
- * Got inspired after seeing a friend's pitiful laptop.
+ * Got inspired after seeing a friend's pitiful windows laptop.
+ *
+ * @dufferzafar
  */
 
 /**
@@ -15,6 +17,29 @@
 #NoTrayIcon
 #KeyHistory 0
 SetWorkingDir %A_ScriptDir%
+
+/**
+ * Global Variables
+ *
+ * Edit only if you are sure enough.
+ */
+
+; The folder path where your screenshots will be saved
+Screenshot_Directory := "C:\Users\" . A_Username . "\Pictures\Screenshot"
+
+; The output file format of the screenshots
+; Can be any one of png, jpg, bmp
+Screenshot_Format := "png"
+
+; The factor by which the screenshot will be reduced
+; 1.0 = Original Size,
+; 0.5 = Half the original,
+; 0.25 = Quarter of original and so on.
+Screenshot_Size := 1.0
+
+; ######################## Script Begins ########################
+
+OnExit, Exit
 
 ; Create a group of explorer windows
 GroupAdd, Explorer, ahk_class CabinetWClass
@@ -40,7 +65,7 @@ I'm right here.....
 
 Consult readme for usage instructions.
 )
-SetTimer, RemoveTrayTip, 1000
+SetTimer, RemoveTrayTip, 2000
 
 /**
  * Hotkey List
@@ -50,7 +75,7 @@ SetTimer, RemoveTrayTip, 1000
  * + = Shift
  * # = Windows Key
  *
- * Change hotkeys. Turn them On/Off
+ * Change hotkeys. Turn them On/Off.
  */
 
 ; Hotkey, 	KeyName,	Label, 			Options
@@ -62,9 +87,9 @@ Hotkey, 		#t, 		TopMost, 			On
 
 Hotkey, 		^Space, 	RunScriptlet, 		On
 
-Hotkey, 		^+q, 		HelpLUA, 			Off
-Hotkey, 		^+a, 		HelpAHK, 			Off
-Hotkey, 		^+z, 		HelpPHP, 			Off
+Hotkey, 		^+q, 		HelpLUA, 			On
+Hotkey, 		^+a, 		HelpAHK, 			On
+Hotkey, 		^+z, 		HelpPHP, 			On
 
 ; Paste text in command prompt
 Hotkey, IfWinActive, ahk_class ConsoleWindowClass
@@ -78,8 +103,40 @@ Hotkey, 		#j, 		ToggleHidden, 		On
 Hotkey, 		#c, 		RunCMD, 				On
 Hotkey, IfWinActive
 
+/**
+ * Check whether GDI+ is ready, if not - disable screener functions
+ */
+
+If !pToken := Gdip_Startup()
+{
+   MsgBox, 48, Windows Butler - GDI+ Error!, GDI+ is required for screenshot capabilities and it failed to load.`n`nScreenshot shortcuts will be Disabled.
+
+   ; Disable Screener Hotkeys
+   Hotkey, 		PrintScreen, 		GrabScreen, 			Off
+	Hotkey, 		+PrintScreen, 		GrabWindow, 			Off
+}
+Else
+{
+	; Enable Screener Hotkeys
+	Hotkey, 		PrintScreen, 		GrabScreen, 			On
+	Hotkey, 		+PrintScreen, 		GrabWindow, 			On
+}
 
 Return	 ; End of Auto Execute Section
+
+/**
+ * Grab and save screenshots to a folder.
+ *
+ * Modify global variables to alter behaviour.
+ */
+
+GrabScreen:
+	Screenshot(Screenshot_Size, Screenshot_Format, "Screen")
+Return
+
+GrabWindow:
+	Screenshot(Screenshot_Size, Screenshot_Format, "Window")
+Return
 
 /**
  * Save selected text to a file
@@ -110,38 +167,6 @@ SaveText:
 				FileAppend, %selection%, %A_Desktop%\%FileName%
 	}
 Return
-
-/**
- * Always On Top
- *
- * The "current" window becomes the topmost.
- */
-TopMost:
-	WinSet, AlwaysOnTop, Toggle, A
-Return
-
-/**
- * Launch Help Files
- *
- * Make sure the paths are correct
- */
-HelpAHK:
-	SplitPath, A_AhkPath,, ahk_dir
-
-	If wnd := WinExist("AutoHotkey_L Help")
-		WinActivate, ahk_id %wnd%
-	Else
-		Run, %ahk_dir%\AutoHotkey.chm, , Max
-Return
-
-HelpLUA:
-	Run, D:\I`, Coder\Scripts`, Codes & Tut\Lua\[Help]\Pdf\luaaio.chm, , Max
-Return
-
-HelpPHP:
-	Run, D:\I`, Coder\Scripts`, Codes & Tut\PHP\php.chm, , Max
-Return
-
 
 /**
  * Run Task Manager and Registry Editor
@@ -184,6 +209,38 @@ RunScriptlet:
 		SplitPath, ScriptletPath,,ScriptletDir
 		Run, %ScriptletPath%, %ScriptletDir%
 	}
+Return
+
+
+/**
+ * Always On Top
+ *
+ * The "current" window becomes the topmost.
+ */
+TopMost:
+	WinSet, AlwaysOnTop, Toggle, A
+Return
+
+/**
+ * Launch Help Files
+ *
+ * Make sure the paths are correct
+ */
+HelpAHK:
+	SplitPath, A_AhkPath,, ahk_dir
+
+	If wnd := WinExist("AutoHotkey_L Help")
+		WinActivate, ahk_id %wnd%
+	Else
+		Run, %ahk_dir%\AutoHotkey.chm, , Max
+Return
+
+HelpLUA:
+	Run, D:\I`, Coder\Scripts`, Codes & Tut\Lua\[Help]\Pdf\luaaio.chm, , Max
+Return
+
+HelpPHP:
+	Run, D:\I`, Coder\Scripts`, Codes & Tut\PHP\php.chm, , Max
 Return
 
 /**
@@ -260,6 +317,35 @@ Return
  * Miscellaneous Subroutines
  */
 
+; The screenshot function:
+Screenshot(Size,FileType,Type)
+{
+	Global Screenshot_Directory
+	sW := A_ScreenWidth, sH := A_ScreenHeight
+	WinGetPos, X, Y, W, H, A
+	If (Type = "Window")
+	{
+		pBitmap := Gdip_BitmapFromScreen((X>0?X:0) "|" (Y>0?Y:0) "|" (W<sW?W:sW) "|" (H<(sH-40)?H:(sH-40)))
+		FileName = Window-%A_DD%-%A_MMM%-%A_YYYY%-%A_Hour%-%A_Min%-%A_Sec%
+	}
+	Else
+	{
+		pBitmap := Gdip_BitmapFromScreen()
+		FileName = Screen-%A_DD%-%A_MMM%-%A_YYYY%-%A_Hour%-%A_Min%-%A_Sec%
+	}
+
+	Width := Gdip_GetImageWidth(pBitmap), Height := Gdip_GetImageHeight(pBitmap)
+	PBitmapResized := Gdip_CreateBitmap(Round(Width*Size), Round(Height*Size))
+	G := Gdip_GraphicsFromImage(pBitmapResized), Gdip_SetInterpolationMode(G, 7)
+	Gdip_DrawImage(G, pBitmap, 0, 0, Round(Width*Size), Round(Height*Size), 0, 0, Width, Height)
+
+	; ToolTip, % "Saving To - " Screenshot_Directory "\" FileName "." FileType
+	; SetTimer, RemoveToolTip, 1000
+	Gdip_SaveBitmapToFile(PBitmapResized, Screenshot_Directory "\" FileName "." FileType)	;Save to file
+
+	Gdip_DeleteGraphics(G), Gdip_DisposeImage(pBitmapResized), Gdip_DisposeImage(pBitmap)
+}
+
 Refresh()
 {
     WinGetClass, eh_Class, A
@@ -267,6 +353,11 @@ Refresh()
         Send, {F5}
 	Else PostMessage, 0x111, 28931,,, A
 }
+
+RemoveToolTip:
+	SetTimer, RemoveToolTip, Off
+	ToolTip
+Return
 
 RemoveTrayTip:
 	SetTimer, RemoveTrayTip, Off
@@ -277,5 +368,7 @@ SuspendMe:
 	Suspend, Toggle
 Return
 
+Exit:
+	Gdip_Shutdown(pToken)
 CloseMe:
-ExitApp
+	ExitApp

@@ -1,45 +1,57 @@
 # Windows Butler
 
+v 1.2
+
 An Autohotkey script to help you with common windows tasks.
 
-It is a compilation of some of my scripts: WinHelper, Screener, Scriptlet Library.
+It is a compilation of some scripts: WinHelper, Screener, Scriptlet Library.
 
 ## Table of Contents
 
 * [Usage Instructions](#usage-instructions)
-* [List of Hotkeys](#hotkeys)
+* [List of Shortcuts](#hotkeys)
 * [Stuff to do](#todo)
 
 ## <a name="usage-instructions"></a>Usage Instructions
 
-You'll need to have [Autohotkey](http://www.autohotkey.com/) installed.
+You'll need to have [Autohotkey](http://l.autohotkey.net/AutoHotkey_L_Install.exe) installed.
 
 Just do it, if you already haven't, you'll be needing it for most of my stuff.
 
-Once you have AHK ready, download the [zip](https://github.com/dufferzafar/win-butler/archive/master.zip),
+Once you have AHK installed, download the [zip](https://github.com/dufferzafar/win-butler/archive/master.zip),
 extract the contents, and Run WinButler.ahk
 
 Have fun!
 
-## <a name="hotkeys"></a>List of Hotkeys
+## <a name="hotkeys"></a>List of Shortcuts
 
-* In windows explorer
+* In windows explorer press these for the desired action
 
   * Windows + C : Launch command prompt in the current directory.
   * Windows + J : Show/Hide hidden files and folders.
   * Windows + Y : Show/Hide file extensions.
 
+* Screenshot capabilities
+
+  Grab screenshots with ease, just press one of the shortucts and a screenshot will be saved to
+  your My Pictures folder. You can change the path if you want to.
+
+  * Printscreen : Save the entire screen
+  * Shift + Printscreen : Save a screenshot of the active window
+
 * Ctrl + Space : Launch Scriptlet Library
 
   Take quick notes. Press Ctrl + Space again to save and exit.
 
-  Useful to save random chunks of code.
+  Useful to save random chunks of code/text or whatever.
 
   Scriptlets can then be executed, saved to file or copied to clipboard.
 
 * Alt + Ctrl + S : Save selected text
 
   Select some text and press Alt+Ctrl+S, give a filename and it'll be saved to desktop.
+
+  When no extension is provided, the deafult i.e txt will be used.
 
 * Ctrl + Shift + Esc : Launch Task manager
 
@@ -70,8 +82,17 @@ Have fun!
 
 ## <a name="todo"></a>To Do
 
+* Ask to run on startup.
+
 * Edit Hotkeys, Settings, About GUI.
 
-* Add Screenshot Functions from Screener
+* Run any file from sublime:
 
-* Try to add Renamer features too.
+  * PHP - Browser via localhost
+  * HTML - In Browser
+  * AHK & Other Scripts - Execute
+
+* Add other scripts:
+
+  * Renamer
+  * Sorting Hat
