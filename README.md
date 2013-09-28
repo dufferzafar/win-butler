@@ -1,6 +1,4 @@
-# Windows Butler
-
-v 1.2
+# Windows Butler v1.3
 
 An Autohotkey script to help you with common windows tasks.
 
@@ -11,6 +9,7 @@ It is a compilation of some scripts: WinHelper, Screener, Scriptlet Library.
 * [Usage Instructions](#usage-instructions)
 * [List of Shortcuts](#hotkeys)
 * [Stuff to do](#todo)
+* [Changelog](#changelog)
 
 ## <a name="usage-instructions"></a>Usage Instructions
 
@@ -27,19 +26,19 @@ Have fun!
 
 * In windows explorer press these for the desired action
 
-  * Windows + C : Launch command prompt in the current directory.
-  * Windows + J : Show/Hide hidden files and folders.
-  * Windows + Y : Show/Hide file extensions.
+  * **Windows + C** : Launch command prompt in the current directory.
+  * **Windows + J** : Show/Hide hidden files and folders.
+  * **Windows + Y** : Show/Hide file extensions.
 
 * Screenshot capabilities
 
-  Grab screenshots with ease, just press one of the shortucts and a screenshot will be saved to
+  Grab screenshots with ease, just press one of the shortcuts and a screenshot will be saved to
   your My Pictures folder. You can change the path if you want to.
 
-  * Printscreen : Save the entire screen
-  * Shift + Printscreen : Save a screenshot of the active window
+  * **Printscreen** : Save the entire screen
+  * **Shift + Printscreen** : Save a screenshot of the active window
 
-* Ctrl + Space : Launch Scriptlet Library
+* **Ctrl + Space** : Launch Scriptlet Library
 
   Take quick notes. Press Ctrl + Space again to save and exit.
 
@@ -47,26 +46,30 @@ Have fun!
 
   Scriptlets can then be executed, saved to file or copied to clipboard.
 
-* Alt + Ctrl + S : Save selected text
+* **Alt + Ctrl + S** : Save selected text
 
   Select some text and press Alt+Ctrl+S, give a filename and it'll be saved to desktop.
 
   When no extension is provided, the deafult i.e txt will be used.
 
-* Ctrl + Shift + Esc : Launch Task manager
+* In Sublime text, Press **Ctrl + Shift + S** to launch the currently open file
+
+  PHP files are opened by the path from localhost.
+
+* **Ctrl + Shift + Esc** : Launch Task manager
 
   Ever had that nagging "Task Manager has been disabled by your administrator" dialog?
 
   Worry no more. This hotkey first removes any sort of restriction placed and then launches the task manager. Sweet!
 
-* Alt + Ctrl + R : Launch Registry Editor
+* **Alt + Ctrl + R** : Launch Registry Editor
 
   Similar to task manager, any restriction on registry editor is removed.
 
   Also, the "LastKey", which stores the last registry key you accessed is deleted. So you can start afresh.
   You can change this behaviour, if that suits you.
 
-* Ctrl + V in a command prompt window
+* **Ctrl + V** in a command prompt window
 
   It is not possible to paste data directly to a command prompt window. Not anymore. :)
 
@@ -74,11 +77,11 @@ Have fun!
 
   These hotkeys are disabled by default. You'll have to tweak the file to enable them.
 
-  * Ctrl + Shift + Q : Launch Lua's help file.
+  * **Ctrl + Shift + Q** : Launch Lua's help file.
 
-  * Ctrl + Shift + A : Launch Autohotkey's help file.
+  * **Ctrl + Shift + A** : Launch Autohotkey's help file.
 
-  * Ctrl + Shift + Z : Launch PHP's help file.
+  * **Ctrl + Shift + Z** : Launch PHP's help file.
 
 ## <a name="todo"></a>To Do
 
@@ -86,13 +89,15 @@ Have fun!
 
 * Edit Hotkeys, Settings, About GUI.
 
-* Run any file from sublime:
-
-  * PHP - Browser via localhost
-  * HTML - In Browser
-  * AHK & Other Scripts - Execute
-
 * Add other scripts:
 
   * Renamer
   * Sorting Hat
+
+## <a name="changelog"></a>Changelog
+
+* **1.3** : Added Run from Sublime
+
+* **1.2** : Added Screenshot features
+
+* **1.0** : Initial Release

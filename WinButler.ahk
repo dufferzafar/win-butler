@@ -91,6 +91,11 @@ Hotkey, 		^+q, 		HelpLUA, 			On
 Hotkey, 		^+a, 		HelpAHK, 			On
 Hotkey, 		^+z, 		HelpPHP, 			On
 
+; Run files open in sublime text
+Hotkey, IfWinActive, ahk_class PX_WINDOW_CLASS
+Hotkey, 		^+s, 		RunFromSublime, 	On
+Hotkey, IfWinActive
+
 ; Paste text in command prompt
 Hotkey, IfWinActive, ahk_class ConsoleWindowClass
 Hotkey, 		^v, 		PasteClipboard, 	On
@@ -136,6 +141,47 @@ Return
 
 GrabWindow:
 	Screenshot(Screenshot_Size, Screenshot_Format, "Window")
+Return
+
+/**
+ * Run the currently open file in Sublime Text
+ *
+ * Adjusts PHP/HTML files to take localhost into account
+ */
+RunFromSublime:
+	Send ^s
+	Sleep 100
+	WinGetTitle, wTitle, ahk_class PX_WINDOW_CLASS
+	; wTitle := "D:\I, Coder\@ GitHub\win-butler\Test.ahk (WinButler) - Sublime Text"
+
+	StringTrimRight, File, wTitle, 15
+
+	If FileExist(File)
+	{
+		ScriptPath := File
+	}
+	Else
+	{
+		pos := InStr(wTitle, "(", False, 0)
+		ScriptPath := SubStr(wTitle, 1, pos-1)
+	}
+
+	If FileExist(ScriptPath)
+	{
+
+		If InStr(wTitle, ".lua") or InStr(wTitle, ".ahk")
+		{
+			SplitPath, wTitle,,workingDir
+			Run, %ScriptPath%, %workingDir%
+		}
+		Else If InStr(wTitle, ".php") or InStr(wTitle, ".html")
+		{
+			StringReplace, NewScriptPath, ScriptPath,% "C:\xampp\htdocs\", % "http://localhost/"
+			Run, chrome.exe "%NewScriptPath%"
+		}
+		Else
+			Run, %ScriptPath%
+	}
 Return
 
 /**
