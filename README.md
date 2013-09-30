@@ -1,6 +1,6 @@
 # Windows Butler v1.3
 
-![](data\butler.png)
+![Butler](/data/butler.png)
 
 An Autohotkey script to help you with common windows tasks.
 
