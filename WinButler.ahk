@@ -25,7 +25,8 @@ SetWorkingDir %A_ScriptDir%
  */
 
 ; The folder path where your screenshots will be saved
-Screenshot_Directory := "C:\Users\" . A_Username . "\Pictures\Screenshot"
+Screenshot_Directory := "C:\Users\" . A_Username . "\Pictures\Screenshots"
+FileCreateDir, % Screenshot_Directory
 
 ; The output file format of the screenshots
 ; Can be any one of png, jpg, bmp
@@ -59,13 +60,14 @@ IfExist, %A_ScriptDir%\Data\Butler.ico
 Menu, Tray, Icon	;Else show default icon
 
 ; Let the user know we have started
-TrayTip, Windows Butler v0.9,
+TrayTip, Windows Butler v1.3,
 (
-I'm right here.....
+
+Hey! I'm right here...
 
 Consult readme for usage instructions.
 )
-SetTimer, RemoveTrayTip, 2000
+SetTimer, RemoveTrayTip, 2500
 
 /**
  * Hotkey List

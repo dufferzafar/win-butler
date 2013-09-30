@@ -1,5 +1,7 @@
 # Windows Butler v1.3
 
+![](data\butler.png)
+
 An Autohotkey script to help you with common windows tasks.
 
 It is a compilation of some scripts: WinHelper, Screener, Scriptlet Library.
