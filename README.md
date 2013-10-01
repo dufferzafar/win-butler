@@ -89,7 +89,20 @@ Have fun!
 
 * Ask to run on startup.
 
-* Edit Hotkeys, Settings, About GUI.
+* Auto Backup
+
+  * Multiple Folders
+  * Zip/7Zip. Copy to Dest.
+  * Maintain 5 such zips.
+  * Filenames should have timestamp.
+  * Timer - 15mins or something
+  * File/Folder Exclude Patterns (7Zip -x switches) ?
+
+* Settings GUI
+
+  * Hotkeys - Bindings, On/Off
+  * Folder Paths
+  * Backup Settings
 
 * Add other scripts:
 

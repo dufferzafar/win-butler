@@ -1,7 +1,7 @@
 /**
  * Windows Butler
  *
- * Got inspired after seeing a friend's pitiful windows laptop.
+ * A utility to make living on windows that bit easier.
  *
  * @dufferzafar
  */
