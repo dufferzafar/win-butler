@@ -176,6 +176,10 @@ RunFromSublime:
 			SplitPath, wTitle,,workingDir
 			Run, %ScriptPath%, %workingDir%
 		}
+		Else If InStr(wTitle, ".md")
+		{
+			Send, !m
+		}
 		Else If InStr(wTitle, ".php") or InStr(wTitle, ".html")
 		{
 			StringReplace, NewScriptPath, ScriptPath,% "C:\xampp\htdocs\", % "http://localhost/"

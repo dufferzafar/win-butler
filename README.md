@@ -98,6 +98,12 @@ Have fun!
   * Timer - 15mins or something
   * File/Folder Exclude Patterns (7Zip -x switches) ?
 
+* TrayMenu
+
+  * Turn AutoBackup On/Off
+  * Settings GUI
+  * About Dialog
+
 * Settings GUI
 
   * Hotkeys - Bindings, On/Off
@@ -110,6 +116,10 @@ Have fun!
   * Sorting Hat
 
 ## <a name="changelog"></a>Changelog
+
+* Fixed: The Screenshot directory will be created if it doesn't already exist.
+
+* Added: For Markdown (*.md*) files in sublime. Send Alt+M Hotkey which builds the markdown file and opens in browser - I use the MarkdownEditing plugin.
 
 * **1.3** : Added Run from Sublime
 
