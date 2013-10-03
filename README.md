@@ -138,3 +138,6 @@ Have fun!
 * **1.2** : Added Screenshot features
 
 * **1.0** : Initial Release
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dufferzafar/win-butler/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
