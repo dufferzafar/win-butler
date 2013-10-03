@@ -1,4 +1,4 @@
-# Windows Butler v1.3
+# Windows Butler v1.4
 
 ![Butler](/data/butler.png)
 
@@ -48,6 +48,8 @@ Have fun!
 
   Scriptlets can then be executed, saved to file or copied to clipboard.
 
+* Select a phrase and then press **Alt + Ctrl + D** to find words similar to it via OneLook Reverse Dictionary.
+
 * **Alt + Ctrl + S** : Save selected text
 
   Select some text and press Alt+Ctrl+S, give a filename and it'll be saved to desktop.
@@ -89,6 +91,10 @@ Have fun!
 
 * Ask to run on startup.
 
+* A Radial Menu for some tasks
+
+  * Select text and then Google, Wiki, Reverse Lookup
+
 * Auto Backup
 
   * Multiple Folders
@@ -116,6 +122,12 @@ Have fun!
   * Sorting Hat
 
 ## <a name="changelog"></a>Changelog
+
+* **1.4** : 
+
+* Added !^d to reverse lookup words on OneLook.
+
+* Added Some naive hotstrings. i'm gets converted to I'm and such.
 
 * Fixed: The Screenshot directory will be created if it doesn't already exist.
 

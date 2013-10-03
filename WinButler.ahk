@@ -18,6 +18,8 @@
 #KeyHistory 0
 SetWorkingDir %A_ScriptDir%
 
+Version := "v1.3.5"
+
 /**
  * Global Variables
  *
@@ -60,7 +62,7 @@ IfExist, %A_ScriptDir%\Data\Butler.ico
 Menu, Tray, Icon	;Else show default icon
 
 ; Let the user know we have started
-TrayTip, Windows Butler v1.3,
+TrayTip, Windows Butler %Version%,
 (
 
 Hey! I'm right here...
@@ -86,6 +88,7 @@ Hotkey, 		^+Esc, 	RunTaskMan, 		On
 Hotkey, 		!^r, 		RunRegedit, 		On
 Hotkey, 		!^s, 		SaveText, 			On
 Hotkey, 		#t, 		TopMost, 			On
+Hotkey, 		!^d, 		OneLook, 			On
 
 Hotkey, 		^Space, 	RunScriptlet, 		On
 
@@ -130,6 +133,39 @@ Else
 }
 
 Return	 ; End of Auto Execute Section
+
+/**
+ * Some Dirty Hostrings
+ *
+ * Mostly to avoid common grammar mistakes
+ */
+
+::i::I
+::i'd::I'd
+::i've::I've
+::i'll::I'll
+::i'm::I'm
+
+/**
+ * Searches for related words for the currently selected word.
+ *
+ * Opens a Chrome tab with onelookup reverse search.
+ */
+
+OneLook:
+	tmp = %ClipboardAll% 	;save clipboard
+	Clipboard := "" 			;clear
+	Send, ^c 					;copy the selection
+	ClipWait, 3
+	selection = %Clipboard% ;save the selection
+	Clipboard = %tmp% 		;restore old content of the clipboard
+
+	If selection <> 			;if something is selected
+	{
+		url := "http://www.onelook.com/?w=*:" . selection
+		Run, chrome.exe %url%
+	}
+Return
 
 /**
  * Grab and save screenshots to a folder.
