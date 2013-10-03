@@ -32,10 +32,9 @@ Have fun!
   * **Windows + J** : Show/Hide hidden files and folders.
   * **Windows + Y** : Show/Hide file extensions.
 
-* Screenshot capabilities
+* *Screenshot* capabilities
 
-  Grab screenshots with ease, just press one of the shortcuts and a screenshot will be saved to
-  your My Pictures folder. You can change the path if you want to.
+  Grab screenshots with ease, just press one of the shortcuts and a screenshot will be saved to your My Pictures folder. You can change the path if you want to.
 
   * **Printscreen** : Save the entire screen
   * **Shift + Printscreen** : Save a screenshot of the active window
@@ -48,7 +47,7 @@ Have fun!
 
   Scriptlets can then be executed, saved to file or copied to clipboard.
 
-* Select a phrase and then press **Alt + Ctrl + D** to find words similar to it via OneLook Reverse Dictionary.
+* **Alt + Ctrl + D** : Select a phrase and then press to find words similar to it via OneLook Reverse Dictionary.
 
 * **Alt + Ctrl + S** : Save selected text
 
@@ -56,7 +55,7 @@ Have fun!
 
   When no extension is provided, the deafult i.e txt will be used.
 
-* In Sublime text, Press **Ctrl + Shift + S** to launch the currently open file
+* In *Sublime text*, Press **Ctrl + Shift + S** to launch the currently open file.
 
   PHP files are opened by the path from localhost.
 
@@ -71,7 +70,6 @@ Have fun!
   Similar to task manager, any restriction on registry editor is removed.
 
   Also, the "LastKey", which stores the last registry key you accessed is deleted. So you can start afresh.
-  You can change this behaviour, if that suits you.
 
 * **Ctrl + V** in a command prompt window
 
@@ -79,7 +77,7 @@ Have fun!
 
 * Disabled
 
-  These hotkeys are disabled by default. You'll have to tweak the file to enable them.
+  These hotkeys won't work by default for the simple reason that I do not know where you have your Help files store. You'll have to tweak the script to provide paths to your help files.
 
   * **Ctrl + Shift + Q** : Launch Lua's help file.
 
@@ -90,10 +88,6 @@ Have fun!
 ## <a name="todo"></a>To Do
 
 * Ask to run on startup.
-
-* A Radial Menu for some tasks
-
-  * Select text and then Google, Wiki, Reverse Lookup
 
 * Auto Backup
 
@@ -116,6 +110,13 @@ Have fun!
   * Folder Paths
   * Backup Settings
 
+* A launcher for some tasks
+
+  * Radial Menu or Sublime like command pallette ?
+  * Select text and then play with it: Google, Wiki, WikiQuotes, OneLook.
+  * Detect whether the text is url, if so, open it.
+  * If the text is larger than 7 words show a save to file action rather than Reverse Lookup.
+
 * Add other scripts:
 
   * Renamer
@@ -124,14 +125,13 @@ Have fun!
 ## <a name="changelog"></a>Changelog
 
 * **1.4** : 
+  Added !^d to reverse lookup words on OneLook.
 
-* Added !^d to reverse lookup words on OneLook.
+  Added Some naive hotstrings. i'm gets converted to I'm and such.
 
-* Added Some naive hotstrings. i'm gets converted to I'm and such.
+  Fixed: The Screenshot directory will be created if it doesn't already exist.
 
-* Fixed: The Screenshot directory will be created if it doesn't already exist.
-
-* Added: For Markdown (*.md*) files in sublime. Send Alt+M Hotkey which builds the markdown file and opens in browser - I use the MarkdownEditing plugin.
+  Added: For Markdown (*.md*) files in sublime. Send Alt+M Hotkey which builds the markdown file and opens in browser - I use the MarkdownEditing plugin.
 
 * **1.3** : Added Run from Sublime
 
