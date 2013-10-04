@@ -460,3 +460,10 @@ Exit:
 	Gdip_Shutdown(pToken)
 CloseMe:
 	ExitApp
+
+/**
+ * Include Dependencies
+ */
+
+; Needed for screenshot features
+#Include Data\Gdip.ahk

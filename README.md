@@ -55,7 +55,7 @@ Have fun!
 
   When no extension is provided, the deafult i.e txt will be used.
 
-* In *Sublime text*, Press **Ctrl + Shift + S** to launch the currently open file.
+* **Ctrl + Shift + S** : Works in *Sublime text*, Press it to launch the currently open file.
 
   PHP files are opened by the path from localhost.
 
@@ -77,7 +77,7 @@ Have fun!
 
 * Disabled
 
-  These hotkeys won't work by default for the simple reason that I do not know where you have your Help files store. You'll have to tweak the script to provide paths to your help files.
+  These hotkeys won't work by default for the simple reason that I do not know where you have your Help files stored. You'll have to tweak the script to provide paths to your help files.
 
   * **Ctrl + Shift + Q** : Launch Lua's help file.
 
@@ -115,7 +115,7 @@ Have fun!
   * Radial Menu or Sublime like command pallette ?
   * Select text and then play with it: Google, Wiki, WikiQuotes, OneLook.
   * Detect whether the text is url, if so, open it.
-  * If the text is larger than 7 words show a save to file action rather than Reverse Lookup.
+  * If the text is larger than 7 words show a save to file action rather than One Look.
 
 * Add other scripts:
 
@@ -124,10 +124,13 @@ Have fun!
 
 ## <a name="changelog"></a>Changelog
 
-* **1.4** : 
+* Explicitly added Gdip.ahk incase it is not present in your standard library.
+
+* **1.4** :
+
   Added !^d to reverse lookup words on OneLook.
 
-  Added Some naive hotstrings. i'm gets converted to I'm and such.
+  Added Some naive hotstrings. Like "i'm" gets converted to "I'm" and such.
 
   Fixed: The Screenshot directory will be created if it doesn't already exist.
 
