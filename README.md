@@ -1,4 +1,4 @@
-# Windows Butler v1.4
+# Windows Butler v1.5
 
 ![Butler](/data/butler.png)
 
@@ -8,19 +8,18 @@ It is a compilation of some scripts: WinHelper, Screener, Scriptlet Library.
 
 ## Table of Contents
 
-* [Usage Instructions](#usage-instructions)
+* [Usage Instructions](#usage)
 * [List of Shortcuts](#hotkeys)
 * [Stuff to do](#todo)
 * [Changelog](#changelog)
 
-## <a name="usage-instructions"></a>Usage Instructions
+## <a name="usage"></a>Usage Instructions
 
 You'll need to have [Autohotkey](http://l.autohotkey.net/AutoHotkey_L_Install.exe) installed.
 
 Just do it, if you already haven't, you'll be needing it for most of my stuff.
 
-Once you have AHK installed, download the [zip](https://github.com/dufferzafar/win-butler/archive/master.zip),
-extract the contents, and Run WinButler.ahk
+Once you have AHK installed, download the [zip](https://github.com/dufferzafar/win-butler/archive/master.zip), extract the contents, and Run WinButler.ahk
 
 Have fun!
 
@@ -31,6 +30,7 @@ Have fun!
   * **Windows + C** : Launch command prompt in the current directory.
   * **Windows + J** : Show/Hide hidden files and folders.
   * **Windows + Y** : Show/Hide file extensions.
+  * **Ctrl + N**    : Create a new file in the current directory.
 
 * *Screenshot* capabilities
 
@@ -89,48 +89,49 @@ Have fun!
 
 * Ask to run on startup.
 
-* Auto Backup
+* Add Backup Buddy.
 
-  * Multiple Folders
-  * Zip/7Zip. Copy to Dest.
-  * Maintain 5 such zips.
-  * Filenames should have timestamp.
-  * Timer - 15mins or something
-  * File/Folder Exclude Patterns (7Zip -x switches) ?
+* Launch Console2 instead of the default command prompt.
 
 * TrayMenu
-
-  * Turn AutoBackup On/Off
+  * Turn Backup Buddy On/Off
   * Settings GUI
   * About Dialog
 
 * Settings GUI
-
   * Hotkeys - Bindings, On/Off
   * Folder Paths
   * Backup Settings
 
 * A launcher for some tasks
-
   * Radial Menu or Sublime like command pallette ?
   * Select text and then play with it: Google, Wiki, WikiQuotes, OneLook.
   * Detect whether the text is url, if so, open it.
   * If the text is larger than 7 words show a save to file action rather than One Look.
 
 * Add other scripts:
-
   * Renamer
   * Sorting Hat
 
 ## <a name="changelog"></a>Changelog
 
+* **1.5**:
+
+* Modified Ctrl+Shift+Z to open Help Folder instead of PHP.
+
+* Added: Alt+Ctrl+C to launch Console2
+
+* Added: Ctrl+W closes the Command Prompt.
+
+* Added: Ctrl+N to create a new file in folder.
+
 * Explicitly added Gdip.ahk incase it is not present in your standard library.
 
 * **1.4** :
 
-  Added !^d to reverse lookup words on OneLook.
+  Added: Alt+Ctrl+D to reverse lookup words on OneLook.
 
-  Added Some naive hotstrings. Like "i'm" gets converted to "I'm" and such.
+  Added: Some naive hotstrings. Like "i'm" gets converted to "I'm" and such.
 
   Fixed: The Screenshot directory will be created if it doesn't already exist.
 

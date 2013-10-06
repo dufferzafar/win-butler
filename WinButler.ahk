@@ -18,7 +18,7 @@
 #KeyHistory 0
 SetWorkingDir %A_ScriptDir%
 
-Version := "v1.3.5"
+Version := "v1.5"
 
 /**
  * Global Variables
@@ -50,7 +50,7 @@ GroupAdd, Explorer, ahk_class Progman
 
 ; Modify the Menu
 Menu, Tray, NoStandard
-Menu, Tray, Tip, Windows Butler v0.9
+Menu, Tray, Tip, Windows Butler ; %Version%
 
 Menu, Tray, Add, &Suspend, SuspendMe
 Menu, Tray, Add, &Exit, CloseMe
@@ -86,6 +86,7 @@ SetTimer, RemoveTrayTip, 2500
 
 Hotkey, 		^+Esc, 	RunTaskMan, 		On
 Hotkey, 		!^r, 		RunRegedit, 		On
+Hotkey, 		!^c, 		RunConsole2, 		On
 Hotkey, 		!^s, 		SaveText, 			On
 Hotkey, 		#t, 		TopMost, 			On
 Hotkey, 		!^d, 		OneLook, 			On
@@ -94,7 +95,7 @@ Hotkey, 		^Space, 	RunScriptlet, 		On
 
 Hotkey, 		^+q, 		HelpLUA, 			On
 Hotkey, 		^+a, 		HelpAHK, 			On
-Hotkey, 		^+z, 		HelpPHP, 			On
+Hotkey, 		^+z, 		HelpFolder, 		On
 
 ; Run files open in sublime text
 Hotkey, IfWinActive, ahk_class PX_WINDOW_CLASS
@@ -104,6 +105,7 @@ Hotkey, IfWinActive
 ; Paste text in command prompt
 Hotkey, IfWinActive, ahk_class ConsoleWindowClass
 Hotkey, 		^v, 		PasteClipboard, 	On
+Hotkey, 		^w, 		CloseCMD, 	On
 Hotkey, IfWinActive
 
 ; Extend windows explorer
@@ -111,6 +113,7 @@ Hotkey, IfWinActive, ahk_group Explorer
 Hotkey, 		#y, 		ToggleExt, 			On
 Hotkey, 		#j, 		ToggleHidden, 		On
 Hotkey, 		#c, 		RunCMD, 				On
+Hotkey, 		^n, 		NewFile, 			On
 Hotkey, IfWinActive
 
 /**
@@ -137,19 +140,25 @@ Return	 ; End of Auto Execute Section
 /**
  * Some Dirty Hostrings
  *
- * Mostly to avoid common grammar mistakes
  */
 
+; Avoid common grammar mistakes
 ::i::I
 ::i'd::I'd
 ::i've::I've
 ::i'll::I'll
 ::i'm::I'm
 
+; My Octopress Blog.
+::dz::dufferzafar.github.com
+
 /**
  * Searches for related words for the currently selected word.
  *
  * Opens a Chrome tab with onelookup reverse search.
+ *
+ * Todo: Sublime, nothing selected 'bug'
+ * Fixed: Works if more than one word are selected
  */
 
 OneLook:
@@ -160,10 +169,10 @@ OneLook:
 	selection = %Clipboard% ;save the selection
 	Clipboard = %tmp% 		;restore old content of the clipboard
 
-	If selection <> 			;if something is selected
+	If (selection != "")		;if something is selected
 	{
 		url := "http://www.onelook.com/?w=*:" . selection
-		Run, chrome.exe %url%
+		Run, chrome.exe "%url%"
 	}
 Return
 
@@ -185,6 +194,8 @@ Return
  * Run the currently open file in Sublime Text
  *
  * Adjusts PHP/HTML files to take localhost into account
+ *
+ * CHANGED: Nothing runs when the file is not one of recognised.
  */
 RunFromSublime:
 	Send ^s
@@ -216,13 +227,18 @@ RunFromSublime:
 		{
 			Send, !m
 		}
+		; If this is an octopress post. Preview.
+		Else If InStr(wTitle, ".markdown")
+		{
+			Run, % "Chrome.exe http://localhost:4000"
+		}
 		Else If InStr(wTitle, ".php") or InStr(wTitle, ".html")
 		{
 			StringReplace, NewScriptPath, ScriptPath,% "C:\xampp\htdocs\", % "http://localhost/"
 			Run, chrome.exe "%NewScriptPath%"
 		}
-		Else
-			Run, %ScriptPath%
+		; Else
+			; Run, %ScriptPath%
 	}
 Return
 
@@ -242,7 +258,7 @@ SaveText:
 	selection = %Clipboard% ;save the selection
 	Clipboard = %tmp% 		;restore old content of the clipboard
 
-	If selection <> 			;if something is selected
+	If (selection != "")		;if something is selected
 	{
 		;Create a file
 		InputBox, FileName, Filename, Please enter a filename with extension., ,250, 150
@@ -331,6 +347,10 @@ HelpPHP:
 	Run, D:\I`, Coder\Scripts`, Codes & Tut\PHP\php.chm, , Max
 Return
 
+HelpFolder:
+	Run, % "D:\I, Coder\Scripts, Codes & Tut\[Help]"
+Return
+
 /**
  * Toggle Extension
  *
@@ -365,10 +385,17 @@ ToggleHidden:
 	Refresh()
 Return
 
+RunConsole2:
+	Run Data\Console2\Console.exe
+Return
+
 /**
  * Run CMD
  *
- * Run command prompt in the current folder
+ * Run command prompt in the current folder.
+ *
+ * Todo: Run even if explorer isn't open. C:\
+ * Todo: Run Console2 instead of normal command prompt
  */
 RunCMD:
 	;Get the full path from the address bar
@@ -384,14 +411,58 @@ RunCMD:
 	StringReplace, full_path, full_path, `r, , all
 	StringTrimLeft, full_path, full_path, 9
 
+	; Msgbox, % full_path
+
 	IfInString full_path, \
 	{
 		Run, cmd /K cd /D "%full_path%"
+		; Run, Data\console2\console.exe -d "%full_path%"
 	}
 	else ;If path is not valid
 	{
 		Run, cmd /K cd /D "C:\ "
 	}
+Return
+
+CloseCMD:
+	WinKill, A
+Return
+
+/**
+ * New File
+ *
+ * Create a new file in the current folder,
+ * just like Ctrl+Shift+N
+ */
+NewFile:
+	;Get the full path from the address bar
+	WinGetText, full_path, A
+
+	;Split on newline (`n)
+	StringSplit, word_array, full_path, `n
+
+	; Take the first element from the array
+	full_path = %word_array1%
+
+	;Remove all carriage returns (`r)
+	StringReplace, full_path, full_path, `r, , all
+	StringTrimLeft, full_path, full_path, 9
+
+	IfInString full_path, \
+	{
+		;Create a file
+		InputBox, FileName, Filename, Please enter a filename with extension., ,250, 150
+		SplitPath, FileName, , , Ext
+
+		If (FileName != "")
+			If (Ext == "") ; Default - Text File
+				FileAppend, , %full_path%\%FileName%.txt
+			Else
+				FileAppend, , %full_path%\%FileName%
+	}
+	; else ;If path is not valid
+	; {
+	; }
 Return
 
 /**
