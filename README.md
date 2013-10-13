@@ -69,7 +69,7 @@ Have fun!
 
   Similar to task manager, any restriction on registry editor is removed.
 
-  Also, the "LastKey", which stores the last registry key you accessed is deleted. So you can start afresh.
+  If a registry key is selected, the editor jumps to it.
 
 * **Ctrl + V** in a command prompt window
 
@@ -79,15 +79,17 @@ Have fun!
 
   These hotkeys won't work by default for the simple reason that I do not know where you have your Help files stored. You'll have to tweak the script to provide paths to your help files.
 
-  * **Ctrl + Shift + Q** : Launch Lua's help file.
+  * **Ctrl + Shift + Q** : Launch Python's help file.
 
   * **Ctrl + Shift + A** : Launch Autohotkey's help file.
 
-  * **Ctrl + Shift + Z** : Launch PHP's help file.
+  * **Ctrl + Shift + Z** : Launch Help Folder
 
 ## <a name="todo"></a>To Do
 
 * Ask to run on startup.
+
+* Auto Shutdown
 
 * Add Backup Buddy.
 
@@ -114,6 +116,8 @@ Have fun!
   * Sorting Hat
 
 ## <a name="changelog"></a>Changelog
+
+* Added: RegJump - Jumps to a specified registry key
 
 * **1.5**:
 
