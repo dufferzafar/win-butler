@@ -91,13 +91,12 @@ Have fun!
   * GetSelectedText
   * GetCurrentFolder
 
-* Ask to run on startup.
-
-* Auto Shutdown
-
-* Last Open Window
-
-* Add Backup Buddy.
+* Quick Features
+  * Session Store - like chrome extension
+  * Ask to run on startup.
+  * Auto Shutdown
+  * Last Open Window
+  * Add Backup Buddy
 
 * Launch Console2 instead of the default command prompt.
 
@@ -122,6 +121,9 @@ Have fun!
   * Sorting Hat
 
 ## <a name="changelog"></a>Changelog
+
+* AutoShutdown:
+  * UI - Timer Done.
 
 * Modularised stuff:
   * Screennshot
