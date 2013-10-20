@@ -93,7 +93,7 @@ Hotkey, 		!^d, 		OneLook, 			On
 
 Hotkey, 		^Space, 	RunScriptlet, 		On
 
-Hotkey, 		^+q, 		HelpPython, 			On
+Hotkey, 		^+q, 		HelpPython, 		On
 Hotkey, 		^+a, 		HelpAHK, 			On
 Hotkey, 		^+z, 		HelpFolder, 		On
 
@@ -174,20 +174,6 @@ OneLook:
 		url := "http://www.onelook.com/?w=*:" . selection
 		Run, chrome.exe "%url%"
 	}
-Return
-
-/**
- * Grab and save screenshots to a folder.
- *
- * Modify global variables to alter behaviour.
- */
-
-GrabScreen:
-	Screenshot(Screenshot_Size, Screenshot_Format, "Screen")
-Return
-
-GrabWindow:
-	Screenshot(Screenshot_Size, Screenshot_Format, "Window")
 Return
 
 /**
@@ -289,23 +275,6 @@ RunTaskMan:
 	Run Taskmgr.exe
 Return
 
-; Also deletes the "LastKey". So, basically starts from scratch
-RunRegedit:
-	RegDelete, HKCU, Software\Microsoft\Windows\CurrentVersion\Policies
-	RegDelete, HKCU, Software\Microsoft\Windows\CurrentVersion\Applets\Regedit, LastKey
-
-	tmp = %ClipboardAll% 	;save clipboard
-	Clipboard := "" 			;clear
-	Send, ^c 					;copy the selection
-	ClipWait, 1
-	Selection = %Clipboard% ;save the selection
-	Clipboard = %tmp% 		;restore old content of the clipboard
-
-	If InStr(Selection, "HKEY_")	;if registry key is selected
-		RegJump(Selection) 		;Go to Registry path
-	Else
-		Run Regedit.exe, , Max
-Return
 
 /**
  * Scriptlet Library
@@ -365,40 +334,6 @@ HelpFolder:
 	Run, % "D:\I, Coder\Scripts, Codes & Tut\[Help]"
 Return
 
-/**
- * Toggle Extension
- *
- * Show/Hide file extensions.
- */
-ToggleExt:
-	RegRead, FileExt_Status, HKEY_CURRENT_USER, Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced, HideFileExt
-	If FileExt_Status = 1
-		RegWrite, REG_DWORD, HKEY_CURRENT_USER, Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced, HideFileExt, 0
-	Else
-		RegWrite, REG_DWORD, HKEY_CURRENT_USER, Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced, HideFileExt, 1
-	Refresh()
-Return
-
-/**
- * Toggle Hidden Files
- *
- * Show/Hide hidden files and folders.
- */
-ToggleHidden:
-	RegRead, SuperHidden_Status, HKCU, Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced, ShowSuperHidden
-	If SuperHidden_Status = 0
-		{
-			RegWrite, REG_DWORD, HKEY_CURRENT_USER, Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced, Hidden, 1
-			RegWrite, REG_DWORD, HKEY_CURRENT_USER, Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced, ShowSuperHidden, 1
-		}
-	Else
-		{
-			RegWrite, REG_DWORD, HKEY_CURRENT_USER, Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced, Hidden, 2
-			RegWrite, REG_DWORD, HKEY_CURRENT_USER, Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced, ShowSuperHidden, 0
-		}
-	Refresh()
-Return
-
 RunConsole2:
 	Run Data\Console2\Console.exe
 Return
@@ -442,42 +377,6 @@ CloseCMD:
 	WinKill, A
 Return
 
-/**
- * New File
- *
- * Create a new file in the current folder,
- * just like Ctrl+Shift+N
- */
-NewFile:
-	;Get the full path from the address bar
-	WinGetText, full_path, A
-
-	;Split on newline (`n)
-	StringSplit, word_array, full_path, `n
-
-	; Take the first element from the array
-	full_path = %word_array1%
-
-	;Remove all carriage returns (`r)
-	StringReplace, full_path, full_path, `r, , all
-	StringTrimLeft, full_path, full_path, 9
-
-	IfInString full_path, \
-	{
-		;Create a file
-		InputBox, FileName, Filename, Please enter a filename with extension., ,250, 150
-		SplitPath, FileName, , , Ext
-
-		If (FileName != "")
-			If (Ext == "") ; Default - Text File
-				FileAppend, , %full_path%\%FileName%.txt
-			Else
-				FileAppend, , %full_path%\%FileName%
-	}
-	; else ;If path is not valid
-	; {
-	; }
-Return
 
 /**
  * Used to send clipboard data to command prompt
@@ -485,77 +384,6 @@ Return
 PasteClipboard:
 	SendRaw %clipboard%
 Return
-
-/**
- * Miscellaneous Subroutines
- */
-
-; The screenshot function:
-Screenshot(Size,FileType,Type)
-{
-	Global Screenshot_Directory
-	sW := A_ScreenWidth, sH := A_ScreenHeight
-	WinGetPos, X, Y, W, H, A
-	If (Type = "Window")
-	{
-		pBitmap := Gdip_BitmapFromScreen((X>0?X:0) "|" (Y>0?Y:0) "|" (W<sW?W:sW) "|" (H<(sH-40)?H:(sH-40)))
-		FileName = Window-%A_DD%-%A_MMM%-%A_YYYY%-%A_Hour%-%A_Min%-%A_Sec%
-	}
-	Else
-	{
-		pBitmap := Gdip_BitmapFromScreen()
-		FileName = Screen-%A_DD%-%A_MMM%-%A_YYYY%-%A_Hour%-%A_Min%-%A_Sec%
-	}
-
-	Width := Gdip_GetImageWidth(pBitmap), Height := Gdip_GetImageHeight(pBitmap)
-	PBitmapResized := Gdip_CreateBitmap(Round(Width*Size), Round(Height*Size))
-	G := Gdip_GraphicsFromImage(pBitmapResized), Gdip_SetInterpolationMode(G, 7)
-	Gdip_DrawImage(G, pBitmap, 0, 0, Round(Width*Size), Round(Height*Size), 0, 0, Width, Height)
-
-	; ToolTip, % "Saving To - " Screenshot_Directory "\" FileName "." FileType
-	; SetTimer, RemoveToolTip, 1000
-	Gdip_SaveBitmapToFile(PBitmapResized, Screenshot_Directory "\" FileName "." FileType)	;Save to file
-
-	Gdip_DeleteGraphics(G), Gdip_DisposeImage(pBitmapResized), Gdip_DisposeImage(pBitmap)
-}
-
-;Open Regedit and navigate to RegPath.
-;RegPath accepts both HKEY_LOCAL_MACHINE and HKLM formats.
-RegJump(RegPath)
-{
-	;Must close Regedit so that next time it opens the target key is selected
-	; WinClose, Registry Editor ahk_class RegEdit_RegEdit
-
-	If (SubStr(RegPath, 0) = "\") ;remove trailing "\" if present
-		RegPath := SubStr(RegPath, 1, -1)
-
-	;Extract RootKey part of supplied registry path
-	Loop, Parse, RegPath, \
-	{
-		RootKey := A_LoopField
-		Break
-	}
-
-	;Now convert RootKey to standard long format
-	If !InStr(RootKey, "HKEY_") ;If short form, convert to long form
-	{
-		If RootKey = HKCR
-			StringReplace, RegPath, RegPath, %RootKey%, HKEY_CLASSES_ROOT
-		Else If RootKey = HKCU
-			StringReplace, RegPath, RegPath, %RootKey%, HKEY_CURRENT_USER
-		Else If RootKey = HKLM
-			StringReplace, RegPath, RegPath, %RootKey%, HKEY_LOCAL_MACHINE
-		Else If RootKey = HKU
-			StringReplace, RegPath, RegPath, %RootKey%, HKEY_USERS
-		Else If RootKey = HKCC
-			StringReplace, RegPath, RegPath, %RootKey%, HKEY_CURRENT_CONFIG
-	}
-
-	;Make target key the last selected key, which is the selected key next time Regedit runs
-	RegWrite, REG_SZ, HKCU, Software\Microsoft\Windows\CurrentVersion\Applets\Regedit, LastKey, %RegPath%
-
-	Run, Regedit.exe, Max
-}
 
 Refresh()
 {
@@ -587,6 +415,15 @@ CloseMe:
 /**
  * Include Dependencies
  */
+
+; Screencapture related functions
+#Include Data\includes\screenshot.ahk
+
+; Registry Editor launch/jump
+#Include Data\includes\registry.ahk
+
+; WinExplorer improvements
+#Include Data\includes\explorer.ahk
 
 ; Needed for screenshot features
 #Include Data\Gdip.ahk

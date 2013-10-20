@@ -87,9 +87,15 @@ Have fun!
 
 ## <a name="todo"></a>To Do
 
+* Create functions
+  * GetSelectedText
+  * GetCurrentFolder
+
 * Ask to run on startup.
 
 * Auto Shutdown
+
+* Last Open Window
 
 * Add Backup Buddy.
 
@@ -116,6 +122,11 @@ Have fun!
   * Sorting Hat
 
 ## <a name="changelog"></a>Changelog
+
+* Modularised stuff:
+  * Screennshot
+  * Registry
+  * Explorer
 
 * Added: RegJump - Jumps to a specified registry key
 

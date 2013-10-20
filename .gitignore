@@ -2,6 +2,7 @@
 ## Sublime
 #################
 *.sublime*
+Help/
 
 #################
 ## Eclipse
