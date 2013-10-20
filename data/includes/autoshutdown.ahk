@@ -8,16 +8,25 @@ AutoShutdown:
 Return
 
 ShutdownTimer:
-	; Gdip_DrawImage(G, pBitmap%Index%, 0, 0, nWidth, nHeight, 0, 0, nWidth, nHeight)
-	Gdip_GraphicsClear(G)
-	Gdip_FillRectangle(G, pBrush, 0, 0, Width, Height)
+	SecondsLeft := Minutes*60 - ((A_TickCount - StartCount)//1000)
 
-	TimeStamp := FormatSeconds(Minutes*60 - ((A_TickCount - StartCount)//1000))
+	If (SecondsLeft <= 0)
+	{
+		SetTimer, ShutdownTimer, Off
+		; Msgbox, Bye!
+		Shutdown, 5
+	}
+	Else
+	{
+		Gdip_GraphicsClear(G)
+		Gdip_FillRectangle(G, pBrush, 0, 0, Width, Height)
 
-	Gdip_TextToGraphics(G, TimeStamp, "x" mX " y" mY " cff000000 s200", Font)
-	Gdip_TextToGraphics(G, "Press Esc to Abort", "x" mX+175 " y" mY+240 " cff000000 s50", Font)
 
-	UpdateLayeredWindow(hwnd1, hdc, 0, 0, Width, Height)
+		Gdip_TextToGraphics(G, FormatSeconds(SecondsLeft), "x" mX " y" mY " cff000000 s200", Font)
+		Gdip_TextToGraphics(G, "Press Esc to Abort", "x" mX+175 " y" mY+240 " cff000000 s50", Font)
+
+		UpdateLayeredWindow(hwnd1, hdc, 0, 0, Width, Height)
+	}
 Return
 
 ; Convert the specified number of seconds to hh:mm:ss format.
