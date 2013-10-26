@@ -1,4 +1,5 @@
 AutoShutdown:
+
 	Gdip_Startup()
 	Minutes := 15
 	Gosub, GdipSetup

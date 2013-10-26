@@ -338,53 +338,6 @@ RunConsole2:
 	Run Data\Console2\Console.exe
 Return
 
-/**
- * Run CMD
- *
- * Run command prompt in the current folder.
- *
- * Todo: Run even if explorer isn't open. C:\
- * Todo: Run Console2 instead of normal command prompt
- */
-RunCMD:
-	;Get the full path from the address bar
-	WinGetText, full_path, A
-
-	;Split on newline (`n)
-	StringSplit, word_array, full_path, `n
-
-	; Take the first element from the array
-	full_path = %word_array1%
-
-	;Remove all carriage returns (`r)
-	StringReplace, full_path, full_path, `r, , all
-	StringTrimLeft, full_path, full_path, 9
-
-	; Msgbox, % full_path
-
-	IfInString full_path, \
-	{
-		Run, cmd /K cd /D "%full_path%"
-		; Run, Data\console2\console.exe -d "%full_path%"
-	}
-	else ;If path is not valid
-	{
-		Run, cmd /K cd /D "C:\ "
-	}
-Return
-
-CloseCMD:
-	WinKill, A
-Return
-
-
-/**
- * Used to send clipboard data to command prompt
- */
-PasteClipboard:
-	SendRaw %clipboard%
-Return
-
 Refresh()
 {
     WinGetClass, eh_Class, A
@@ -424,6 +377,9 @@ CloseMe:
 
 ; WinExplorer improvements
 #Include Data\includes\explorer.ahk
+
+; Command Prompt improvements
+#Include Data\includes\command.ahk
 
 ; Needed for screenshot features
 #Include Data\Gdip.ahk

@@ -1,11 +1,5 @@
-
-/**
- * New File
- *
- * Create a new file in the current folder,
- * just like Ctrl+Shift+N
- */
-NewFile:
+GetCurrentFolder7()
+{
 	;Get the full path from the address bar
 	WinGetText, full_path, A
 
@@ -19,6 +13,17 @@ NewFile:
 	StringReplace, full_path, full_path, `r, , all
 	StringTrimLeft, full_path, full_path, 9
 
+	return full_path
+}
+
+/**
+ * New File
+ *
+ * Create a new file in the current folder,
+ * just like Ctrl+Shift+N
+ */
+NewFile:
+	full_path := GetCurrentFolder7()
 	IfInString full_path, \
 	{
 		;Create a file
@@ -35,7 +40,6 @@ NewFile:
 	; {
 	; }
 Return
-
 
 /**
  * Toggle Extension
