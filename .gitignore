@@ -2,8 +2,9 @@
 ## Sublime
 #################
 *.sublime*
-Help/
 *.ini
+Help/
+gh-pages/
 
 #################
 ## Eclipse
