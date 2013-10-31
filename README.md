@@ -88,9 +88,12 @@ Have fun!
 ## <a name="todo"></a>To Do
 
 * Volume OSD
-  * Global Hotkey
-  * Simplistic OSD
-  * GDI+
+  * Mute Status
+  * Add to Main Process
+
+* AutoShutdown
+  * Inputbox
+  * Add to Main Process
 
 * Create functions
   * GetSelectedText
@@ -127,8 +130,11 @@ Have fun!
 
 ## <a name="changelog"></a>Changelog
 
+* Volume OSD:
+  * Module created
+
 * AutoShutdown:
-  * UI - Timer Done.
+  * Module created
 
 * Modularised stuff:
   * Screennshot
