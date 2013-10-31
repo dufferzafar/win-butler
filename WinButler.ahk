@@ -113,7 +113,7 @@ Hotkey, IfWinActive, ahk_group Explorer
 Hotkey, 		#y, 		ToggleExt, 			On
 Hotkey, 		#j, 		ToggleHidden, 		On
 Hotkey, 		#c, 		RunCMD, 				On
-Hotkey, 		^n, 		NewFile, 			On
+Hotkey, 		^n, 		NewFile, 			Off
 Hotkey, IfWinActive
 
 /**
@@ -204,7 +204,7 @@ RunFromSublime:
 	If FileExist(ScriptPath)
 	{
 
-		If InStr(wTitle, ".lua") or InStr(wTitle, ".ahk")
+		If InStr(wTitle, ".lua") or InStr(wTitle, ".ahk") or InStr(wTitle, ".py")
 		{
 			SplitPath, wTitle,,workingDir
 			Run, %ScriptPath%, %workingDir%

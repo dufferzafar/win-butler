@@ -87,6 +87,11 @@ Have fun!
 
 ## <a name="todo"></a>To Do
 
+* Volume OSD
+  * Global Hotkey
+  * Simplistic OSD
+  * GDI+
+
 * Create functions
   * GetSelectedText
   * GetCurrentFolder
