@@ -16,7 +16,9 @@
 #Persistent
 #NoTrayIcon
 #KeyHistory 0
+
 SetWorkingDir %A_ScriptDir%
+SendMode, Input
 
 Version := "v1.8"
 
@@ -82,8 +84,8 @@ SetTimer, RemoveTrayTip, 2500
  * Change hotkeys. Turn them On/Off.
  */
 
-; Disable the most unused key...
-; SetCapsLockState, AlwaysOff
+; CapsLock Be Gone!!
+SetCapsLockState, AlwaysOff
 
 ; Hotkey, 	KeyName,	Label, 			Options
 
@@ -116,7 +118,6 @@ Hotkey, IfWinActive
 Hotkey, IfWinActive, ahk_group Explorer
 Hotkey, 		#y, 		ToggleExt, 			On
 Hotkey, 		#j, 		ToggleHidden, 		On
-Hotkey, 		^n, 		NewFile, 			Off
 Hotkey, IfWinActive
 
 /**
@@ -156,6 +157,17 @@ Return	 ; End of Auto Execute Section
 
 ; My Octopress Blog.
 ::dz::dufferzafar.github.com
+
+/**
+ * WHY WAS THIS KEY CREATED?
+ */
+CapsLock::
+	SendInput, {BS}
+Return
+
+^CapsLock::
+	SendInput, ^{BS}
+Return
 
 /**
  * Searches for related words for the currently selected word.

@@ -1,8 +1,7 @@
 /**
  * Get the path of currently open folder.
  */
-GetCurrentFolder7()
-{
+GetCurrentFolder7() {
 	;Get the full path from the address bar
 	WinGetText, full_path, A
 
@@ -22,12 +21,40 @@ GetCurrentFolder7()
 /**
  * Refresh Explorer's View
  */
-Refresh()
-{
+Refresh() {
     WinGetClass, eh_Class, A
     If (eh_Class = "#32770" OR A_OSVersion = "WIN_VISTA" OR A_OSVersion = "WIN_7")
         Send, {F5}
 	Else PostMessage, 0x111, 28931,,, A
+}
+
+/**
+ * GetSelectedText or FilePath in Windows Explorer
+ *
+ * by Learning one
+ */
+GetSelectedText() {
+	IsClipEmpty := (Clipboard = "") ? 1 : 0
+
+	If !IsClipEmpty
+	{
+		ClipboardBackup := ClipboardAll
+		While !(Clipboard = "")
+		{
+			Clipboard =
+			Sleep, 10
+		}
+	}
+
+	Send, ^c
+	ClipWait, 0.1
+
+	ToReturn := Clipboard, Clipboard := ClipboardBackup
+
+	If !IsClipEmpty
+		ClipWait, 0.5, 1
+
+	Return ToReturn
 }
 
 /**

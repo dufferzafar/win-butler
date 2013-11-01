@@ -4,7 +4,9 @@
 
 An Autohotkey script to help you with common windows tasks.
 
-It is a compilation of some scripts: WinHelper, Screener, Scriptlet Library.
+That's putting it mildly.
+
+Actually, this is a life-saver, and I just can't imagine using windows without it.
 
 ## Table of Contents
 
@@ -23,6 +25,12 @@ Just do it, if you already haven't, you'll be needing it for most of my stuff.
 Once you have AHK installed, download the [zip](https://github.com/dufferzafar/win-butler/archive/master.zip), extract the contents, and Run WinButler.ahk
 
 Have fun!
+
+NOTE:
+
+The capslock key's functionality has been disabled in versions greater than 1.8.
+
+Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor but if you don't think so, Download the [older version](https://github.com/dufferzafar/win-butler/archive/v1.8.zip) instead.
 
 ## <a name="hotkeys"></a>List of Shortcuts
 
@@ -89,7 +97,7 @@ Have fun!
 
 ## <a name="todo"></a>To Do ASAP
 
-* Disable CapsLock and Remap into something better (productive)
+* Copy selected File/Folder's path.
 
 * Screenshots
   * Imgur Uploader
@@ -139,6 +147,8 @@ Have fun!
   * Sorting Hat
 
 ## <a name="changelog"></a>Changelog
+
+* Remapped CapsLock to Backspace.
 
 * **1.8**:
 
