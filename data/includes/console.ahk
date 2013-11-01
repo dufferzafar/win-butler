@@ -4,18 +4,19 @@
  * Run command prompt in the current folder.
  *
  * Todo: Run even if explorer isn't open. C:\
- * Todo: Run Console2 instead of normal command prompt
  */
-RunCMD:
+RunConsole:
 	full_path := GetCurrentFolder7()
+
 	IfInString full_path, \
 	{
-		Run, cmd /K cd /D "%full_path%"
-		; Run, Data\console2\console.exe -d "%full_path%"
+		; Run, cmd /K cd /D "%full_path%"
+		Run, Data\console2\console.exe -d "%full_path%"
 	}
-	else ;If path is not valid
+	Else ;If path is not valid
 	{
-		Run, cmd /K cd /D "C:\ "
+		; Run, cmd /K cd /D "C:\ "
+		Run, Data\console2\console.exe -d "C:\"
 	}
 Return
 

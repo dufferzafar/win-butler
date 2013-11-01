@@ -82,11 +82,13 @@ SetTimer, RemoveTrayTip, 2500
  * Change hotkeys. Turn them On/Off.
  */
 
+; Disable the most unused key...
+; SetCapsLockState, AlwaysOff
+
 ; Hotkey, 	KeyName,	Label, 			Options
 
 Hotkey, 		^+Esc, 	RunTaskMan, 		On
 Hotkey, 		!^r, 		RunRegedit, 		On
-Hotkey, 		!^c, 		RunConsole2, 		On
 Hotkey, 		!^s, 		SaveText, 			On
 Hotkey, 		#t, 		TopMost, 			On
 Hotkey, 		!^d, 		OneLook, 			On
@@ -97,6 +99,8 @@ Hotkey, 		^+q, 		HelpPython, 		On
 Hotkey, 		^+a, 		HelpAHK, 			On
 Hotkey, 		^+z, 		HelpFolder, 		On
 
+Hotkey, 		!^c, 		RunConsole,			On
+
 ; Run files open in sublime text
 Hotkey, IfWinActive, ahk_class PX_WINDOW_CLASS
 Hotkey, 		^+s, 		RunFromSublime, 	On
@@ -105,14 +109,13 @@ Hotkey, IfWinActive
 ; Paste text in command prompt
 Hotkey, IfWinActive, ahk_class ConsoleWindowClass
 Hotkey, 		^v, 		PasteClipboard, 	On
-Hotkey, 		^w, 		CloseCMD, 	On
+Hotkey, 		^w, 		CloseCMD, 			On
 Hotkey, IfWinActive
 
 ; Extend windows explorer
 Hotkey, IfWinActive, ahk_group Explorer
 Hotkey, 		#y, 		ToggleExt, 			On
 Hotkey, 		#j, 		ToggleHidden, 		On
-Hotkey, 		#c, 		RunCMD, 				On
 Hotkey, 		^n, 		NewFile, 			Off
 Hotkey, IfWinActive
 
@@ -173,58 +176,6 @@ OneLook:
 	{
 		url := "http://www.onelook.com/?w=*:" . selection
 		Run, chrome.exe "%url%"
-	}
-Return
-
-/**
- * Run the currently open file in Sublime Text
- *
- * Adjusts PHP/HTML files to take localhost into account
- *
- * CHANGED: Nothing runs when the file is not one of recognised.
- */
-RunFromSublime:
-	Send ^s
-	Sleep 100
-	WinGetTitle, wTitle, ahk_class PX_WINDOW_CLASS
-	; wTitle := "D:\I, Coder\@ GitHub\win-butler\Test.ahk (WinButler) - Sublime Text"
-
-	StringTrimRight, File, wTitle, 15
-
-	If FileExist(File)
-	{
-		ScriptPath := File
-	}
-	Else
-	{
-		pos := InStr(wTitle, "(", False, 0)
-		ScriptPath := SubStr(wTitle, 1, pos-1)
-	}
-
-	If FileExist(ScriptPath)
-	{
-
-		If InStr(wTitle, ".lua") or InStr(wTitle, ".ahk") or InStr(wTitle, ".py")
-		{
-			SplitPath, wTitle,,workingDir
-			Run, %ScriptPath%, %workingDir%
-		}
-		Else If InStr(wTitle, ".md")
-		{
-			Send, !m
-		}
-		; If this is an octopress post. Preview.
-		Else If InStr(wTitle, ".markdown")
-		{
-			Run, % "Chrome.exe http://localhost:4000"
-		}
-		Else If InStr(wTitle, ".php") or InStr(wTitle, ".html")
-		{
-			StringReplace, NewScriptPath, ScriptPath,% "C:\xampp\htdocs\", % "http://localhost/"
-			Run, chrome.exe "%NewScriptPath%"
-		}
-		Else
-			Run, %ScriptPath%
 	}
 Return
 
@@ -334,17 +285,9 @@ HelpFolder:
 	Run, % "D:\I, Coder\Scripts, Codes & Tut\[Help]"
 Return
 
-RunConsole2:
-	Run Data\Console2\Console.exe
-Return
-
-Refresh()
-{
-    WinGetClass, eh_Class, A
-    If (eh_Class = "#32770" OR A_OSVersion = "WIN_VISTA" OR A_OSVersion = "WIN_7")
-        Send, {F5}
-	Else PostMessage, 0x111, 28931,,, A
-}
+/**
+ * Miscellaneous Subroutines
+ */
 
 RemoveToolTip:
 	SetTimer, RemoveToolTip, Off
@@ -378,8 +321,11 @@ CloseMe:
 ; WinExplorer improvements
 #Include Data\includes\explorer.ahk
 
-; Command Prompt improvements
-#Include Data\includes\command.ahk
+; Console2 and Command prompt
+#Include Data\includes\console.ahk
+
+; Run files directly from sublime
+#Include Data\includes\runFromSublime.ahk
 
 ; Needed for screenshot features
 #Include Data\Gdip.ahk

@@ -17,6 +17,17 @@ GetCurrentFolder7()
 }
 
 /**
+ * Refresh Explorer's View
+ */
+Refresh()
+{
+    WinGetClass, eh_Class, A
+    If (eh_Class = "#32770" OR A_OSVersion = "WIN_VISTA" OR A_OSVersion = "WIN_7")
+        Send, {F5}
+	Else PostMessage, 0x111, 28931,,, A
+}
+
+/**
  * New File
  *
  * Create a new file in the current folder,
@@ -36,9 +47,6 @@ NewFile:
 			Else
 				FileAppend, , %full_path%\%FileName%
 	}
-	; else ;If path is not valid
-	; {
-	; }
 Return
 
 /**

@@ -11,11 +11,7 @@ OnExit, ExitingApp
 Gui, 1:-Caption +E0x80000 +LastFound +AlwaysOnTop +ToolWindow
 hGui1 := WinExist()
 
-; Get the master volume of the default playback device.
-; iOldMaster := VA_GetMasterVolume()
-; VolumeOSD(hGui1, iOldMaster, 0xFFCCCCCC, (bMaster = "OFF") ? 0xFF0F0FFF : 0xFFFF0000)
-
-<^>!^Up::
+<^>!Up::
 	iOldMaster := VA_GetMasterVolume()
 
 	iNewMaster := (iOldMaster + 5.00) > 100 ? 100 : (iOldMaster + 5.00)
@@ -27,7 +23,7 @@ hGui1 := WinExist()
 	SetTimer, HideGui, -1000
 Return
 
-<^>!^Down::
+<^>^Down::
 	iOldMaster := VA_GetMasterVolume()
 
 	iNewMaster := (iOldMaster - 5.00) < 0 ? 0 : (iOldMaster - 5.00)
@@ -73,28 +69,13 @@ VolumeOSD(hwnd, iProgress, cText, cProgFill)
 	;Width and Height of Gui
 	iW := 200, iH := 50
 
-	;Create a GDI bitmap
-	hbm := CreateDIBSection(iW, iH)
-
-	;Get a device context compatible with the screen
-	hdc := CreateCompatibleDC()
-
-	;Select the bitmap into the device context
-	obm := SelectObject(hdc, hbm)
-
-	;Get a pointer to the graphics of the bitmap, for use with drawing functions
-	G := Gdip_GraphicsFromHDC(hdc)
-
-	;Set the smoothing mode to antialias = 4 to make shapes appear smother
+	;Regular GDI stuff
+	hbm := CreateDIBSection(iW, iH), hdc := CreateCompatibleDC()
+	obm := SelectObject(hdc, hbm), G := Gdip_GraphicsFromHDC(hdc)
 	Gdip_SetSmoothingMode(G, 4)
 
-	;Create a partially transparent to draw a rounded rectangle with
 	pBrush := Gdip_BrushCreateSolid(0xCC000000)
-
-	;Fill the graphics of the bitmap with a rounded rectangle using the brush created
 	Gdip_FillRoundedRectangle(G, pBrush, 0, 0, iW, iH, 10)
-
-	;Delete the brush as it is no longer needed and wastes memory
 	Gdip_DeleteBrush(pBrush)
 
 	;Fix cText and cPercent so that they become option compatible with Gdip_TextToGraphic()
@@ -104,22 +85,14 @@ VolumeOSD(hwnd, iProgress, cText, cProgFill)
 	Options = x6 y6 %cText% r4 s16
 	Gdip_TextToGraphics(G, sText, Options, "Arial")
 
-	;It's now time to fill the shape. Prepare a brush
-	pBrush := Gdip_BrushCreateSolid(cProgFill)
-
 	;Fill the shape
+	pBrush := Gdip_BrushCreateSolid(cProgFill)
 	Gdip_FillRoundedRectangle(G, pBrush, 8, 28, (iProgress / 100) * (iW - 16), 15, (iProgress >= 2) ? 2 : 0)
-
-	;We're done with the brush now
 	Gdip_DeleteBrush(pBrush)
 
-	;Create a pen for the outline of the progress bar
+	;Outline the progress bar
 	pBorderPen := Gdip_CreatePen(cProgShape, 1)
-
-	;We can now draw the outline
 	Gdip_DrawRoundedRectangle(G, pBorderPen, 8, 28, iW - 16, 15, 2)
-
-	;We're done with the pen now
 	Gdip_DeletePen(pBorderPen)
 
 	;Draw the progress bar text over the progress bar in specified color with AA at size 10
@@ -129,17 +102,9 @@ VolumeOSD(hwnd, iProgress, cText, cProgFill)
 	;Update the specified window we have created with a handle to our bitmap
 	UpdateLayeredWindow(hwnd, hdc, iX, iY, iW, iH)
 
-	; Select the object back into the hdc
-	SelectObject(hdc, obm)
-
-	; Now the bitmap may be deleted
-	DeleteObject(hbm)
-
-	; Also the device context related to the bitmap may be deleted
-	DeleteDC(hdc)
-
-	; The graphics may now be deleted
-	Gdip_DeleteGraphics(G)
+	;Regular GDI Cleanup
+	SelectObject(hdc, obm),	DeleteObject(hbm)
+	DeleteDC(hdc),	Gdip_DeleteGraphics(G)
 
 	;Show the GUI if it's not showing already
 	If Not DllCall("IsWindowVisible", "UInt", hwnd)

@@ -87,26 +87,28 @@ Have fun!
 
 ## <a name="todo"></a>To Do
 
-* Volume OSD
-  * Mute Status
-  * Add to Main Process
+* Disable CapsLock and Remap into something better (productive)
 
 * AutoShutdown
   * Inputbox
   * Add to Main Process
 
-* Create functions
-  * GetSelectedText
-  * GetCurrentFolder
+* GetSelectedText()
+
+* Global Ctrl + W
+  * Maps to Alt+F4
+  * But in some applications to Ctrl+W
+
+* Screenshot Uploader
+  * Imgur
+  * Hotkey to Upload
+
+* Volume OSD
+  * Mute Status
+  * Add to Main Process ?
 
 * Quick Features
-  * Session Store - like chrome extension
   * Ask to run on startup.
-  * Auto Shutdown
-  * Last Open Window
-  * Add Backup Buddy
-
-* Launch Console2 instead of the default command prompt.
 
 * TrayMenu
   * Turn Backup Buddy On/Off
@@ -117,6 +119,8 @@ Have fun!
   * Hotkeys - Bindings, On/Off
   * Folder Paths
   * Backup Settings
+
+* Session Store - like chrome extension
 
 * A launcher for some tasks
   * Radial Menu or Sublime like command pallette ?
@@ -130,13 +134,16 @@ Have fun!
 
 ## <a name="changelog"></a>Changelog
 
-* Volume OSD:
-  * Module created
+* Hide/Unhide Windows Media Player
 
-* AutoShutdown:
-  * Module created
+* Changed: Runs Console2 instead of CommandPrompt
+
+* Created Modules:
+  * AutoShutdown:
+  * Volume OSD:
 
 * Modularised stuff:
+  * Run from Sublime
   * Screennshot
   * Registry
   * Explorer
@@ -145,15 +152,15 @@ Have fun!
 
 * **1.5**:
 
-* Modified Ctrl+Shift+Z to open Help Folder instead of PHP.
+  Modified Ctrl+Shift+Z to open Help Folder instead of PHP.
 
-* Added: Alt+Ctrl+C to launch Console2
+  Added: Alt+Ctrl+C to launch Console2
 
-* Added: Ctrl+W closes the Command Prompt.
+  Added: Ctrl+W closes the Command Prompt.
 
-* Added: Ctrl+N to create a new file in folder.
+  Added: Ctrl+N to create a new file in folder.
 
-* Explicitly added Gdip.ahk incase it is not present in your standard library.
+  Explicitly added Gdip.ahk incase it is not present in your standard library.
 
 * **1.4** :
 
