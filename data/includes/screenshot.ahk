@@ -12,6 +12,10 @@ GrabWindow:
 	Screenshot(Screenshot_Size, Screenshot_Format, "Window")
 Return
 
+GrabScreenSansTaskbar:
+	Screenshot(Screenshot_Size, Screenshot_Format, "Screen-Taskbar")
+Return
+
 ; The screenshot function:
 Screenshot(Size,FileType,Type)
 {
@@ -20,12 +24,19 @@ Screenshot(Size,FileType,Type)
 	WinGetPos, X, Y, W, H, A
 	If (Type = "Window")
 	{
-		pBitmap := Gdip_BitmapFromScreen((X>0?X:0) "|" (Y>0?Y:0) "|" (W<sW?W:sW) "|" (H<(sH-40)?H:(sH-40)))
+		WinGetPos,,, tbW, tbH, ahk_class Shell_TrayWnd
+		pBitmap := Gdip_BitmapFromScreen((X>0?X:0) "|" (Y>0?Y:0) "|" (W<sW?W:sW) "|" (H<(sH-tbH)?H:(sH-tbH)))
 		FileName = Window-%A_DD%-%A_MMM%-%A_YYYY%-%A_Hour%-%A_Min%-%A_Sec%
+	}
+	Else If(Type = "Screen")
+	{
+		pBitmap := Gdip_BitmapFromScreen()
+		FileName = Screen-%A_DD%-%A_MMM%-%A_YYYY%-%A_Hour%-%A_Min%-%A_Sec%
 	}
 	Else
 	{
-		pBitmap := Gdip_BitmapFromScreen()
+		WinGetPos,,, tbW, tbH, ahk_class Shell_TrayWnd
+		pBitmap := Gdip_BitmapFromScreen(0 "|" 0 "|" sW "|" sH-tbH)
 		FileName = Screen-%A_DD%-%A_MMM%-%A_YYYY%-%A_Hour%-%A_Min%-%A_Sec%
 	}
 

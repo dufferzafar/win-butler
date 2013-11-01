@@ -1,3 +1,6 @@
+/**
+ * Get the path of currently open folder.
+ */
 GetCurrentFolder7()
 {
 	;Get the full path from the address bar

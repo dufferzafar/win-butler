@@ -18,7 +18,7 @@
 #KeyHistory 0
 SetWorkingDir %A_ScriptDir%
 
-Version := "v1.5"
+Version := "v1.8"
 
 /**
  * Global Variables
@@ -128,14 +128,16 @@ If !pToken := Gdip_Startup()
    MsgBox, 48, Windows Butler - GDI+ Error!, GDI+ is required for screenshot capabilities and it failed to load.`n`nScreenshot shortcuts will be Disabled.
 
    ; Disable Screener Hotkeys
-   Hotkey, 		PrintScreen, 		GrabScreen, 			Off
-	Hotkey, 		+PrintScreen, 		GrabWindow, 			Off
+   Hotkey, 		PrintScreen, 		GrabScreenSansTaskbar, 			Off
+	Hotkey, 		+PrintScreen, 		GrabScreen, 						Off
+	Hotkey, 		^PrintScreen, 		GrabWindow, 						Off
 }
 Else
 {
 	; Enable Screener Hotkeys
-	Hotkey, 		PrintScreen, 		GrabScreen, 			On
-	Hotkey, 		+PrintScreen, 		GrabWindow, 			On
+	Hotkey, 		PrintScreen, 		GrabScreenSansTaskbar, 			On
+	Hotkey, 		+PrintScreen, 		GrabScreen, 						On
+	Hotkey, 		^PrintScreen, 		GrabWindow, 						On
 }
 
 Return	 ; End of Auto Execute Section

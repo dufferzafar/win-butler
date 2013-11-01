@@ -1,4 +1,4 @@
-# Windows Butler v1.5
+# Windows Butler v1.8
 
 ![Butler](/data/butler.png)
 
@@ -11,6 +11,7 @@ It is a compilation of some scripts: WinHelper, Screener, Scriptlet Library.
 * [Usage Instructions](#usage)
 * [List of Shortcuts](#hotkeys)
 * [Stuff to do](#todo)
+* [Could be added later](#later)
 * [Changelog](#changelog)
 
 ## <a name="usage"></a>Usage Instructions
@@ -27,17 +28,20 @@ Have fun!
 
 * In windows explorer press these for the desired action
 
-  * **Windows + C** : Launch command prompt in the current directory.
   * **Windows + J** : Show/Hide hidden files and folders.
   * **Windows + Y** : Show/Hide file extensions.
-  * **Ctrl + N**    : Create a new file in the current directory.
 
-* *Screenshot* capabilities
+* Screenshot capabilities
 
-  Grab screenshots with ease, just press one of the shortcuts and a screenshot will be saved to your My Pictures folder. You can change the path if you want to.
+  Grab screenshots with ease; press one of the shortcuts and a screenshot will be saved to your My Pictures folder. You can change the path if you want to.
 
-  * **Printscreen** : Save the entire screen
-  * **Shift + Printscreen** : Save a screenshot of the active window
+  * **Printscreen** : Save the screen but not the taskbar portion.
+  * **Shift + Printscreen** : Save the entire screen.
+  * **Ctrl + Printscreen** : Save a screenshot of the active window.
+
+* **Alt + Ctrl + C** : Launch Console in the current directory.
+
+  Launches to root "C:\" if path cannot be grabbed.
 
 * **Ctrl + Space** : Launch Scriptlet Library
 
@@ -69,7 +73,7 @@ Have fun!
 
   Similar to task manager, any restriction on registry editor is removed.
 
-  If a registry key is selected, the editor jumps to it.
+  Select a registry key like "HKEY_CLASSES_ROOT\Python.File\shell\open" and then Press the hotkey to directly jump to that Key. Sweet, ain't it?
 
 * **Ctrl + V** in a command prompt window
 
@@ -77,43 +81,45 @@ Have fun!
 
 * Disabled
 
-  These hotkeys won't work by default for the simple reason that I do not know where you have your Help files stored. You'll have to tweak the script to provide paths to your help files.
+  These hotkeys won't work by default for the simple reason that I do not know where you have your files stored. You'll have to tweak the script to provide paths to your help files.
 
   * **Ctrl + Shift + Q** : Launch Python's help file.
-
   * **Ctrl + Shift + A** : Launch Autohotkey's help file.
-
   * **Ctrl + Shift + Z** : Launch Help Folder
 
-## <a name="todo"></a>To Do
+## <a name="todo"></a>To Do ASAP
 
 * Disable CapsLock and Remap into something better (productive)
 
-* AutoShutdown
-  * Inputbox
-  * Add to Main Process
+* Screenshots
+  * Imgur Uploader
+  * Hotkey to Upload
 
-* GetSelectedText()
+* Hide/Unhide Windows Media Player
 
 * Global Ctrl + W
   * Maps to Alt+F4
   * But in some applications to Ctrl+W
 
-* Screenshot Uploader
-  * Imgur
-  * Hotkey to Upload
-
-* Volume OSD
-  * Mute Status
-  * Add to Main Process ?
+## <a name="later"></a>Could be added later
 
 * Quick Features
   * Ask to run on startup.
+
+* GetSelectedText()
 
 * TrayMenu
   * Turn Backup Buddy On/Off
   * Settings GUI
   * About Dialog
+
+* Volume OSD
+  * Mute Status
+  * Add to Main Process ?
+
+* AutoShutdown
+  * Inputbox
+  * Add to Main Process
 
 * Settings GUI
   * Hotkeys - Bindings, On/Off
@@ -134,25 +140,29 @@ Have fun!
 
 ## <a name="changelog"></a>Changelog
 
-* Hide/Unhide Windows Media Player
+* **1.8**:
 
-* Changed: Runs Console2 instead of CommandPrompt
+  Removed: Ctrl + N (New File) Hotkey. Useless.
 
-* Created Modules:
-  * AutoShutdown:
-  * Volume OSD:
+  Changed: Printscreen now captures the screen but avoids the sidebar. Use Shift+Printscreen to capture the entirety, and Ctrl+Printscreen to capture Active Windows.
 
-* Modularised stuff:
-  * Run from Sublime
-  * Screennshot
-  * Registry
-  * Explorer
+  Changed: Alt+Ctrl+C - Runs Console2 instead of CommandPrompt.
 
-* Added: RegJump - Jumps to a specified registry key
+  New Modules:
+    * AutoShutdown
+    * Volume OSD
+
+  Refactored into Modules:
+    * Run from Sublime
+    * Screennshot
+    * Registry
+    * Explorer
+
+  Added: RegJump - Jumps to a specified registry key
 
 * **1.5**:
 
-  Modified Ctrl+Shift+Z to open Help Folder instead of PHP.
+  Modified: Ctrl+Shift+Z to open Help Folder instead of PHP.
 
   Added: Alt+Ctrl+C to launch Console2
 
