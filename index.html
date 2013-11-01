@@ -40,7 +40,7 @@
       </nav>
       <section>
         <h1>
-<a name="windows-butler-v15" class="anchor" href="#windows-butler-v15"><span class="octicon octicon-link"></span></a>Windows Butler v1.5</h1>
+<a name="windows-butler-v18" class="anchor" href="#windows-butler-v18"><span class="octicon octicon-link"></span></a>Windows Butler v1.8</h1>
 
 <p><img src="https://raw.github.com/dufferzafar/win-butler/master/data/butler.png" alt="Butler"></p>
 
@@ -55,6 +55,7 @@
 <li><a href="#usage">Usage Instructions</a></li>
 <li><a href="#hotkeys">List of Shortcuts</a></li>
 <li><a href="#todo">Stuff to do</a></li>
+<li><a href="#later">Could be added later</a></li>
 <li><a href="#changelog">Changelog</a></li>
 </ul><h2>
 <a name="usage-instructions" class="anchor" href="#usage-instructions"><span class="octicon octicon-link"></span></a><a name="usage"></a>Usage Instructions</h2>
@@ -76,26 +77,29 @@
 
 <ul>
 <li>
-<strong>Windows + C</strong> : Launch command prompt in the current directory.</li>
-<li>
 <strong>Windows + J</strong> : Show/Hide hidden files and folders.</li>
 <li>
 <strong>Windows + Y</strong> : Show/Hide file extensions.</li>
-<li>
-<strong>Ctrl + N</strong>    : Create a new file in the current directory.</li>
 </ul>
 </li>
 <li>
-<p><em>Screenshot</em> capabilities</p>
+<p>Screenshot capabilities</p>
 
-<p>Grab screenshots with ease, just press one of the shortcuts and a screenshot will be saved to your My Pictures folder. You can change the path if you want to.</p>
+<p>Grab screenshots with ease; press one of the shortcuts and a screenshot will be saved to your My Pictures folder. You can change the path if you want to.</p>
 
 <ul>
 <li>
-<strong>Printscreen</strong> : Save the entire screen</li>
+<strong>Printscreen</strong> : Save the screen but not the taskbar portion.</li>
 <li>
-<strong>Shift + Printscreen</strong> : Save a screenshot of the active window</li>
+<strong>Shift + Printscreen</strong> : Save the entire screen.</li>
+<li>
+<strong>Ctrl + Printscreen</strong> : Save a screenshot of the active window.</li>
 </ul>
+</li>
+<li>
+<p><strong>Alt + Ctrl + C</strong> : Launch Console in the current directory.</p>
+
+<p>Launches to root "C:\" if path cannot be grabbed.</p>
 </li>
 <li>
 <p><strong>Ctrl + Space</strong> : Launch Scriptlet Library</p>
@@ -131,7 +135,7 @@
 
 <p>Similar to task manager, any restriction on registry editor is removed.</p>
 
-<p>If a registry key is selected, the editor jumps to it.</p>
+<p>Select a registry key like "HKEY_CLASSES_ROOT\Python.File\shell\open" and then Press the hotkey to directly jump to that Key. Sweet, ain't it?</p>
 </li>
 <li>
 <p><strong>Ctrl + V</strong> in a command prompt window</p>
@@ -141,7 +145,7 @@
 <li>
 <p>Disabled</p>
 
-<p>These hotkeys won't work by default for the simple reason that I do not know where you have your Help files stored. You'll have to tweak the script to provide paths to your help files.</p>
+<p>These hotkeys won't work by default for the simple reason that I do not know where you have your files stored. You'll have to tweak the script to provide paths to your help files.</p>
 
 <ul>
 <li>
@@ -153,15 +157,54 @@
 </ul>
 </li>
 </ul><h2>
-<a name="to-do" class="anchor" href="#to-do"><span class="octicon octicon-link"></span></a><a name="todo"></a>To Do</h2>
+<a name="to-do-asap" class="anchor" href="#to-do-asap"><span class="octicon octicon-link"></span></a><a name="todo"></a>To Do ASAP</h2>
 
 <ul>
+<li><p>Disable CapsLock and Remap into something better (productive)</p></li>
+<li>
+<p>Screenshots</p>
+
+<ul>
+<li>Imgur Uploader</li>
+<li>Hotkey to Upload</li>
+</ul>
+</li>
+<li><p>Hide/Unhide Windows Media Player</p></li>
+<li>
+<p>Global Ctrl + W</p>
+
+<ul>
+<li>Maps to Alt+F4</li>
+<li>But in some applications to Ctrl+W</li>
+</ul>
+</li>
+</ul><h2>
+<a name="could-be-added-later" class="anchor" href="#could-be-added-later"><span class="octicon octicon-link"></span></a><a name="later"></a>Could be added later</h2>
+
+<ul>
+<li>
+<p>Quick Features</p>
+
+<ul>
+<li>Ask to run on startup.</li>
+</ul>
+</li>
+<li><p>GetSelectedText()</p></li>
+<li>
+<p>TrayMenu</p>
+
+<ul>
+<li>Turn Backup Buddy On/Off</li>
+<li>Settings GUI</li>
+<li>About Dialog</li>
+</ul>
+</li>
 <li>
 <p>Volume OSD</p>
 
 <ul>
 <li>Mute Status</li>
-<li>Add to Main Process</li>
+<li>Add to Main Process ?</li>
 </ul>
 </li>
 <li>
@@ -173,35 +216,6 @@
 </ul>
 </li>
 <li>
-<p>Create functions</p>
-
-<ul>
-<li>GetSelectedText</li>
-<li>GetCurrentFolder</li>
-</ul>
-</li>
-<li>
-<p>Quick Features</p>
-
-<ul>
-<li>Session Store - like chrome extension</li>
-<li>Ask to run on startup.</li>
-<li>Auto Shutdown</li>
-<li>Last Open Window</li>
-<li>Add Backup Buddy</li>
-</ul>
-</li>
-<li><p>Launch Console2 instead of the default command prompt.</p></li>
-<li>
-<p>TrayMenu</p>
-
-<ul>
-<li>Turn Backup Buddy On/Off</li>
-<li>Settings GUI</li>
-<li>About Dialog</li>
-</ul>
-</li>
-<li>
 <p>Settings GUI</p>
 
 <ul>
@@ -210,6 +224,7 @@
 <li>Backup Settings</li>
 </ul>
 </li>
+<li><p>Session Store - like chrome extension</p></li>
 <li>
 <p>A launcher for some tasks</p>
 
@@ -233,35 +248,43 @@
 
 <ul>
 <li>
-<p>Volume OSD:</p>
+<p><strong>1.8</strong>:</p>
+
+<p>Removed: Ctrl + N (New File) Hotkey. Useless.</p>
+
+<p>Changed: Printscreen now captures the screen but avoids the sidebar. Use Shift+Printscreen to capture the entirety, and Ctrl+Printscreen to capture Active Windows.</p>
+
+<p>Changed: Alt+Ctrl+C - Runs Console2 instead of CommandPrompt.</p>
+
+<p>New Modules:</p>
 
 <ul>
-<li>Module created</li>
+<li>AutoShutdown</li>
+<li>Volume OSD</li>
 </ul>
-</li>
-<li>
-<p>AutoShutdown:</p>
+<p>Refactored into Modules:</p>
 
 <ul>
-<li>Module created</li>
-</ul>
-</li>
-<li>
-<p>Modularised stuff:</p>
-
-<ul>
+<li>Run from Sublime</li>
 <li>Screennshot</li>
 <li>Registry</li>
 <li>Explorer</li>
 </ul>
+<p>Added: RegJump - Jumps to a specified registry key</p>
 </li>
-<li><p>Added: RegJump - Jumps to a specified registry key</p></li>
-<li><p><strong>1.5</strong>:</p></li>
-<li><p>Modified Ctrl+Shift+Z to open Help Folder instead of PHP.</p></li>
-<li><p>Added: Alt+Ctrl+C to launch Console2</p></li>
-<li><p>Added: Ctrl+W closes the Command Prompt.</p></li>
-<li><p>Added: Ctrl+N to create a new file in folder.</p></li>
-<li><p>Explicitly added Gdip.ahk incase it is not present in your standard library.</p></li>
+<li>
+<p><strong>1.5</strong>:</p>
+
+<p>Modified: Ctrl+Shift+Z to open Help Folder instead of PHP.</p>
+
+<p>Added: Alt+Ctrl+C to launch Console2</p>
+
+<p>Added: Ctrl+W closes the Command Prompt.</p>
+
+<p>Added: Ctrl+N to create a new file in folder.</p>
+
+<p>Explicitly added Gdip.ahk incase it is not present in your standard library.</p>
+</li>
 <li>
 <p><strong>1.4</strong> :</p>
 
