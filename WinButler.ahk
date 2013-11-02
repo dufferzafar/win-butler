@@ -178,7 +178,6 @@ Return
  * Opens a Chrome tab with onelookup reverse search.
  *
  * Todo: Sublime, nothing selected 'bug'
- * Fixed: Works if more than one word are selected
  */
 
 OneLook:

@@ -1,7 +1,11 @@
+/**
+ * Display a timer, and shutdown computer
+ *
+ * Todo: Inputbox for Minutes
+ */
 AutoShutdown:
-
 	Gdip_Startup()
-	Minutes := 15
+	Minutes := 30
 	Gosub, GdipSetup
 	; Msgbox, % FormatSeconds(Minutes*60)
 	StartCount := A_TickCount

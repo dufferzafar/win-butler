@@ -3,7 +3,6 @@
  *
  * Run command prompt in the current folder.
  *
- * Todo: Run even if explorer isn't open. C:\
  */
 RunConsole:
 	full_path := GetCurrentFolder7()

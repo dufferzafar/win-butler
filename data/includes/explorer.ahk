@@ -54,6 +54,8 @@ GetSelectedText() {
 	If !IsClipEmpty
 		ClipWait, 0.5, 1
 
+	; Msgbox, %ToReturn%
+
 	Return ToReturn
 }
 

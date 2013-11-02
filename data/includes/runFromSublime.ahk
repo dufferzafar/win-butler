@@ -4,9 +4,27 @@
  * I am too lazy to even right-click :)
  */
 OpenInSublime:
-	filePath := GetSelectedText()
+	files := GetSelectedText()
+	sublParams =
 
-	Run, subl.exe "%filePath%"
+	StringSplit, filesArray, files, `n
+
+	Loop, %filesArray0%
+	{
+		thisFile := filesArray%A_Index%
+		StringReplace, thisFile, thisFile, `r, , all
+
+		; Leave out the directories
+		If(attr := FileExist(thisFile))
+			If !InStr(attr, "D")
+			{
+				filePath = "%thisFile%"
+				sublParams .= " " . filePath
+			}
+	}
+
+	If (sublParams)
+		Run, subl.exe -n %sublParams%
 Return
 
 /**
