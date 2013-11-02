@@ -103,6 +103,8 @@ Hotkey, 		^+z, 		HelpFolder, 		On
 
 Hotkey, 		!^c, 		RunConsole,			On
 
+Hotkey, 		#s, 		AutoShutdown,		On
+
 ; Run files open in sublime text
 Hotkey, IfWinActive, ahk_class PX_WINDOW_CLASS
 Hotkey, 		^+s, 		RunFromSublime, 	On
@@ -340,8 +342,11 @@ CloseMe:
 ; Console2 and Command prompt
 #Include Data\includes\console.ahk
 
-; Run files directly from sublime
+; Run files directly to/from sublime
 #Include Data\includes\runFromSublime.ahk
+
+; Display a beautiful timer and say goodbye
+#Include Data\includes\autoshutdown.ahk
 
 ; Needed for screenshot features
 #Include Data\Gdip.ahk

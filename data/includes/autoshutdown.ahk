@@ -1,15 +1,21 @@
 /**
  * Display a timer, and shutdown computer
- *
- * Todo: Inputbox for Minutes
  */
 AutoShutdown:
+	InputBox, MinuteInput, Shutdown in..., This computer will Shutdown in...... (minutes), ,250, 150, , , , , 20
+
+	If (MinuteInput == "")
+		Return
+
+	; Convert string to number
+	Minutes := ("0" . MinuteInput), Minutes += 0
 	Gdip_Startup()
-	Minutes := 30
+
 	Gosub, GdipSetup
-	; Msgbox, % FormatSeconds(Minutes*60)
 	StartCount := A_TickCount
 	SetTimer, ShutdownTimer, % 1000
+
+	Hotkey, Esc, Abort, On
 Return
 
 ShutdownTimer:
@@ -69,10 +75,12 @@ GdipSetup:
 	UpdateLayeredWindow(hwnd1, hdc, 0, 0, Width, Height)
 Return
 
-Esc::
-GdipCleanup:
+Abort:
 	SelectObject(hdc, obm), DeleteObject(hbm)
 	DeleteDC(hdc), Gdip_DeleteGraphics(G)
 	Gdip_DeleteBrush(pBrush)
-ExitApp
+
+	Gui, 99:Destroy
+	SetTimer, ShutdownTimer, Off
+	Hotkey, Esc, Abort, Off
 Return

@@ -150,7 +150,8 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
-* Updated: Multiple files can be opened in sublime.
+* Added: Windows+S - Autoshutdown in X minutes.
+* Updated: Multiple files can be opened in sublime from explorer.
 * Added: QtTabBar Improvements. Ctrl+PgDn, Ctrl+PgUp.
 * Added: ALt+Ctrl+F Opens the selected file in sublime text.
 * Remapped: CapsLock to Backspace.
