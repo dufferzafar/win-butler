@@ -1,4 +1,15 @@
 /**
+ * Open the selected file in sublime
+ *
+ * I am too lazy to even right-click :)
+ */
+OpenInSublime:
+	filePath := GetSelectedText()
+
+	Run, subl.exe "%filePath%"
+Return
+
+/**
  * Run the currently open file in Sublime Text
  *
  * Adjusts PHP/HTML files to take localhost into account

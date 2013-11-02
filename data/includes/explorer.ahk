@@ -58,6 +58,21 @@ GetSelectedText() {
 }
 
 /**
+ * Some Improvements to the default settings of QtTabBar
+ *
+ * Ctrl+PgDn is the same as Ctrl+Tab
+ * Ctrl+PgUp is the same as Ctrl+Shift+Tab
+ */
+
+QtTabDn:
+	Send, ^{Tab}
+Return
+
+QtTabUp:
+	Send, ^+{Tab}
+Return
+
+/**
  * New File
  *
  * Create a new file in the current folder,

@@ -118,6 +118,9 @@ Hotkey, IfWinActive
 Hotkey, IfWinActive, ahk_group Explorer
 Hotkey, 		#y, 		ToggleExt, 			On
 Hotkey, 		#j, 		ToggleHidden, 		On
+Hotkey, 		!^f, 		OpenInSublime, 	On
+Hotkey, 		^PgDn, 	QtTabDn,			 	On
+Hotkey, 		^PgUp, 	QtTabUp,			 	On
 Hotkey, IfWinActive
 
 /**

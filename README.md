@@ -103,6 +103,8 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * Imgur Uploader
   * Hotkey to Upload
 
+* Backup Buddy Module
+
 * Hide/Unhide Windows Media Player
 
 * Global Ctrl + W
@@ -148,7 +150,9 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
-* Remapped CapsLock to Backspace.
+* Added: QtTabBar Improvements. Ctrl+PgDn, Ctrl+PgUp.
+* Added: ALt+Ctrl+F Opens the selected file in sublime text.
+* Remapped: CapsLock to Backspace.
 
 * **1.8**:
 
