@@ -104,6 +104,7 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * Hotkey to Upload
 
 * Backup Buddy Module
+* Core Sorting Hat Module
 
 * Hide/Unhide Windows Media Player
 
@@ -115,8 +116,6 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 * Quick Features
   * Ask to run on startup.
-
-* GetSelectedText()
 
 * TrayMenu
   * Turn Backup Buddy On/Off
@@ -149,6 +148,8 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * Sorting Hat
 
 ## <a name="changelog"></a>Changelog
+
+* Modified: Windows+Down minimizes instead of restoring.
 
 * Added: Windows+S - Autoshutdown in X minutes.
 * Updated: Multiple files can be opened in sublime from explorer.

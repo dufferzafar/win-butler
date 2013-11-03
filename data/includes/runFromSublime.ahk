@@ -24,7 +24,7 @@ OpenInSublime:
 	}
 
 	If (sublParams)
-		Run, subl.exe -n %sublParams%
+		Run, subl.exe -n %sublParams%, , Max
 Return
 
 /**

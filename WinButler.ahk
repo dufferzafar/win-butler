@@ -103,6 +103,7 @@ Hotkey, 		^+z, 		HelpFolder, 		On
 
 Hotkey, 		!^c, 		RunConsole,			On
 
+Hotkey, 		#Down, 	Minimize,		 	On
 Hotkey, 		#s, 		AutoShutdown,		On
 
 ; Run files open in sublime text
@@ -221,7 +222,7 @@ SaveText:
 
 		If (FileName != "")
 			If (Ext == "") ; Default - Text File
-				FileAppend, %selection%, %A_Desktop%\%FileName%.txt
+				FileAppend, %selection%, %A_Desktop%\%FileName%.ahk
 			Else
 				FileAppend, %selection%, %A_Desktop%\%FileName%
 	}

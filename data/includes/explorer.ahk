@@ -74,6 +74,11 @@ QtTabUp:
 	Send, ^+{Tab}
 Return
 
+Minimize:
+	; Send, #m
+	WinMinimize, A
+Return
+
 /**
  * New File
  *
