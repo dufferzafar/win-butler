@@ -149,6 +149,9 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
+* Added: Alt+Shift+S - Save and Run AHK Scripts
+* Modified: Minor improvements to SaveScript:
+
 * Modified: Windows+Down minimizes instead of restoring.
 
 * Added: Windows+S - Autoshutdown in X minutes.

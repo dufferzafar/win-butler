@@ -91,9 +91,11 @@ SetCapsLockState, AlwaysOff
 
 Hotkey, 		^+Esc, 	RunTaskMan, 		On
 Hotkey, 		!^r, 		RunRegedit, 		On
-Hotkey, 		!^s, 		SaveText, 			On
 Hotkey, 		#t, 		TopMost, 			On
 Hotkey, 		!^d, 		OneLook, 			On
+
+Hotkey, 		!^s, 		SaveText, 			On
+Hotkey, 		!+s, 		SaveRunScript,		On
 
 Hotkey, 		^Space, 	RunScriptlet, 		On
 
@@ -207,13 +209,8 @@ Return
  * The file will be saved to the desktop :)
  */
 SaveText:
-	tmp = %ClipboardAll% 	;save clipboard
-	Clipboard := "" 			;clear
-	Send, ^c 					;copy the selection
-	ClipWait, 1
-	selection = %Clipboard% ;save the selection
-	Clipboard = %tmp% 		;restore old content of the clipboard
-
+	selection := GetSelectedText()
+	; MsgBox, % Selection
 	If (selection != "")		;if something is selected
 	{
 		;Create a file
@@ -222,9 +219,31 @@ SaveText:
 
 		If (FileName != "")
 			If (Ext == "") ; Default - Text File
-				FileAppend, %selection%, %A_Desktop%\%FileName%.ahk
+				FileAppend, %selection%, %A_Desktop%\%FileName%.txt
+			Else If (Ext == "ahk")
+				FileAppend, %selection%, C:\Users\dufferzafar\Downloads\Scripts\%FileName%
 			Else
 				FileAppend, %selection%, %A_Desktop%\%FileName%
+	}
+Return
+
+/**
+ * SaveRunScript
+ *
+ * Saves the currently selected text to an AHK
+ * script and then runs it.
+ */
+SaveRunScript:
+	selection := GetSelectedText()
+	; MsgBox, % Selection
+	If (selection != "")		;if something is selected
+	{
+		Path := "C:\Users\dufferzafar\Downloads\Scripts"
+		WinGetActiveTitle, Title
+		Title := SubStr(Title, 1, 15)
+		FileName = %Title%-%A_Hour%-%A_Min%-%A_Sec%.ahk
+		FileAppend, %selection%, %Path%\%FileName%
+		Run, %Path%\%FileName%, %Path%
 	}
 Return
 
