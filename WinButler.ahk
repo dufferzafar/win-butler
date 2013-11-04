@@ -220,7 +220,7 @@ SaveText:
 		If (FileName != "")
 			If (Ext == "") ; Default - Text File
 				FileAppend, %selection%, %A_Desktop%\%FileName%.txt
-			Else If (Ext == "ahk")
+			Else If (Ext == "ahk") or (Ext == "py")
 				FileAppend, %selection%, C:\Users\dufferzafar\Downloads\Scripts\%FileName%
 			Else
 				FileAppend, %selection%, %A_Desktop%\%FileName%
