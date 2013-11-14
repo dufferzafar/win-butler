@@ -13,13 +13,13 @@ GrabWindow:
 Return
 
 GrabScreenSansTaskbar:
-	Screenshot("Screen-Taskbar")
+   Screenshot("Screen-Taskbar")
 Return
 
 GrabArea:
-	Area := SelectArea("cBlue")
-	Sleep, 100
-	Screenshot("Area", Area)
+   Area := SelectArea("cBlue")
+   Sleep, 100
+   Screenshot("Area", Area)
 Return
 
 ; The screenshot function:

@@ -173,6 +173,11 @@ Return
 	SendInput, ^{BS}
 Return
 
++CapsLock::
+	SendInput, {Del}
+Return
+
+
 /**
  * Searches for related words for the currently selected word.
  *

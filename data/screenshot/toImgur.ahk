@@ -1,6 +1,6 @@
 #SingleInstance, Force
 
-; #Include json.inc.ahk
+#Include json.inc.ahk
 
 imgurClient := "a7c30de4f98751b"
 
@@ -26,6 +26,12 @@ SplashTextOff
 Msgbox, % json(codes, "success")
 Msgbox, % RegExReplace(json(codes, "data.link"),"\\")
 Return
+
+GrabAndUpload:
+	Screenshot("Screen-Taskbar")
+
+Return
+
 
 Base64enc( ByRef OutData, ByRef InData, InDataLen ) {
  DllCall( "Crypt32.dll\CryptBinaryToString" ( A_IsUnicode ? "W" : "A" )
