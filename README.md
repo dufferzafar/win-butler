@@ -151,6 +151,8 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 * Working on a Imgur Uploader
 
+* Added Windows + LButton to grab screen area.
+
 * Added: Alt+Shift+S - Save and Run AHK Scripts
 * Modified: Minor improvements to SaveScript:
 
