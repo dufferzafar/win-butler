@@ -1,4 +1,4 @@
-# Windows Butler v1.8
+# Windows Butler v2.0
 
 ![Butler](/data/butler.png)
 
@@ -44,8 +44,9 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   Grab screenshots with ease; press one of the shortcuts and a screenshot will be saved to your My Pictures folder. You can change the path if you want to.
 
   * **Printscreen** : Save the screen but not the taskbar portion.
-  * **Shift + Printscreen** : Save the entire screen.
-  * **Ctrl + Printscreen** : Save a screenshot of the active window.
+  * **Shift + Printscreen** : Save the screen, upload to imgur and copy URL to clipboard.
+  * **Ctrl + Printscreen** : Save the entire screen.
+  * **Alt + Printscreen** : Save the active window.
 
 * **Alt + Ctrl + C** : Launch Console in the current directory.
 
@@ -100,13 +101,11 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 * Copy selected File/Folder's path.
 
 * Screenshots
-  * Imgur Uploader
-  * Hotkey to Upload
+  * Upload to Imgur User Account
+  * SelectArea()
 
 * Backup Buddy Module
 * Core Sorting Hat Module
-
-* Hide/Unhide Windows Media Player
 
 * Global Ctrl + W
   * Maps to Alt+F4
@@ -117,14 +116,12 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 * Quick Features
   * Ask to run on startup.
 
+* Hide/Unhide Windows Media Player
+
 * TrayMenu
   * Turn Backup Buddy On/Off
   * Settings GUI
   * About Dialog
-
-* Volume OSD
-  * Mute Status
-  * Add to Main Process ?
 
 * AutoShutdown
   * Inputbox
@@ -149,8 +146,10 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
-* Working on a Imgur Uploader
+* Added: GrabAndUpload - Upload screenshots to Imgur (Shift + Printscreen )
 
+* Refactored: Screenshot.ahk
+* Disabled: SelectArea Screenshot (not reliable)
 * Added Windows + LButton to grab screen area.
 
 * Added: Alt+Shift+S - Save and Run AHK Scripts

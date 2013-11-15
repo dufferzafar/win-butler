@@ -20,27 +20,17 @@
 SetWorkingDir %A_ScriptDir%
 SendMode, Input
 
-Version := "v1.8"
-
-/**
- * Global Variables
- *
- * Edit only if you are sure enough.
- */
+Version := "v2.0"
 
 ; The folder path where your screenshots will be saved
 Screenshot_Directory := "C:\Users\" . A_Username . "\Pictures\Screenshots"
 FileCreateDir, % Screenshot_Directory
 
-; The output file format of the screenshots
-; Can be any one of png, jpg, bmp
-Screenshot_Format := "png"
+; The folder path where your imgur uploads will be saved
+Imgur_Directory := "C:\Users\" . A_Username . "\Pictures\OnImgur"
+FileCreateDir, % Imgur_Directory
+FileCreateDir, % Imgur_Directory . "\ImgurData"
 
-; The factor by which the screenshot will be reduced
-; 1.0 = Original Size,
-; 0.5 = Half the original,
-; 0.25 = Quarter of original and so on.
-Screenshot_Size := 1.0
 
 ; ######################## Script Begins ########################
 
@@ -71,7 +61,7 @@ Hey! I'm right here...
 
 Consult readme for usage instructions.
 )
-SetTimer, RemoveTrayTip, 2500
+SetTimer, RemoveTrayTip, 3000
 
 /**
  * Hotkey List
@@ -140,9 +130,10 @@ Else
 {
 	; Enable Screener Hotkeys
 	Hotkey, 		PrintScreen, 		GrabScreenSansTaskbar, 			On
-	Hotkey, 		+PrintScreen, 		GrabScreen, 						On
-	Hotkey, 		^PrintScreen, 		GrabWindow, 						On
-	Hotkey, 		#LButton, 			GrabArea,							On
+	Hotkey, 		+PrintScreen, 		GrabAndUpload,						On
+	Hotkey, 		^PrintScreen, 		GrabScreen, 						On
+	Hotkey, 		!PrintScreen, 		GrabWindow, 						On
+	; Hotkey, 		#LButton, 			GrabArea,							On
 }
 
 Return	 ; End of Auto Execute Section
@@ -369,5 +360,8 @@ CloseMe:
 ; Display a beautiful timer and say goodbye
 #Include Data\includes\autoshutdown.ahk
 
-; Needed for screenshot features
+; Needed for Screenshot features
 #Include Data\Gdip.ahk
+
+; Needed for handling Imgur response
+#Include Data\screenshot\json.inc.ahk
