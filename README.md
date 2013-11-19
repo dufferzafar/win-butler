@@ -1,4 +1,4 @@
-# Windows Butler v2.0
+# Windows Butler v2.1
 
 ![Butler](/data/butler.png)
 
@@ -98,20 +98,21 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="todo"></a>To Do ASAP
 
-* Copy selected File/Folder's path.
-
 * Screenshots
-  * Upload to Imgur User Account
-  * SelectArea()
-
-* Backup Buddy Module
-* Core Sorting Hat Module
+  * Upload Prompt ??
+  * Imgur User Account
 
 * Global Ctrl + W
+  * WhiteList/BlackList
   * Maps to Alt+F4
   * But in some applications to Ctrl+W
 
+* Backup Buddy Module ??
+* Core Sorting Hat Module
+
 ## <a name="later"></a>Could be added later
+
+* Copy selected File/Folder's path.
 
 * Quick Features
   * Ask to run on startup.
@@ -145,6 +146,9 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * Sorting Hat
 
 ## <a name="changelog"></a>Changelog
+
+* Enabled: SelectArea. Bug Fixed :)
+* Modified: Ctrl+Space remapped to Windows+Space.
 
 * Added: GrabAndUpload - Upload screenshots to Imgur (Shift + Printscreen )
 

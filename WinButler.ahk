@@ -20,7 +20,7 @@
 SetWorkingDir %A_ScriptDir%
 SendMode, Input
 
-Version := "v2.0"
+Version := "v2.1"
 
 ; The folder path where your screenshots will be saved
 Screenshot_Directory := "C:\Users\" . A_Username . "\Pictures\Screenshots"
@@ -87,7 +87,7 @@ Hotkey, 		!^d, 		OneLook, 			On
 Hotkey, 		!^s, 		SaveText, 			On
 Hotkey, 		!+s, 		SaveRunScript,		On
 
-Hotkey, 		^Space, 	RunScriptlet, 		On
+Hotkey, 		#Space, 	RunScriptlet, 		On
 
 Hotkey, 		^+q, 		HelpPython, 		On
 Hotkey, 		^+a, 		HelpAHK, 			On
@@ -133,7 +133,7 @@ Else
 	Hotkey, 		+PrintScreen, 		GrabAndUpload,						On
 	Hotkey, 		^PrintScreen, 		GrabScreen, 						On
 	Hotkey, 		!PrintScreen, 		GrabWindow, 						On
-	; Hotkey, 		#LButton, 			GrabArea,							On
+	Hotkey, 		#LButton, 			GrabArea,							On
 }
 
 Return	 ; End of Auto Execute Section
@@ -342,9 +342,6 @@ CloseMe:
  * Include Dependencies
  */
 
-; Screencapture related functions
-#Include Data\screenshot\screenshot.ahk
-
 ; Registry Editor launch/jump
 #Include Data\includes\registry.ahk
 
@@ -360,8 +357,11 @@ CloseMe:
 ; Display a beautiful timer and say goodbye
 #Include Data\includes\autoshutdown.ahk
 
+; Screencapture related functions
+#Include Data\screenshot\screenshot.ahk
+
 ; Needed for Screenshot features
 #Include Data\Gdip.ahk
 
-; Needed for handling Imgur response
+; JSON library used to handle response from Imgur
 #Include Data\screenshot\json.inc.ahk

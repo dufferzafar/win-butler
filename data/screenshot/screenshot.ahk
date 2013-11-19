@@ -4,6 +4,18 @@
  * Modify global variables to alter behaviour.
  */
 
+GrabArea:
+   RawArea := SelectArea()
+   StringSplit, AreaArr, RawArea, |
+
+   Area := AreaArr1 "|" AreaArr2 "|" AreaArr3-AreaArr1 "|" AreaArr4-AreaArr2
+
+   FileName = Area-%A_DD%-%A_MMM%-%A_YYYY%-%A_Hour%-%A_Min%-%A_Sec%
+
+   ; Msgbox, % Area
+   Screenshot(Area, Screenshot_Directory, FileName)
+Return
+
 GrabScreen:
    sW := A_ScreenWidth, sH := A_ScreenHeight
 
@@ -130,4 +142,57 @@ Base64enc( ByRef OutData, ByRef InData, InDataLen ) {
  DllCall( "Crypt32.dll\CryptBinaryToString" ( A_IsUnicode ? "W" : "A" )
         , UInt,&InData, UInt,InDataLen, UInt,1, Str,OutData, UIntP,Req, "CDECL Int" )
 Return TChars
+}
+
+SelectArea(Options="") {   ; by Learning one
+   CoordMode, Mouse, Screen
+   MouseGetPos, MX, MY
+   CoordMode, Mouse, Relative
+   MouseGetPos, rMX, rMY
+   CoordMode, Mouse, Screen
+   loop, parse, Options, %A_Space%
+   {
+      Field := A_LoopField
+      FirstChar := SubStr(Field,1,1)
+      if FirstChar contains c,t,g,m
+      {
+         StringTrimLeft, Field, Field, 1
+         %FirstChar% := Field
+      }
+   }
+   c := (c = "") ? "Blue" : c, t := (t = "") ? "50" : t, g := (g = "") ? "99" : g , m := (m = "") ? "s" : m
+   Gui %g%: Destroy
+   Gui %g%: +AlwaysOnTop -caption +Border +ToolWindow +LastFound
+   WinSet, Transparent, %t%
+   Gui %g%: Color, %c%
+   Hotkey := RegExReplace(A_ThisHotkey,"^(\w* & |\W)")
+   While, (GetKeyState(Hotkey, "p"))
+   {
+      Sleep, 10
+      MouseGetPos, MXend, MYend
+      w := abs(MX - MXend), h := abs(MY - MYend)
+      X := (MX < MXend) ? MX : MXend
+      Y := (MY < MYend) ? MY : MYend
+      Gui %g%: Show, x%X% y%Y% w%w% h%h% NA
+   }
+   Gui %g%: Destroy
+   if m = s ; Screen
+   {
+      MouseGetPos, MXend, MYend
+      If ( MX > MXend )
+      temp := MX, MX := MXend, MXend := temp
+      If ( MY > MYend )
+      temp := MY, MY := MYend, MYend := temp
+      Return MX "|" MY "|" MXend "|" MYend
+   }
+   else  ; Relative
+   {
+      CoordMode, Mouse, Relative
+      MouseGetPos, rMXend, rMYend
+      If ( rMX > rMXend )
+      temp := rMX, rMX := rMXend, rMXend := temp
+      If ( rMY > rMYend )
+      temp := rMY, rMY := rMYend, rMYend := temp
+      Return rMX "|" rMY "|" rMXend "|" rMYend
+   }
 }
