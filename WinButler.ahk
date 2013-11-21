@@ -98,6 +98,9 @@ Hotkey, 		!^c, 		RunConsole,			On
 Hotkey, 		#Down, 	Minimize,		 	On
 Hotkey, 		#s, 		AutoShutdown,		On
 
+Hotkey, 		^Up, 		VolumeUp,			On
+Hotkey, 		^Down, 	VolumeDown,			On
+
 ; Run files open in sublime text
 Hotkey, IfWinActive, ahk_class PX_WINDOW_CLASS
 Hotkey, 		^+s, 		RunFromSublime, 	On
@@ -135,6 +138,10 @@ Else
 	Hotkey, 		!PrintScreen, 		GrabWindow, 						On
 	Hotkey, 		#LButton, 			GrabArea,							On
 }
+
+;Create a layered window
+Gui, 97:-Caption +E0x80000 +LastFound +AlwaysOnTop +ToolWindow
+hVolumeOSD := WinExist()
 
 Return	 ; End of Auto Execute Section
 
@@ -365,3 +372,9 @@ CloseMe:
 
 ; JSON library used to handle response from Imgur
 #Include Data\screenshot\json.inc.ahk
+
+; Needed for Volume Control on Windows 7
+#Include Data\volume\VA.inc.ahk
+
+; Control Volume
+#Include Data\volume\volumeOSD.ahk

@@ -1,41 +1,28 @@
-#Include VA.ahk
-#SingleInstance force
-
-;You first need to start up GDI+
-pToken := Gdip_Startup()
-
-;So that we can shutdown GDI+ nicely
-OnExit, ExitingApp
-
-;Create a layered window
-Gui, 1:-Caption +E0x80000 +LastFound +AlwaysOnTop +ToolWindow
-hGui1 := WinExist()
-
-<^>!Up::
+VolumeUp:
 	iOldMaster := VA_GetMasterVolume()
 
 	iNewMaster := (iOldMaster + 5.00) > 100 ? 100 : (iOldMaster + 5.00)
 
 	VA_SetMasterVolume(iNewMaster)
 
-	VolumeOSD(hGui1, iNewMaster, 0xFFCCCCCC, (bMaster = "OFF") ? 0xFF0F0FFF : 0xFFFF0000)
+	VolumeOSD(hVolumeOSD, iNewMaster, 0xFFCCCCCC, (bMaster = "OFF") ? 0xFF0F0FFF : 0xFFFF0000)
 
 	SetTimer, HideGui, -1000
 Return
 
-<^>^Down::
+VolumeDown:
 	iOldMaster := VA_GetMasterVolume()
 
 	iNewMaster := (iOldMaster - 5.00) < 0 ? 0 : (iOldMaster - 5.00)
 
 	VA_SetMasterVolume(iNewMaster)
 
-	VolumeOSD(hGui1, iNewMaster, 0xFFCCCCCC, (bMaster = "OFF") ? 0xFF0F0FFF : 0xFFFF0000)
+	VolumeOSD(hVolumeOSD, iNewMaster, 0xFFCCCCCC, (bMaster = "OFF") ? 0xFF0F0FFF : 0xFFFF0000)
 	SetTimer, HideGui, -1000
 Return
 
 HideGui:
-	Gui, 1:Hide
+	Gui, 97:Hide
 Return
 
 ;hwnd       - Handle of the GUI
@@ -57,7 +44,7 @@ VolumeOSD(hwnd, iProgress, cText, cProgFill)
 	iY := (A_ScreenHeight - 170) / 2
 
 	;Default Text
-	sText := "Master Volume"
+	sText := "Volume"
 
 	;Deafault Progress Bar Text
 	sProgText := Round(iProgress) "%"
@@ -112,9 +99,3 @@ VolumeOSD(hwnd, iProgress, cText, cProgFill)
 
 	Return
 }
-
-;Shutdown GDI+ and get out
-Esc::
-ExitingApp:
-    Gdip_Shutdown(pToken)
-ExitApp

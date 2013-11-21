@@ -98,6 +98,16 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="todo"></a>To Do ASAP
 
+* Backup Buddy Module
+* Suspend Icon
+
+* Core Sorting Hat Module
+
+## <a name="later"></a>Could be added later
+
+* Volume Control
+  * Mute
+
 * Screenshots
   * Upload Prompt ??
   * Imgur User Account
@@ -107,33 +117,17 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * Maps to Alt+F4
   * But in some applications to Ctrl+W
 
-* Backup Buddy Module ??
-* Core Sorting Hat Module
-
-## <a name="later"></a>Could be added later
-
 * Copy selected File/Folder's path.
-
-* Quick Features
-  * Ask to run on startup.
-
-* Hide/Unhide Windows Media Player
 
 * TrayMenu
   * Turn Backup Buddy On/Off
   * Settings GUI
   * About Dialog
 
-* AutoShutdown
-  * Inputbox
-  * Add to Main Process
-
 * Settings GUI
   * Hotkeys - Bindings, On/Off
   * Folder Paths
   * Backup Settings
-
-* Session Store - like chrome extension
 
 * A launcher for some tasks
   * Radial Menu or Sublime like command pallette ?
@@ -143,14 +137,19 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 * Add other scripts:
   * Renamer
-  * Sorting Hat
 
 ## <a name="changelog"></a>Changelog
 
-* Enabled: SelectArea. Bug Fixed :)
-* Modified: Ctrl+Space remapped to Windows+Space.
+* **2.1**:
 
-* Added: GrabAndUpload - Upload screenshots to Imgur (Shift + Printscreen )
+* Added: Volume Control (On Screen Display). Ctrl+Up. Ctrl+Down.
+
+* Enabled: SelectArea. Bug Fixed :)
+* Modified: Scriptlet Library opens with Windows+Space instead of Ctrl+Space.
+
+* **2.0**:
+
+* Added: GrabAndUpload - Upload screenshots to Imgur (Shift + Printscreen)
 
 * Refactored: Screenshot.ahk
 * Disabled: SelectArea Screenshot (not reliable)
