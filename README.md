@@ -52,7 +52,7 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
   Launches to root "C:\" if path cannot be grabbed.
 
-* **Ctrl + Space** : Launch Scriptlet Library
+* **Windows + Space** : Launch Scriptlet Library
 
   Take quick notes. Press Ctrl + Space again to save and exit.
 
@@ -84,9 +84,11 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
   Select a registry key like "HKEY_CLASSES_ROOT\Python.File\shell\open" and then Press the hotkey to directly jump to that Key. Sweet, ain't it?
 
-* **Ctrl + V** in a command prompt window
+* In a Command prompt window
 
-  It is not possible to paste data directly to a command prompt window. Not anymore. :)
+  * **Ctrl + V**: It is not possible to paste data directly to a command prompt window. Not anymore.
+
+  * **Ctrl + W**: Close the console.
 
 * Disabled
 
@@ -99,6 +101,8 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 ## <a name="todo"></a>To Do ASAP
 
 * Backup Buddy Module
+  * Animated TrayIcon
+
 * Suspend Icon
 
 * Core Sorting Hat Module
@@ -142,29 +146,29 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 * **2.1**:
 
-* Added: Volume Control (On Screen Display). Ctrl+Up. Ctrl+Down.
+  Added: Volume Control (On Screen Display). Ctrl+Up. Ctrl+Down.
 
-* Enabled: SelectArea. Bug Fixed :)
-* Modified: Scriptlet Library opens with Windows+Space instead of Ctrl+Space.
+  Enabled: SelectArea. Bug Fixed :)
+  Modified: Scriptlet Library opens with Windows+Space instead of Ctrl+Space.
 
 * **2.0**:
 
-* Added: GrabAndUpload - Upload screenshots to Imgur (Shift + Printscreen)
+  Added: GrabAndUpload - Upload screenshots to Imgur (Shift + Printscreen)
 
-* Refactored: Screenshot.ahk
-* Disabled: SelectArea Screenshot (not reliable)
-* Added Windows + LButton to grab screen area.
+  Refactored: Screenshot.ahk
+  Disabled: SelectArea Screenshot (not reliable)
+  Added Windows + LButton to grab screen area.
 
-* Added: Alt+Shift+S - Save and Run AHK Scripts
-* Modified: Minor improvements to SaveScript:
+  Added: Alt+Shift+S - Save and Run AHK Scripts
+  Modified: Minor improvements to SaveScript:
 
-* Modified: Windows+Down minimizes instead of restoring.
+  Modified: Windows+Down minimizes instead of restoring.
 
-* Added: Windows+S - Autoshutdown in X minutes.
-* Updated: Multiple files can be opened in sublime from explorer.
-* Added: QtTabBar Improvements. Ctrl+PgDn, Ctrl+PgUp.
-* Added: ALt+Ctrl+F Opens the selected file in sublime text.
-* Remapped: CapsLock to Backspace.
+  Added: Windows+S - Autoshutdown in X minutes.
+  Updated: Multiple files can be opened in sublime from explorer.
+  Added: QtTabBar Improvements. Ctrl+PgDn, Ctrl+PgUp.
+  Added: ALt+Ctrl+F Opens the selected file in sublime text.
+  Remapped: CapsLock to Backspace.
 
 * **1.8**:
 
