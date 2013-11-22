@@ -1,6 +1,6 @@
-# Windows Butler v2.1
+# Windows Butler v2.3
 
-![Butler](/data/butler.png)
+![Butler](/Data/butler.png)
 
 An Autohotkey script to help you with common windows tasks, a life-saver that I just can't live without.
 
@@ -25,6 +25,8 @@ NOTE:
 The capslock key's functionality has been disabled in versions greater than 1.8.
 
 Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor but if you don't think so, Download the [older version](https://github.com/dufferzafar/win-butler/archive/v1.8.zip) instead.
+
+![The About Gui](/Data/about.jpg)
 
 ## <a name="hotkeys"></a>List of Shortcuts
 
@@ -93,26 +95,32 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 * Backup Buddy Module
   * Animated TrayIcon
 
-* Suspend Icon
+* Settings GUI
+  * Hotkeys - Bindings, On/Off
+  * Folder Paths
+  * Backup Settings
+
+* TrayMenu
+  * Turn Backup Buddy On/Off
 
 * RunFromSublime
   * Untitled Files
-
-* Goo.gl URL Shortner
-  * OnClipboardChange ?
-  * On Ctrl+V if IsURL()
-  * Authorization Headers
-
-* Core Sorting Hat Module
 
 ## <a name="later"></a>Could be added later
 
 * Volume Control
   * Mute
 
+* Core Sorting Hat Module
+
 * Screenshots
   * Upload Prompt ??
   * Imgur User Account
+  * Authorization Headers
+
+* Goo.gl URL Shortner
+  * OnClipboardChange ?
+  * On Ctrl+V if IsURL()
   * Authorization Headers
 
 * Global Ctrl + W
@@ -121,16 +129,6 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * But in some applications to Ctrl+W
 
 * Copy selected File/Folder's path.
-
-* TrayMenu
-  * Turn Backup Buddy On/Off
-  * Settings GUI
-  * About Dialog
-
-* Settings GUI
-  * Hotkeys - Bindings, On/Off
-  * Folder Paths
-  * Backup Settings
 
 * A launcher for some tasks
   * Radial Menu or Sublime like command pallette ?
@@ -142,6 +140,12 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * Renamer
 
 ## <a name="changelog"></a>Changelog
+
+* **2.3**:
+
+  Added: An About Gui. yay!
+  Added: TrayMenu Icons for changing the screenshot size.
+  Added: TrayIcon for when the script is suspended. 
 
 * **2.1**:
 

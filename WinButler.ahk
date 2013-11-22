@@ -20,7 +20,7 @@
 SetWorkingDir %A_ScriptDir%
 SendMode, Input
 
-Version := "v2.1"
+Version := "v2.3", Version_Date := "23/11/2013"
 
 ; The folder path where your screenshots will be saved
 Screenshot_Directory := "C:\Users\" . A_Username . "\Pictures\Screenshots"
@@ -37,7 +37,6 @@ FileCreateDir, % Imgur_Directory . "\ImgurData"
 ; 0.25 = Quarter of original and so on.
 Screenshot_Size := 1.0
 
-
 ; ######################## Script Begins ########################
 
 OnExit, Exit
@@ -46,26 +45,10 @@ OnExit, Exit
 GroupAdd, Explorer, ahk_class CabinetWClass
 GroupAdd, Explorer, ahk_class Progman
 
-; Modify the Menu
-Menu, Tray, NoStandard
-Menu, Tray, Tip, Windows Butler ; %Version%
-
-Menu, ScreenShot_Menu, Add, % "Ratio: 25%", ScreenShot_Menu_Handler
-Menu, ScreenShot_Menu, Add, % "Ratio: 50%", ScreenShot_Menu_Handler
-Menu, ScreenShot_Menu, Add, % "Ratio: 75%", ScreenShot_Menu_Handler
-Menu, ScreenShot_Menu, Add, % "Ratio: 100%", ScreenShot_Menu_Handler
-
-Menu, Tray, Add, Screenshot, :ScreenShot_Menu
-Menu, Tray, Add
-Menu, Tray, Add, &Suspend, SuspendMe
-Menu, Tray, Add, &Exit, CloseMe
-
-Menu, ScreenShot_Menu, Check, % "Ratio: 100%"
-Ratio_LastMenuItem := "Ratio: 100%"
+Gosub, BuildTrayMenu
 
 ; Set the icon if it exist
-IfExist, %A_ScriptDir%\Data\Butler.ico
-	Menu, Tray, Icon, %A_ScriptDir%\Data\Butler.ico
+Menu, Tray, Icon, Data\icons\Butler.ico
 
 Menu, Tray, Icon	;Else show default icon
 
@@ -155,20 +138,18 @@ Else
 	Hotkey, 	#LButton, 		GrabArea,					On
 }
 
-;Create a layered window
+; Build the Main Gui
+Gosub, BuildGui
+
+; Used
+hCurs := DllCall("LoadCursor","UInt",NULL,"Int",32649,"UInt") ;IDC_HAND
+OnMessage(0x200,"WM_MOUSEMOVE")
+
+;Create a layered window for Volume OSD
 Gui, 97:-Caption +E0x80000 +LastFound +AlwaysOnTop +ToolWindow
 hVolumeOSD := WinExist()
 
 Return	 ; End of Auto Execute Section
-
-ScreenShot_Menu_Handler:
-	If RegExMatch(A_ThisMenuItem, "^Ratio: (\d+)%$", Ratio)
-	{
-		ScreenShot_Size := (Ratio1 / 100)
-		Menu, ScreenShot_Menu, Check, % A_ThisMenuItem
-		Menu, ScreenShot_Menu, UnCheck, % Ratio_LastMenuItem
-	}
-Return
 
 /**
  * Some Dirty Hostrings
@@ -184,6 +165,11 @@ Return
 
 ; My Octopress Blog.
 ::dz::dufferzafar.github.com
+
+^F12::
+	dbg := Debug("Hotkeys") ; Debugger
+	Msgbox, % dbg
+Return
 
 /**
  * WHY WAS THIS KEY CREATED?
@@ -301,7 +287,7 @@ RunScriptlet:
 	}
 	Else
 	{
-		ScriptletPath := A_ScriptDir . "\data\scriptLib\Scriptlet Library.ahk"
+		ScriptletPath := A_ScriptDir . "\Data\scriptLib\Scriptlet Library.ahk"
 		SplitPath, ScriptletPath,,ScriptletDir
 		Run, %ScriptletPath%, %ScriptletDir%
 	}
@@ -361,10 +347,6 @@ RemoveTrayTip:
 	TrayTip
 Return
 
-SuspendMe:
-	Suspend, Toggle
-Return
-
 Exit:
 	Gdip_Shutdown(pToken)
 CloseMe:
@@ -373,6 +355,14 @@ CloseMe:
 /**
  * Include Dependencies
  */
+
+#Include Data\includes\debug.ahk
+
+; BuildGui and related handlers
+#Include Data\includes\gui.ahk
+
+; BuildTrayMenu and associated handlers
+#Include Data\includes\traymenu.ahk
 
 ; Registry Editor launch/jump
 #Include Data\includes\registry.ahk
@@ -393,7 +383,7 @@ CloseMe:
 #Include Data\screenshot\screenshot.ahk
 
 ; Needed for Screenshot features
-#Include Data\Gdip.ahk
+#Include Data\includes\Gdip.ahk
 
 ; JSON library used to handle response from Imgur
 #Include Data\screenshot\json.inc.ahk

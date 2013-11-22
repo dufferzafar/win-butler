@@ -125,7 +125,7 @@ ImgurUpload(ImagePath) {
    Return http.ResponseText
 }
 
-Base64enc( ByRef OutData, ByRef InData, InDataLen ) {
+Base64enc( ByRef OutData, ByRef InData, InDataLen ) { ; SKAN
  DllCall( "Crypt32.dll\CryptBinaryToString" ( A_IsUnicode ? "W" : "A" )
         , UInt,&InData, UInt,InDataLen, UInt,1, UInt,0, UIntP,TChars, "CDECL Int" )
  VarSetCapacity( OutData, Req := TChars * ( A_IsUnicode ? 2 : 1 ) )
