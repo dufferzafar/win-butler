@@ -95,6 +95,8 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 * Backup Buddy Module
   * Animated TrayIcon
 
+
+
 * Settings GUI
   * Hotkeys - Bindings, On/Off
   * Folder Paths
@@ -140,6 +142,8 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * Renamer
 
 ## <a name="changelog"></a>Changelog
+
+* Added: Date/Time Hotstrings.
 
 * **2.3**:
 

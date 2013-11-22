@@ -166,6 +166,11 @@ Return	 ; End of Auto Execute Section
 ; My Octopress Blog.
 ::dz::dufferzafar.github.com
 
+::time1::
+	FormatTime, CurrentDateTime,, M/d/yyyy h:mm tt  ; It will look like 9/1/2005 3:53 PM
+	SendInput %CurrentDateTime%
+Return
+
 ^F12::
 	dbg := Debug("Hotkeys") ; Debugger
 	Msgbox, % dbg
