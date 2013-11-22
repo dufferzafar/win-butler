@@ -2,11 +2,7 @@
 
 ![Butler](/data/butler.png)
 
-An Autohotkey script to help you with common windows tasks.
-
-That's putting it mildly.
-
-Actually, this is a life-saver, and I just can't imagine using windows without it.
+An Autohotkey script to help you with common windows tasks, a life-saver that I just can't live without.
 
 ## Table of Contents
 
@@ -20,8 +16,6 @@ Actually, this is a life-saver, and I just can't imagine using windows without i
 
 You'll need to have [Autohotkey](http://l.autohotkey.net/AutoHotkey_L_Install.exe) installed.
 
-Just do it, if you already haven't, you'll be needing it for most of my stuff.
-
 Once you have AHK installed, download the [zip](https://github.com/dufferzafar/win-butler/archive/master.zip), extract the contents, and Run WinButler.ahk
 
 Have fun!
@@ -34,7 +28,7 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="hotkeys"></a>List of Shortcuts
 
-* In windows explorer press these for the desired action
+* In windows explorer...
 
   * **Windows + J** : Show/Hide hidden files and folders.
   * **Windows + Y** : Show/Hide file extensions.
@@ -43,9 +37,9 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
   Grab screenshots with ease; press one of the shortcuts and a screenshot will be saved to your My Pictures folder. You can change the path if you want to.
 
-  * **Printscreen** : Save the screen but not the taskbar portion.
-  * **Shift + Printscreen** : Save the screen, upload to imgur and copy URL to clipboard.
-  * **Ctrl + Printscreen** : Save the entire screen.
+  * **Printscreen** : Save the entire screen.
+  * **Shift + Printscreen** : Save the screen, upload to imgur and copy the URL to clipboard like a boss!
+  * **Ctrl + Printscreen** : Save the screen but not the taskbar portion.
   * **Alt + Printscreen** : Save the active window.
 
 * **Alt + Ctrl + C** : Launch Console in the current directory.
@@ -54,35 +48,31 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 * **Windows + Space** : Launch Scriptlet Library
 
-  Take quick notes. Press Ctrl + Space again to save and exit.
+  Take quick notes. Press Windows + Space again to save and exit.
 
   Useful to save random chunks of code/text or whatever.
 
-  Scriptlets can then be executed, saved to file or copied to clipboard.
+  Scriptlets can be executed, saved to file or copied to clipboard.
 
-* **Alt + Ctrl + D** : Select a phrase and then press to find words similar to it via OneLook Reverse Dictionary.
+* **Alt + Ctrl + D** : Select a phrase and then press the hotkey to find words similar to it via the OneLook Reverse Dictionary.
 
 * **Alt + Ctrl + S** : Save selected text
 
-  Select some text and press Alt+Ctrl+S, give a filename and it'll be saved to desktop.
+  Select some text and press Alt+Ctrl+S, give a filename and it'll be saved to desktop. When no extension is provided, the deafult i.e txt will be used.
 
-  When no extension is provided, the deafult i.e txt will be used.
+* **Alt + Shift + S** : Save selected text as AHK and execute the Script
 
-* **Ctrl + Shift + S** : Works in *Sublime text*, Press it to launch the currently open file.
-
-  PHP files are opened by the path from localhost.
+* **Ctrl + Shift + S** : Works in *Sublime text*, Press it to launch the currently open file. PHP files are opened by the path from localhost.
 
 * **Ctrl + Shift + Esc** : Launch Task manager
 
-  Ever had that nagging "Task Manager has been disabled by your administrator" dialog?
-
-  Worry no more. This hotkey first removes any sort of restriction placed and then launches the task manager. Sweet!
+  This hotkey first removes any sort of restriction placed (like "Taskmanager has been disabled by your administrator").
 
 * **Alt + Ctrl + R** : Launch Registry Editor
 
-  Similar to task manager, any restriction on registry editor is removed.
-
   Select a registry key like "HKEY_CLASSES_ROOT\Python.File\shell\open" and then Press the hotkey to directly jump to that Key. Sweet, ain't it?
+
+  Similar to task manager, any restriction on registry editor is removed.
 
 * In a Command prompt window
 
@@ -90,9 +80,9 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
   * **Ctrl + W**: Close the console.
 
-* Disabled
+* Launch CHM Help files...
 
-  These hotkeys won't work by default for the simple reason that I do not know where you have your files stored. You'll have to tweak the script to provide paths to your help files.
+  You'll have to tweak the script to provide paths to your help files.
 
   * **Ctrl + Shift + Q** : Launch Python's help file.
   * **Ctrl + Shift + A** : Launch Autohotkey's help file.
@@ -105,6 +95,14 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 * Suspend Icon
 
+* RunFromSublime
+  * Untitled Files
+
+* Goo.gl URL Shortner
+  * OnClipboardChange ?
+  * On Ctrl+V if IsURL()
+  * Authorization Headers
+
 * Core Sorting Hat Module
 
 ## <a name="later"></a>Could be added later
@@ -115,6 +113,7 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 * Screenshots
   * Upload Prompt ??
   * Imgur User Account
+  * Authorization Headers
 
 * Global Ctrl + W
   * WhiteList/BlackList

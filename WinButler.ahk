@@ -132,11 +132,11 @@ If !pToken := Gdip_Startup()
 Else
 {
 	; Enable Screener Hotkeys
-	Hotkey, 		PrintScreen, 		GrabScreenSansTaskbar, 			On
-	Hotkey, 		+PrintScreen, 		GrabAndUpload,						On
-	Hotkey, 		^PrintScreen, 		GrabScreen, 						On
-	Hotkey, 		!PrintScreen, 		GrabWindow, 						On
-	Hotkey, 		#LButton, 			GrabArea,							On
+	Hotkey, 	PrintScreen, 	GrabScreen, 				On
+	Hotkey, 	+PrintScreen, 	GrabAndUpload,				On
+	Hotkey, 	^PrintScreen, 	GrabScreenSansTaskbar, 	On
+	Hotkey, 	!PrintScreen, 	GrabWindow, 				On
+	Hotkey, 	#LButton, 		GrabArea,					On
 }
 
 ;Create a layered window

@@ -95,7 +95,7 @@ VolumeOSD(hwnd, iProgress, cText, cProgFill)
 
 	;Show the GUI if it's not showing already
 	If Not DllCall("IsWindowVisible", "UInt", hwnd)
-	DllCall("ShowWindow", "UInt", hwnd, "UInt", 8)  ;SW_SHOWNA
+		DllCall("ShowWindow", "UInt", hwnd, "UInt", 8)  ;SW_SHOWNA
 
 	Return
 }

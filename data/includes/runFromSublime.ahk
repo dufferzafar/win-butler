@@ -55,27 +55,36 @@ RunFromSublime:
 
 	If FileExist(ScriptPath)
 	{
-
+		; Use the default handler for scripts
 		If InStr(wTitle, ".lua") or InStr(wTitle, ".ahk") or InStr(wTitle, ".py")
 		{
 			SplitPath, wTitle,,workingDir
 			Run, %ScriptPath%, %workingDir%
 		}
-		Else If InStr(wTitle, ".md")
-		{
-			Send, !m
-		}
 		; If this is an octopress post. Preview.
 		Else If InStr(wTitle, ".markdown")
 		{
-			Run, % "Chrome.exe http://localhost:4000"
+			Run, % "Chrome.exe http://localhost:4000/blog/"
 		}
 		Else If InStr(wTitle, ".php") or InStr(wTitle, ".html")
 		{
+			; If the file is in any other folder, the line below won't have any effect
 			StringReplace, NewScriptPath, ScriptPath,% "C:\xampp\htdocs\", % "http://localhost/"
+
 			Run, chrome.exe "%NewScriptPath%"
 		}
 		Else
 			Run, %ScriptPath%
 	}
+/*
+	Else ; If the file still does not exist - it must be "Untitled"
+	{
+		; Save and Run as Temporary AHK.
+		StringTrimRight, ScriptPath, ScriptPath, 3
+
+		FileName = TempAHKScript-%A_Hour%-%A_Min%-%A_Sec%.ahk
+		FileAppend, %selection%, %A_Temp%\%FileName%
+		Run, %Path%\%FileName%, %Path%
+	}
+*/
 Return
