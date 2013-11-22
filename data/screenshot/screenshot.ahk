@@ -13,7 +13,7 @@ GrabArea:
    FileName = Area-%A_DD%-%A_MMM%-%A_YYYY%-%A_Hour%-%A_Min%-%A_Sec%
 
    ; Msgbox, % Area
-   Screenshot(Area, Screenshot_Directory, FileName)
+   Screenshot(Screenshot_Size, Area, Screenshot_Directory, FileName)
 Return
 
 GrabScreen:
@@ -22,7 +22,7 @@ GrabScreen:
    Area := 0 "|" 0 "|" sw "|" sH
    FileName = Screen-%A_DD%-%A_MMM%-%A_YYYY%-%A_Hour%-%A_Min%-%A_Sec%
 
-   Screenshot(Area, Screenshot_Directory, FileName)
+   Screenshot(Screenshot_Size, Area, Screenshot_Directory, FileName)
 Return
 
 GrabScreenSansTaskbar:
@@ -32,7 +32,7 @@ GrabScreenSansTaskbar:
    Area := 0 "|" 0 "|" sW "|" sH-tbH
    FileName = Screen-%A_DD%-%A_MMM%-%A_YYYY%-%A_Hour%-%A_Min%-%A_Sec%
 
-   Screenshot(Area, Screenshot_Directory, FileName)
+   Screenshot(Screenshot_Size, Area, Screenshot_Directory, FileName)
 Return
 
 GrabAndUpload:
@@ -42,7 +42,7 @@ GrabAndUpload:
    Area := 0 "|" 0 "|" sW "|" sH-tbH
    FileName = Temp-%A_DD%-%A_MMM%-%A_YYYY%-%A_Hour%-%A_Min%-%A_Sec%
 
-   OutputScreenshot := Screenshot(Area, A_Temp, FileName)
+   OutputScreenshot := Screenshot(Screenshot_Size, Area, A_Temp, FileName)
    Response := ImgurUpload(OutputScreenshot)
 
    If (json(Response, "success"))
@@ -70,21 +70,6 @@ SetTimer, RemoveTrayTip, 5000
    }
 Return
 
-ImgurUpload(ImagePath) {
-   imgurClient := "a7c30de4f98751b"
-
-   File := FileOpen(ImagePath, "r")
-   File.RawRead(Data, File.Length)
-   Base64enc( PNGDATA, Data, File.Length )
-
-   http := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-   http.Open("POST","https://api.imgur.com/3/upload")
-   http.SetRequestHeader("Authorization","Client-ID " imgurClient)
-
-   http.Send(PNGDATA)
-   Return http.ResponseText
-}
-
 GrabWindow:
    WinGetPos, X, Y, W, H, A
    WinGetPos,,, tbW, tbH, ahk_class Shell_TrayWnd
@@ -93,18 +78,8 @@ GrabWindow:
    Area := (X>0?X:0) "|" (Y>0?Y:0) "|" (W<sW?W:sW) "|" (H<(sH-tbH)?H:(sH-tbH))
    FileName = Window-%A_DD%-%A_MMM%-%A_YYYY%-%A_Hour%-%A_Min%-%A_Sec%
 
-	Screenshot(Area, Screenshot_Directory, FileName)
+	Screenshot(Screenshot_Size, Area, Screenshot_Directory, FileName)
 Return
-
-; Todo: Make this piece of shit work
-; GrabArea:
-   ; Area := SelectArea("cBlue")
-   ; Sleep, 100
-
-   ; FileName = Area-%A_DD%-%A_MMM%-%A_YYYY%-%A_Hour%-%A_Min%-%A_Sec%
-
-   ; Screenshot(Area, Screenshot_Directory, FileName)
-; Return
 
 /**
  * Grabs screenshots using GDI+
@@ -115,8 +90,8 @@ Return
  *
  * @returns {[String]} The full file path of the screenshot
  */
-Screenshot(Area, FilePath, FileName) {
-	Size := 1.0, FileType := "jpg"
+Screenshot(Size, Area, FilePath, FileName) {
+	FileType := "jpg"
 
    ; Grab Screen
 	pBitmap := Gdip_BitmapFromScreen(Area)
@@ -133,6 +108,21 @@ Screenshot(Area, FilePath, FileName) {
 	Gdip_DeleteGraphics(G), Gdip_DisposeImage(pBitmapResized), Gdip_DisposeImage(pBitmap)
 
    Return FilePath "\" FileName "." FileType
+}
+
+ImgurUpload(ImagePath) {
+   imgurClient := "a7c30de4f98751b"
+
+   File := FileOpen(ImagePath, "r")
+   File.RawRead(Data, File.Length)
+   Base64enc( PNGDATA, Data, File.Length )
+
+   http := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+   http.Open("POST","https://api.imgur.com/3/upload")
+   http.SetRequestHeader("Authorization","Client-ID " imgurClient)
+
+   http.Send(PNGDATA)
+   Return http.ResponseText
 }
 
 Base64enc( ByRef OutData, ByRef InData, InDataLen ) {

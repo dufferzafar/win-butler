@@ -31,6 +31,12 @@ Imgur_Directory := "C:\Users\" . A_Username . "\Pictures\OnImgur"
 FileCreateDir, % Imgur_Directory
 FileCreateDir, % Imgur_Directory . "\ImgurData"
 
+; The factor by which the screenshot will be reduced
+; 1.0 = Original Size,
+; 0.5 = Half the original,
+; 0.25 = Quarter of original and so on.
+Screenshot_Size := 1.0
+
 
 ; ######################## Script Begins ########################
 
@@ -44,8 +50,18 @@ GroupAdd, Explorer, ahk_class Progman
 Menu, Tray, NoStandard
 Menu, Tray, Tip, Windows Butler ; %Version%
 
+Menu, ScreenShot_Menu, Add, % "Ratio: 25%", ScreenShot_Menu_Handler
+Menu, ScreenShot_Menu, Add, % "Ratio: 50%", ScreenShot_Menu_Handler
+Menu, ScreenShot_Menu, Add, % "Ratio: 75%", ScreenShot_Menu_Handler
+Menu, ScreenShot_Menu, Add, % "Ratio: 100%", ScreenShot_Menu_Handler
+
+Menu, Tray, Add, Screenshot, :ScreenShot_Menu
+Menu, Tray, Add
 Menu, Tray, Add, &Suspend, SuspendMe
 Menu, Tray, Add, &Exit, CloseMe
+
+Menu, ScreenShot_Menu, Check, % "Ratio: 100%"
+Ratio_LastMenuItem := "Ratio: 100%"
 
 ; Set the icon if it exist
 IfExist, %A_ScriptDir%\Data\Butler.ico
@@ -144,6 +160,15 @@ Gui, 97:-Caption +E0x80000 +LastFound +AlwaysOnTop +ToolWindow
 hVolumeOSD := WinExist()
 
 Return	 ; End of Auto Execute Section
+
+ScreenShot_Menu_Handler:
+	If RegExMatch(A_ThisMenuItem, "^Ratio: (\d+)%$", Ratio)
+	{
+		ScreenShot_Size := (Ratio1 / 100)
+		Menu, ScreenShot_Menu, Check, % A_ThisMenuItem
+		Menu, ScreenShot_Menu, UnCheck, % Ratio_LastMenuItem
+	}
+Return
 
 /**
  * Some Dirty Hostrings
