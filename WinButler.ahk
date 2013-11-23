@@ -97,8 +97,10 @@ Hotkey, 		!^c, 		RunConsole,			On
 Hotkey, 		#Down, 	Minimize,		 	On
 Hotkey, 		#s, 		AutoShutdown,		On
 
+Hotkey, IfWinNotActive, ahk_class QWidget ; VLC Media Player
 Hotkey, 		^Up, 		VolumeUp,			On
 Hotkey, 		^Down, 	VolumeDown,			On
+Hotkey, IfWinNotActive
 
 ; Run files open in sublime text
 Hotkey, IfWinActive, ahk_class PX_WINDOW_CLASS

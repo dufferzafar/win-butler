@@ -148,6 +148,7 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
+* Fixed: Ctrl+Up, Ctrl+Down now don't mess with VLC's default volume control.
 * Added: PgUp, PgDn Scrolling in any console window.
 * Added: Date/Time Hotstrings.
 

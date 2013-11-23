@@ -7,7 +7,7 @@ VolumeUp:
 
 	VolumeOSD(hVolumeOSD, iNewMaster, 0xFFCCCCCC, (bMaster = "OFF") ? 0xFF0F0FFF : 0xFFFF0000)
 
-	SetTimer, HideGui, -1000
+	SetTimer, HideGui, -750
 Return
 
 VolumeDown:
@@ -18,7 +18,7 @@ VolumeDown:
 	VA_SetMasterVolume(iNewMaster)
 
 	VolumeOSD(hVolumeOSD, iNewMaster, 0xFFCCCCCC, (bMaster = "OFF") ? 0xFF0F0FFF : 0xFFFF0000)
-	SetTimer, HideGui, -1000
+	SetTimer, HideGui, -750
 Return
 
 HideGui:
