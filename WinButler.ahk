@@ -109,6 +109,9 @@ Hotkey, IfWinActive
 Hotkey, IfWinActive, ahk_class ConsoleWindowClass
 Hotkey, 		^v, 		PasteClipboard, 	On
 Hotkey, 		^w, 		CloseCMD, 			On
+Hotkey, 		PgUp, 	ScrollUp,		 	On
+Hotkey, 		PgDn, 	ScrollDown,		 	On
+Hotkey, 		Home, 	ScrollTop,		 	On
 Hotkey, IfWinActive
 
 ; Extend windows explorer
@@ -164,17 +167,23 @@ Return	 ; End of Auto Execute Section
 ::i'm::I'm
 
 ; My Octopress Blog.
-::dz::dufferzafar.github.com
+:*:/dz::dufferzafar.github.com
 
-::time1::
-	FormatTime, CurrentDateTime,, M/d/yyyy h:mm tt  ; It will look like 9/1/2005 3:53 PM
-	SendInput %CurrentDateTime%
+:*:/d1::
+	FormatTime, CurrentDate,, d/M/yyyy
+	SendInput, %CurrentDate%
 Return
 
-^F12::
-	dbg := Debug("Hotkeys") ; Debugger
-	Msgbox, % dbg
+:*:/t1::
+	FormatTime, CurrentTime,, h:mm tt
+	SendInput, %CurrentTime%
 Return
+
+
+; ^F12::
+	; dbg := Debug("Hotkeys") ; Debugger
+	; Msgbox, % dbg
+; Return
 
 /**
  * WHY WAS THIS KEY CREATED?

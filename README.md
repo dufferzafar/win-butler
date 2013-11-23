@@ -95,12 +95,17 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 * Backup Buddy Module
   * Animated TrayIcon
 
-
+* Hotstrings
+  * Date/Time
+  * Address, State, ZipCode
+  * Emails
+  * WebURLs
 
 * Settings GUI
-  * Hotkeys - Bindings, On/Off
   * Folder Paths
-  * Backup Settings
+  * Screenshot
+  * Backup
+  * Hotkeys - Bindings, On/Off
 
 * TrayMenu
   * Turn Backup Buddy On/Off
@@ -143,6 +148,7 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
+* Added: PgUp, PgDn Scrolling in any console window.
 * Added: Date/Time Hotstrings.
 
 * **2.3**:
