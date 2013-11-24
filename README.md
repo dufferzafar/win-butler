@@ -93,7 +93,7 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 ## <a name="todo"></a>To Do ASAP
 
 * SelectFiles in explorer
-  * Extensions
+  * Think of ways to improve
 
 * Screenshots
   * Add Shift to upload in all...
@@ -146,6 +146,7 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
+* Added: Select multiple files in explorer. Ctrl + S.
 * Fixed: Ctrl+Up, Ctrl+Down now don't mess with VLC's default volume control.
 * Added: PgUp, PgDn Scrolling in any console window.
 * Added: Date/Time Hotstrings.

@@ -45,8 +45,8 @@ OnExit, Exit
 GroupAdd, Explorer, ahk_class CabinetWClass
 GroupAdd, Explorer, ahk_class Progman
 
-GroupAdd, CommandPrompts, ahk_class ConsoleWindowClass
-GroupAdd, CommandPrompts, ahk_class PuTTY
+GroupAdd, Console_Group, ahk_class ConsoleWindowClass
+GroupAdd, Console_Group, ahk_class PuTTY
 
 Gosub, BuildTrayMenu
 
@@ -111,7 +111,7 @@ Hotkey, 		^+s, 		RunFromSublime, 	On
 Hotkey, IfWinActive
 
 ; Paste text in command prompt
-Hotkey, IfWinActive, ahk_group CommandPrompts
+Hotkey, IfWinActive, ahk_group Console_Group
 Hotkey, 		^v, 		PasteClipboard, 	On
 Hotkey, 		^w, 		CloseCMD, 			On
 Hotkey, 		PgUp, 	ScrollUp,		 	On

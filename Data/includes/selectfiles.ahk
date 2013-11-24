@@ -40,6 +40,7 @@ SelectFiles:
       If (Item.hwnd = hWnd)
       {
         doc := Item.Document ; ShellFolderView
+        ; doc.FilterView(Filter)
         count := doc.Folder.Items.Count
         If(count > 0)
         {
@@ -48,7 +49,9 @@ SelectFiles:
           Loop % count
           {
             item := doc.Folder.Items.Item(A_Index - 1)
-            If InStr(item.Name, Filter)
+            itemPath := item.Path
+            SplitPath, itemPath, OutFileName, OutDir, OutExtension, OutNameNoExt, OutDrive
+            If InStr(item.Name, Filter) or InStr(OutExtension, Filter)
             {
               doc.SelectItem(item, 1) ; Select Item
             }
