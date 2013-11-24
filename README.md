@@ -146,6 +146,7 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
+* Refactored: Selectfiles. Leaner Code.
 * Added: Select multiple files in explorer. Ctrl + S.
 * Fixed: Ctrl+Up, Ctrl+Down now don't mess with VLC's default volume control.
 * Added: PgUp, PgDn Scrolling in any console window.

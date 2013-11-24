@@ -191,6 +191,7 @@ Return
 	SendInput, %CurrentTime%
 Return
 
+^+r::Reload
 
 ; ^F12::
 	; dbg := Debug("Hotkeys") ; Debugger

@@ -19,12 +19,12 @@ DeselectAll:
   {
     If (Item.hwnd = hWnd)
     {
-      doc := Item.Document ; ShellFolderView
-      count := doc.Folder.Items.Count
+      sfv := Item.Document ; ShellFolderView
+      count := sfv.Folder.Items.Count
       If(count > 0)
       {
-        item := doc.Folder.Items.Item(0)
-        doc.SelectItem(item, 4) ; Deselect All
+        item := sfv.Folder.Items.Item(0)
+        sfv.SelectItem(item, 4) ; Deselect All
       }
     }
   }
@@ -35,27 +35,24 @@ SelectFiles:
 
   If (Filter != "")
   {
-    for Item in shellApp.Windows
+    for Window in shellApp.Windows
     {
-      If (Item.hwnd = hWnd)
+      If (Window.hwnd = hWnd)
       {
-        doc := Item.Document ; ShellFolderView
-        ; doc.FilterView(Filter)
-        count := doc.Folder.Items.Count
-        If(count > 0)
+        sfv := Window.Document ; ShellFolderView
+        ; sfv.FilterView(Filter)
+        Items := sfv.Folder.Items
+        for Item in Items
         {
-          item := doc.Folder.Items.Item(0)
-          doc.SelectItem(item, 4) ; Deselect All
-          Loop % count
+          itemPath := Item.Path
+          SplitPath, itemPath, OutFileName, OutDir, OutExtension, OutNameNoExt, OutDrive
+
+          If InStr(Item.Name, Filter) or InStr(OutExtension, Filter)
           {
-            item := doc.Folder.Items.Item(A_Index - 1)
-            itemPath := item.Path
-            SplitPath, itemPath, OutFileName, OutDir, OutExtension, OutNameNoExt, OutDrive
-            If InStr(item.Name, Filter) or InStr(OutExtension, Filter)
-            {
-              doc.SelectItem(item, 1) ; Select Item
-            }
+            sfv.SelectItem(Item, 9) ; Select Item
           }
+          Else
+            sfv.SelectItem(Item, 0) ; Deselect Item
         }
       }
     }
@@ -66,7 +63,6 @@ Return
 3GuiClose:
   Gui, 3:Cancel
 Return
-
 
 /**
  * 0 = Deselect
