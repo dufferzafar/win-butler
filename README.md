@@ -92,8 +92,27 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="todo"></a>To Do ASAP
 
+* SelectFiles in explorer
+  * Extensions
+
+* Screenshots
+  * Add Shift to upload in all...
+
+## <a name="later"></a>Could be added later
+
+* Volume Control
+  * Mute
+
+* RunFromSublime
+  * Untitled Files
+
 * Backup Buddy Module
   * Animated TrayIcon
+
+* Core Sorting Hat Module
+
+* Imgur User Account
+  * Authorization Headers
 
 * Hotstrings
   * Date/Time
@@ -110,21 +129,6 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 * TrayMenu
   * Turn Backup Buddy On/Off
 
-* RunFromSublime
-  * Untitled Files
-
-## <a name="later"></a>Could be added later
-
-* Volume Control
-  * Mute
-
-* Core Sorting Hat Module
-
-* Screenshots
-  * Upload Prompt ??
-  * Imgur User Account
-  * Authorization Headers
-
 * Goo.gl URL Shortner
   * OnClipboardChange ?
   * On Ctrl+V if IsURL()
@@ -136,12 +140,6 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * But in some applications to Ctrl+W
 
 * Copy selected File/Folder's path.
-
-* A launcher for some tasks
-  * Radial Menu or Sublime like command pallette ?
-  * Select text and then play with it: Google, Wiki, WikiQuotes, OneLook.
-  * Detect whether the text is url, if so, open it.
-  * If the text is larger than 7 words show a save to file action rather than One Look.
 
 * Add other scripts:
   * Renamer
