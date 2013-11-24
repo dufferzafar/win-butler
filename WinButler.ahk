@@ -128,6 +128,11 @@ Hotkey, 		^PgDn, 	QtTabDn,			 	On
 Hotkey, 		^PgUp, 	QtTabUp,			 	On
 Hotkey, IfWinActive
 
+Hotkey, IfWinActive, ahk_class CabinetWClass
+Hotkey, ^s, Show_SelectFiles_Gui, On
+Hotkey, Esc, DeselectAll, On
+Hotkey, IfWinActive
+
 /**
  * Check whether GDI+ is ready, if not - disable screener functions
  */
@@ -156,6 +161,8 @@ OnMessage(0x200,"WM_MOUSEMOVE")
 ;Create a layered window for Volume OSD
 Gui, 97:-Caption +E0x80000 +LastFound +AlwaysOnTop +ToolWindow
 hVolumeOSD := WinExist()
+
+Gosub, Build_SelectFiles_Gui
 
 Return	 ; End of Auto Execute Section
 
@@ -379,6 +386,9 @@ CloseMe:
 
 ; BuildGui and related handlers
 #Include Data\includes\gui.ahk
+
+; Select files in explorer
+#Include Data\includes\selectfiles.ahk
 
 ; BuildTrayMenu and associated handlers
 #Include Data\includes\traymenu.ahk
