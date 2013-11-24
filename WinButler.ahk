@@ -96,6 +96,7 @@ Hotkey, 		^+a, 		HelpAHK, 			On
 Hotkey, 		^+z, 		HelpFolder, 		On
 
 Hotkey, 		!^c, 		RunConsole,			On
+Hotkey, 		!^x, 		RunGitShell,		On
 
 Hotkey, 		#Down, 	Minimize,		 	On
 Hotkey, 		#s, 		AutoShutdown,		On

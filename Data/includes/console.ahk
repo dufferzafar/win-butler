@@ -19,6 +19,17 @@ RunConsole:
 	}
 Return
 
+RunGitShell:
+	full_path := GetCurrentFolder7()
+
+	GitShell := "C:\Users\dufferzafar\AppData\Local\GitHub\PortableGit_0f65d050d0c352fd38a0b25d82ee942deb19ef87\bin\sh.exe"
+
+	IfInString full_path, \
+		Run, %GitShell% --login -i, %full_path%, Max
+	Else ;If path is not valid
+		Run, %GitShell% --login -i, % "D:\I, Coder\@ GitHub", Max
+Return
+
 CloseCMD:
 	WinKill, A
 Return

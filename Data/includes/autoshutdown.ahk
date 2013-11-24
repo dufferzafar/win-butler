@@ -4,7 +4,7 @@
 AutoShutdown:
 	InputBox, MinuteInput, Shutdown in..., This computer will Shutdown in...... (minutes), ,250, 150, , , , , 20
 
-	If (MinuteInput == "")
+	If (MinuteInput == "") or (ErrorLevel = 1)
 		Return
 
 	; Convert string to number
@@ -24,14 +24,12 @@ ShutdownTimer:
 	If (SecondsLeft <= 0)
 	{
 		SetTimer, ShutdownTimer, Off
-		; Msgbox, Bye!
 		Shutdown, 5
 	}
 	Else
 	{
 		Gdip_GraphicsClear(G)
 		Gdip_FillRectangle(G, pBrush, 0, 0, Width, Height)
-
 
 		Gdip_TextToGraphics(G, FormatSeconds(SecondsLeft), "x" mX " y" mY " cff000000 s200", Font)
 		Gdip_TextToGraphics(G, "Press Esc to Abort", "x" mX+175 " y" mY+240 " cff000000 s50", Font)
