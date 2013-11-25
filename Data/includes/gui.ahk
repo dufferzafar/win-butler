@@ -1,4 +1,4 @@
-BuildGui:
+Build_MainGui:
 Gui, 1:Add, Tab2, x-1 y0 h500 w480, About
 
 Gui, 1:Tab,About
@@ -35,6 +35,12 @@ Gui, 1:Tab,About
    Gui, 1:Add, Text, x353 y140 gGui_Link_Handler, Unlicensed
 
    Gui, 1:Font
+
+   ; Load the hand cursor.
+   hCurs := DllCall("LoadCursor","UInt",NULL,"Int",32649,"UInt") ;IDC_HAND
+
+   ; Used by the main gui to show hand cursor
+   OnMessage(0x200,"WM_MOUSEMOVE")
 Return
 
 ShowGui:

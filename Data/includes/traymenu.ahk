@@ -1,4 +1,4 @@
-BuildTrayMenu:
+Build_TrayMenu:
    ; Modify the Menu
    Menu, Tray, NoStandard
    Menu, Tray, Tip, Windows Butler ; %Version%
@@ -19,6 +19,25 @@ BuildTrayMenu:
 
    Menu, SS_Menu, Check, % "Ratio: 100%"
    Ratio_LastMenuItem := "Ratio: 100%"
+Return
+
+Show_TrayMenu:
+
+; Set the icon
+Menu, Tray, Icon, Data\icons\Butler.ico
+
+Menu, Tray, Icon  ;Else show default icon
+
+; Let the user know we have started
+TrayTip, Windows Butler %Version%,
+(
+
+Hey! I'm right here...
+
+Consult readme for usage instructions.
+)
+SetTimer, RemoveTrayTip, 3000
+
 Return
 
 SS_Menu_Handler:

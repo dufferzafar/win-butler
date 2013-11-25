@@ -1,8 +1,12 @@
-# Windows Butler v2.3
+# Windows Butler v2.5
 
 ![Butler](/Data/butler.png)
 
 An Autohotkey script to help you with common windows tasks, a life-saver that I just can't live without.
+
+Sadly, this script was never written for newbies, so there isn't a fancy settings GUI that allows you to customise things, I could have gone through the pain of creating one, but at the end of the day - I know I won't use it.
+
+To make changes and tweak things to suit your needs, you'll have to dig through the code but don't worry as there are a hell lot of comments to guide you.
 
 ## Table of Contents
 
@@ -92,24 +96,26 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="todo"></a>To Do ASAP
 
-* SelectFiles in explorer
-  * Think of ways to improve
+* Other Scripts
+  * Backup Buddy. Animated TrayIcon.
+  * Core part of Sorting Hat.
+  * Renamer
 
 * Screenshots
   * Add Shift to upload in all...
+
+* Settings GUI
+  * Folder Paths
+  * Screenshot
+  * Backup
+  * Hotkeys - Bindings, On/Off
+
+* Copy selected File/Folder's path.
 
 ## <a name="later"></a>Could be added later
 
 * Volume Control
   * Mute
-
-* RunFromSublime
-  * Untitled Files
-
-* Backup Buddy Module
-  * Animated TrayIcon
-
-* Core Sorting Hat Module
 
 * Imgur User Account
   * Authorization Headers
@@ -119,15 +125,6 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * Address, State, ZipCode
   * Emails
   * WebURLs
-
-* Settings GUI
-  * Folder Paths
-  * Screenshot
-  * Backup
-  * Hotkeys - Bindings, On/Off
-
-* TrayMenu
-  * Turn Backup Buddy On/Off
 
 * Goo.gl URL Shortner
   * OnClipboardChange ?
@@ -139,18 +136,17 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * Maps to Alt+F4
   * But in some applications to Ctrl+W
 
-* Copy selected File/Folder's path.
-
-* Add other scripts:
-  * Renamer
-
 ## <a name="changelog"></a>Changelog
 
-* Refactored: Selectfiles. Leaner Code.
-* Added: Select multiple files in explorer. Ctrl + S.
-* Fixed: Ctrl+Up, Ctrl+Down now don't mess with VLC's default volume control.
-* Added: PgUp, PgDn Scrolling in any console window.
-* Added: Date/Time Hotstrings.
+* **2.5**:
+
+  Refactored: Broke the code into more different files.
+
+  Refactored: Selectfiles. Leaner Code.
+  Added: Select multiple files in explorer. Ctrl + S.
+  Fixed: Ctrl+Up, Ctrl+Down now don't mess with VLC's default volume control.
+  Added: PgUp, PgDn Scrolling in any console window.
+  Added: Date/Time Hotstrings.
 
 * **2.3**:
 
@@ -207,11 +203,8 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 * **1.5**:
 
   Modified: Ctrl+Shift+Z to open Help Folder instead of PHP.
-
   Added: Alt+Ctrl+C to launch Console2
-
   Added: Ctrl+W closes the Command Prompt.
-
   Added: Ctrl+N to create a new file in folder.
 
   Explicitly added Gdip.ahk incase it is not present in your standard library.
@@ -219,11 +212,8 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 * **1.4** :
 
   Added: Alt+Ctrl+D to reverse lookup words on OneLook.
-
   Added: Some naive hotstrings. Like "i'm" gets converted to "I'm" and such.
-
   Fixed: The Screenshot directory will be created if it doesn't already exist.
-
   Added: For Markdown (*.md*) files in sublime. Send Alt+M Hotkey which builds the markdown file and opens in browser - I use the MarkdownEditing plugin.
 
 * **1.3** : Added Run from Sublime

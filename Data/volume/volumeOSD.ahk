@@ -1,3 +1,10 @@
+Build_VolOSD:
+	;Create a layered window
+	Gui, 97:-Caption +E0x80000 +LastFound +AlwaysOnTop +ToolWindow
+	hVolumeOSD := WinExist()
+Return
+
+
 VolumeUp:
 	iOldMaster := VA_GetMasterVolume()
 
@@ -96,6 +103,5 @@ VolumeOSD(hwnd, iProgress, cText, cProgFill)
 	;Show the GUI if it's not showing already
 	If Not DllCall("IsWindowVisible", "UInt", hwnd)
 		DllCall("ShowWindow", "UInt", hwnd, "UInt", 8)  ;SW_SHOWNA
-
-	Return
+	; Return
 }

@@ -1,5 +1,7 @@
 /**
  * Get the path of currently open folder.
+ *
+ * Todo: Change to COM. SFV.
  */
 GetCurrentFolder7() {
 	;Get the full path from the address bar
