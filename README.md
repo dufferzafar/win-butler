@@ -157,53 +157,53 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 * **2.5**:
 
-  Refactored: Broke the code into more different files.
+  * Refactored: Broke the code into more different files.
 
-  Refactored: Selectfiles. Leaner Code.
-  Added: Select multiple files in explorer. Ctrl + S.
-  Fixed: Ctrl+Up, Ctrl+Down now don't mess with VLC's default volume control.
-  Added: PgUp, PgDn Scrolling in any console window.
-  Added: Date/Time Hotstrings.
+  * Refactored: Selectfiles. Leaner Code.
+  * Added: Select multiple files in explorer. Ctrl + S.
+  * Fixed: Ctrl+Up, Ctrl+Down now don't mess with VLC's default volume control.
+  * Added: PgUp, PgDn Scrolling in any console window.
+  * Added: Date/Time Hotstrings.
 
 * **2.3**:
 
-  Added: An About Gui. yay!
-  Added: TrayMenu Icons for changing the screenshot size.
-  Added: TrayIcon for when the script is suspended. 
+  * Added: An About Gui. yay!
+  * Added: TrayMenu Icons for changing the screenshot size.
+  * Added: TrayIcon for when the script is suspended. 
 
 * **2.1**:
 
-  Added: Volume Control (On Screen Display). Ctrl+Up. Ctrl+Down.
+  * Added: Volume Control (On Screen Display). Ctrl+Up. Ctrl+Down.
 
-  Enabled: SelectArea. Bug Fixed :)
-  Modified: Scriptlet Library opens with Windows+Space instead of Ctrl+Space.
+  * Enabled: SelectArea. Bug Fixed :)
+  * Modified: Scriptlet Library opens with Windows+Space instead of Ctrl+Space.
 
 * **2.0**:
 
-  Added: GrabAndUpload - Upload screenshots to Imgur (Shift + Printscreen)
+  * Added: GrabAndUpload - Upload screenshots to Imgur (Shift + Printscreen)
 
-  Refactored: Screenshot.ahk
-  Disabled: SelectArea Screenshot (not reliable)
-  Added Windows + LButton to grab screen area.
+  * Refactored: Screenshot.ahk
+  * Disabled: SelectArea Screenshot (not reliable)
+  * Added Windows + LButton to grab screen area.
 
-  Added: Alt+Shift+S - Save and Run AHK Scripts
-  Modified: Minor improvements to SaveScript:
+  * Added: Alt+Shift+S - Save and Run AHK Scripts
+  * Modified: Minor improvements to SaveScript:
 
-  Modified: Windows+Down minimizes instead of restoring.
+  * Modified: Windows+Down minimizes instead of restoring.
 
-  Added: Windows+S - Autoshutdown in X minutes.
-  Updated: Multiple files can be opened in sublime from explorer.
-  Added: QtTabBar Improvements. Ctrl+PgDn, Ctrl+PgUp.
-  Added: ALt+Ctrl+F Opens the selected file in sublime text.
-  Remapped: CapsLock to Backspace.
+  * Added: Windows+S - Autoshutdown in X minutes.
+  * Updated: Multiple files can be opened in sublime from explorer.
+  * Added: QtTabBar Improvements. Ctrl+PgDn, Ctrl+PgUp.
+  * Added: ALt+Ctrl+F Opens the selected file in sublime text.
+  * Remapped: CapsLock to Backspace.
 
 * **1.8**:
 
-  Removed: Ctrl + N (New File) Hotkey. Useless.
+  * Removed: Ctrl + N (New File) Hotkey. Useless.
 
-  Changed: Printscreen now captures the screen but avoids the sidebar. Use Shift+Printscreen to capture the entirety, and Ctrl+Printscreen to capture Active Windows.
+  * Changed: Printscreen now captures the screen but avoids the sidebar. Use Shift+Printscreen to capture the entirety, and Ctrl+Printscreen to capture Active Windows.
 
-  Changed: Alt+Ctrl+C - Runs Console2 instead of CommandPrompt.
+  * Changed: Alt+Ctrl+C - Runs Console2 instead of CommandPrompt.
 
   New Modules:
     * AutoShutdown
@@ -215,23 +215,24 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
     * Registry
     * Explorer
 
-  Added: RegJump - Jumps to a specified registry key
+  * Added: RegJump - Jumps to a specified registry key
 
 * **1.5**:
 
-  Modified: Ctrl+Shift+Z to open Help Folder instead of PHP.
-  Added: Alt+Ctrl+C to launch Console2
-  Added: Ctrl+W closes the Command Prompt.
-  Added: Ctrl+N to create a new file in folder.
+  * Modified: Ctrl+Shift+Z to open Help Folder instead of PHP.
+  * Added: Alt+Ctrl+C to launch Console2
+  * Added: Ctrl+W closes the Command Prompt.
+  * Added: Ctrl+N to create a new file in folder.
 
-  Explicitly added Gdip.ahk incase it is not present in your standard library.
+  * Added Gdip.ahk incase it is not present in your standard library.
 
 * **1.4** :
 
-  Added: Alt+Ctrl+D to reverse lookup words on OneLook.
-  Added: Some naive hotstrings. Like "i'm" gets converted to "I'm" and such.
-  Fixed: The Screenshot directory will be created if it doesn't already exist.
-  Added: For Markdown (*.md*) files in sublime. Send Alt+M Hotkey which builds the markdown file and opens in browser - I use the MarkdownEditing plugin.
+  * Added: Alt+Ctrl+D to reverse lookup words on OneLook.
+  * Added: Some naive hotstrings. Like "i'm" gets converted to "I'm" and such.
+  * Fixed: The Screenshot directory will be created if it doesn't already exist.
+
+  * Added: For Markdown (*.md*) files in sublime. Send Alt+M Hotkey which builds the markdown file and opens in browser - I use the MarkdownEditing plugin.
 
 * **1.3** : Added Run from Sublime
 
