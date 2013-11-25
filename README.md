@@ -96,6 +96,11 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="todo"></a>To Do ASAP
 
+* Volume Control
+  * Better Gui
+  * Bottom Right Corner
+  * Mute/Unmute
+
 * Other Scripts
   * Backup Buddy. Animated TrayIcon.
   * Core part of Sorting Hat.
@@ -110,12 +115,24 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * Backup
   * Hotkeys - Bindings, On/Off
 
-* Copy selected File/Folder's path.
-
 ## <a name="later"></a>Could be added later
 
-* Volume Control
-  * Mute
+* Features from 7Plus: (Filter on accounts of usability)
+  * Store favorite folders and recall them
+  * Create new folders and textfiles. F8/F7.
+  * Paste text or image from clipboard as file
+  * Open any file in your favorite text/image editor. F3.
+  * Copy filenames (ALT+C) and paths (CTRL+ALT+C)
+  * Go upwards by dbl click on free space in the file list.
+  * Automatically select first file when you enter a directory
+  * Select files by entering a file filter such as ".jpg"
+  * Advanced Renaming and Replacing in files
+  * Set windows to be "Always on top" by right clicking the title bar
+  * Make Backspace go upwards
+  * Kill programs by pressing ALT+F5 or right clicking the close button
+  * Adjust audio volume with mouse wheel up/down over taskbar
+  * Paste previous clipboard text entries by pressing WIN+V
+  * Rotate images in Windows Picture Viewer by pressing R and L
 
 * Imgur User Account
   * Authorization Headers
