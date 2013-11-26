@@ -22,7 +22,7 @@ SendMode, Input
 
 Version := "v2.5", Version_Date := "26/11/2013"
 
-; ######################## User Settings ########################
+; ####################### User Settings ########################
 
 ; The folder path where your screenshots will be saved
 Screenshot_Directory := "C:\Users\" . A_Username . "\Pictures\Screenshots"
@@ -39,7 +39,7 @@ FileCreateDir, % Imgur_Directory . "\ImgurData"
 ; 0.25 = Quarter of original and so on.
 Screenshot_Size := 1.0
 
-; ######################## Script Begins ########################
+; ####################### Script Begins ########################
 
 OnExit, Exit
 
@@ -59,7 +59,12 @@ Gosub, Build_SelectFiles_Gui ; <selectfiles.ahk>
 ; Volume control display
 Gosub, Build_VolOSD ; <volosd.ahk>
 
-Return	 ; End of Auto Execute Section
+Return			; End of the auto-execute section
+; Everything below this line is a separate thread,
+; and will have no effect unless explicitly called,
+; except for the #includes, they are pre-processed.
+
+; ######################## Script Ends #########################
 
 /**
  * Debugging related

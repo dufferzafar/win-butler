@@ -33,7 +33,6 @@ Return
  * Adjusts PHP/HTML files to take localhost into account
  *
  * Todo: Handle Untitled Files
- * CHANGED: Nothing runs when the file is not one of recognised.
  */
 RunFromSublime:
 	Send ^s

@@ -1,3 +1,7 @@
+; ^f9::GetCurrentFolder7()
+; ^f8::GetShellFolderPath()
+; Return
+
 /**
  * Get the path of currently open folder.
  *
@@ -16,17 +20,36 @@ GetCurrentFolder7() {
 	;Remove all carriage returns (`r)
 	StringReplace, full_path, full_path, `r, , all
 	StringTrimLeft, full_path, full_path, 9
-
+	; Msgbox, % full_path
+	; Run, % full_path
 	return full_path
+}
+
+; Todo: This one sends the CLSID or something for special folders
+; Try to use that somehow ??
+GetShellFolderPath() {
+  hWnd := WinExist("A")
+  shellApp := ComObjCreate("Shell.Application")
+
+  for Item in shellApp.Windows
+  {
+    If (Item.hwnd = hWnd)
+    {
+      sfv := Item.Document ; ShellFolderView
+      path := sfv.Folder.Self.Path
+    }
+  }
+  Msgbox, % path
+  Run, % path
 }
 
 /**
  * Refresh Explorer's View
  */
 Refresh() {
-    WinGetClass, eh_Class, A
-    If (eh_Class = "#32770" OR A_OSVersion = "WIN_VISTA" OR A_OSVersion = "WIN_7")
-        Send, {F5}
+	WinGetClass, eh_Class, A
+	If (eh_Class = "#32770" OR A_OSVersion = "WIN_VISTA" OR A_OSVersion = "WIN_7")
+		Send, {F5}
 	Else PostMessage, 0x111, 28931,,, A
 }
 

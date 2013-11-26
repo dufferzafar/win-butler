@@ -1,21 +1,24 @@
 /**
- * Run CMD
+ * Run Console/CMD
  *
- * Run command prompt in the current folder.
- *
+ * Run console (or command prompt) in the current folder.
  */
 RunConsole:
 	full_path := GetCurrentFolder7()
 
 	IfInString full_path, \
 	{
-		; Run, cmd /K cd /D "%full_path%"
-		Run, Data\console2\console.exe -d "%full_path%"
+		If FileExist("Data\console2\console.exe")
+			Run, Data\console2\console.exe -d "%full_path%"
+		Else
+			Run, cmd /K cd /D "%full_path%"
 	}
 	Else ;If path is not valid
 	{
-		; Run, cmd /K cd /D "C:\ "
-		Run, Data\console2\console.exe -d "C:\"
+		If FileExist("Data\console2\console.exe")
+			Run, Data\console2\console.exe -d "C:\"
+		Else
+			Run, cmd /K cd /D "C:\ "
 	}
 Return
 

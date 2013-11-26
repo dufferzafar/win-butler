@@ -4,10 +4,6 @@
 
 An Autohotkey script to help you with common windows tasks, a life-saver that I just can't live without.
 
-Sadly, this script was never written for newbies, so there isn't a fancy settings GUI that allows you to customise things, I could have gone through the pain of creating one, but at the end of the day - I know I won't use it.
-
-To make changes and tweak things to suit your needs, you'll have to dig through the code but don't worry as there are a hell lot of comments to guide you.
-
 ## Table of Contents
 
 * [Usage Instructions](#usage)
@@ -96,10 +92,19 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="todo"></a>To Do ASAP
 
+* GetCurrentFolderPath()
+  * Use COM ShellFolderView
+
 * Volume Control
   * Better Gui
   * Bottom Right Corner
   * Mute/Unmute
+
+* Select Files
+  * Handle extensions
+  * Regex
+
+* Run last run script !+s.
 
 * Other Scripts
   * Backup Buddy. Animated TrayIcon.
@@ -155,6 +160,10 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
+* Working on GetShellFolderPath()
+
+* Removed: Console2 has been removed from the package, download seperately and put it in Data/console2/. This reduces the size of the repo by 1 MB :)
+
 * **2.5**:
 
   * Refactored: Broke the code into more different files.
@@ -201,9 +210,9 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
   * Removed: Ctrl + N (New File) Hotkey. Useless.
 
-  * Changed: Printscreen now captures the screen but avoids the sidebar. Use Shift+Printscreen to capture the entirety, and Ctrl+Printscreen to capture Active Windows.
+  * Modified: Printscreen now captures the screen but avoids the sidebar. Use Shift+Printscreen to capture the entirety, and Ctrl+Printscreen to capture Active Windows.
 
-  * Changed: Alt+Ctrl+C - Runs Console2 instead of CommandPrompt.
+  * Modified: Alt+Ctrl+C - Runs Console2 instead of CommandPrompt.
 
   New Modules:
     * AutoShutdown

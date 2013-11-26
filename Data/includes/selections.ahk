@@ -3,7 +3,8 @@
  *
  * Opens a Chrome tab with onelookup reverse search.
  *
- * Todo: Sublime, nothing selected 'bug'
+ * Changed: Modified Sublime's setting so that Ctrl+C does nothing
+ * if selection is empty.
  */
 OneLook:
    tmp = %ClipboardAll%    ;save clipboard
