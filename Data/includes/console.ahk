@@ -4,33 +4,22 @@
  * Run console (or command prompt) in the current folder.
  */
 RunConsole:
-	full_path := GetCurrentFolder7()
+	Path := GetCurrentFolderPath()
+	Path := (Path = "") ? "C:\" : Path
 
-	IfInString full_path, \
-	{
-		If FileExist("Data\console2\console.exe")
-			Run, Data\console2\console.exe -d "%full_path%"
-		Else
-			Run, cmd /K cd /D "%full_path%"
-	}
-	Else ;If path is not valid
-	{
-		If FileExist("Data\console2\console.exe")
-			Run, Data\console2\console.exe -d "C:\"
-		Else
-			Run, cmd /K cd /D "C:\ "
-	}
+	If FileExist("Data\console2\console.exe")
+		Run, Data\console2\console.exe -d "%Path%"
+	Else
+		Run, cmd /K cd /D "%Path%"
 Return
 
 RunGitShell:
-	full_path := GetCurrentFolder7()
-
 	GitShell := "C:\Users\dufferzafar\AppData\Local\GitHub\PortableGit_0f65d050d0c352fd38a0b25d82ee942deb19ef87\bin\sh.exe"
 
-	IfInString full_path, \
-		Run, %GitShell% --login -i, %full_path%, Max
-	Else ;If path is not valid
-		Run, %GitShell% --login -i, % "D:\I, Coder\@ GitHub", Max
+	Path := GetCurrentFolderPath()
+	Path := (Path = "") ? "D:\I, Coder\@ GitHub" : Path
+
+	Run, %GitShell% --login -i, %Path%, Max
 Return
 
 CloseCMD:

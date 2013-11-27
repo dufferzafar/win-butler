@@ -20,7 +20,7 @@
 SetWorkingDir %A_ScriptDir%
 SendMode, Input
 
-Version := "v2.5", Version_Date := "26/11/2013"
+Version := "v2.6", Version_Date := "27/11/2013"
 
 ; ####################### User Settings ########################
 
@@ -47,9 +47,6 @@ OnExit, Exit
 Gosub, Build_TrayMenu ; <traymenu.ahk>
 Gosub, Show_TrayMenu
 
-; Turn On/Off various hotkeys
-Gosub, Activate_Hotkeys ; <hotkeys.ahk>
-
 ; Build the main gui
 Gosub, Build_MainGui ; <gui.ahk>
 
@@ -58,6 +55,9 @@ Gosub, Build_SelectFiles_Gui ; <selectfiles.ahk>
 
 ; Volume control display
 Gosub, Build_VolOSD ; <volosd.ahk>
+
+; Turn On/Off various hotkeys
+Gosub, Activate_Hotkeys ; <hotkeys.ahk>
 
 Return			; End of the auto-execute section
 ; Everything below this line is a separate thread,

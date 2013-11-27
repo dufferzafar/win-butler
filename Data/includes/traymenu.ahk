@@ -35,7 +35,7 @@ TrayTip, Windows Butler %Version%,
 Hey! I'm right here...
 
 Consult readme for usage instructions.
-)
+), , 1
 SetTimer, RemoveTrayTip, 3000
 
 Return

@@ -11,10 +11,18 @@
 
 Activate_Hotkeys:
 
-   ; Create a group of explorer windows
+   ; Create a group of windows
    ; Note: Groups are used to club different windows together
-   GroupAdd, Explorer, ahk_class CabinetWClass
-   GroupAdd, Explorer, ahk_class Progman
+   GroupAdd, Explorer_Group, ahk_class CabinetWClass
+   GroupAdd, Explorer_Group, ahk_class ExploreWClass
+
+   GroupAdd, Desktop_Group, ahk_class WorkerW
+   GroupAdd, Desktop_Group, ahk_class Progman ; for Windows < Vista
+
+   GroupAdd, Taskbar_Group, ahk_class Shell_TrayWnd
+   GroupAdd, Taskbar_Group, ahk_class BaseBar
+   GroupAdd, Taskbar_Group, ahk_class DV2ControlHost
+
    GroupAdd, Console_Group, ahk_class ConsoleWindowClass
    GroupAdd, Console_Group, ahk_class PuTTY
 
@@ -40,20 +48,21 @@ Activate_Hotkeys:
    Hotkey,     !^c,     RunConsole,       On
    Hotkey,     !^x,     RunGitShell,      On
 
-   Hotkey,     #Down,   Minimize,         On
    Hotkey,     #s,      AutoShutdown,     On
+   Hotkey,     ^#e,     RestartShell,     On
+   Hotkey,     #Down,   Minimize,         On
 
-   Hotkey, IfWinNotActive, ahk_class QWidget ; VLC Media Player
+   Hotkey, IfWinNotActive, ahk_class QWidget       ; VLC Media Player
    Hotkey,     ^Up,     VolumeUp,         On
    Hotkey,     ^Down,   VolumeDown,       On
    Hotkey, IfWinNotActive
 
    ; Run files open in sublime text
-   Hotkey, IfWinActive, ahk_class PX_WINDOW_CLASS
+   Hotkey, IfWinActive, ahk_class PX_WINDOW_CLASS  ; Sublime Text 3
    Hotkey,     ^+s,     RunFromSublime,   On
    Hotkey, IfWinActive
 
-   ; Paste text in command prompt
+   ; Command prompt improvements
    Hotkey, IfWinActive, ahk_group Console_Group
    Hotkey,     ^v,      PasteClipboard,   On
    Hotkey,     ^w,      CloseCMD,         On
@@ -63,17 +72,14 @@ Activate_Hotkeys:
    Hotkey, IfWinActive
 
    ; Extend windows explorer
-   Hotkey, IfWinActive, ahk_group Explorer
+   Hotkey, IfWinActive, ahk_group Explorer_Group
    Hotkey,     #y,      ToggleExt,        On
    Hotkey,     #j,      ToggleHidden,     On
    Hotkey,     !^f,     OpenInSublime,    On
    Hotkey,     ^PgDn,   QtTabDn,          On
    Hotkey,     ^PgUp,   QtTabUp,          On
-   Hotkey, IfWinActive
-
-   Hotkey, IfWinActive, ahk_class CabinetWClass
-   Hotkey, ^s, Show_SelectFiles_Gui, On
-   Hotkey, Esc, DeselectAll, On
+   Hotkey,     ^s,      Show_SelectFiles_Gui, On
+   Hotkey,     Esc,     DeselectAll, On
    Hotkey, IfWinActive
 
    ; Screener Hotkeys - <screenshot.ahk>

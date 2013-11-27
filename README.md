@@ -1,4 +1,4 @@
-# Windows Butler v2.5
+# Windows Butler v2.6
 
 ![Butler](/Data/butler.png)
 
@@ -92,9 +92,6 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="todo"></a>To Do ASAP
 
-* GetCurrentFolderPath()
-  * Use COM ShellFolderView
-
 * Volume Control
   * Better Gui
   * Bottom Right Corner
@@ -160,9 +157,12 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
-* Working on GetShellFolderPath()
+* **2.6**:
 
-* Removed: Console2 has been removed from the package, download seperately and put it in Data/console2/. This reduces the size of the repo by 1 MB :)
+  * Miscellaneous improvements in <explorer.ahk>
+  * Added: Restart Shell. Ctrl + Windows + E.
+  * Modified: GetCurrentFolderPath() to use ShellFolderView. Far better method.
+  * Removed: Console2 has been removed from the package, download seperately and put it in Data/console2/. This reduces the size of the repo by 1 MB :)
 
 * **2.5**:
 
