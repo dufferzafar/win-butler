@@ -103,6 +103,24 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 * Run last run script !+s.
 
+## <a name="later"></a>Could be added later
+
+* Features from 7Plus: (Filter on accounts of usability)
+  [] Make Backspace go upwards
+  [X] Select files by entering a file filter such as ".jpg"
+  [] Automatically select first file when you enter a directory
+  [] Copy filenames (ALT+C) and paths (CTRL+ALT+C)
+  [] Set windows to be "Always on top" by right clicking the title bar
+  [] Kill programs by pressing ALT+F5 or right clicking the close button
+  [] Adjust audio volume with mouse wheel up/down over taskbar
+  [] Store favorite folders and recall them
+  [] Create new folders and textfiles. F8/F7.
+  [] Paste text or image from clipboard as file
+  [] Open any file in your favorite text/image editor. F3.
+  [] Advanced Renaming and Replacing in files
+  [] Paste previous clipboard text entries by pressing WIN+V
+  [] Rotate images in Windows Picture Viewer by pressing R and L
+
 * Other Scripts
   * Backup Buddy. Animated TrayIcon.
   * Core part of Sorting Hat.
@@ -116,25 +134,6 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * Screenshot
   * Backup
   * Hotkeys - Bindings, On/Off
-
-## <a name="later"></a>Could be added later
-
-* Features from 7Plus: (Filter on accounts of usability)
-  * Store favorite folders and recall them
-  * Create new folders and textfiles. F8/F7.
-  * Paste text or image from clipboard as file
-  * Open any file in your favorite text/image editor. F3.
-  * Copy filenames (ALT+C) and paths (CTRL+ALT+C)
-  * Go upwards by dbl click on free space in the file list.
-  * Automatically select first file when you enter a directory
-  * Select files by entering a file filter such as ".jpg"
-  * Advanced Renaming and Replacing in files
-  * Set windows to be "Always on top" by right clicking the title bar
-  * Make Backspace go upwards
-  * Kill programs by pressing ALT+F5 or right clicking the close button
-  * Adjust audio volume with mouse wheel up/down over taskbar
-  * Paste previous clipboard text entries by pressing WIN+V
-  * Rotate images in Windows Picture Viewer by pressing R and L
 
 * Imgur User Account
   * Authorization Headers
@@ -156,6 +155,8 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * But in some applications to Ctrl+W
 
 ## <a name="changelog"></a>Changelog
+
+* Bugfix: RunRegedit now launches the selected key properly.
 
 * **2.6**:
 

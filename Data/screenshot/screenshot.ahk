@@ -44,7 +44,7 @@ GrabAndUpload:
 
    OutputScreenshot := Screenshot(Screenshot_Size, Area, A_Temp, FileName)
    Response := ImgurUpload(OutputScreenshot)
-
+   ; Msgbox, % Response
    If (json(Response, "success"))
    {
       Clipboard := RegExReplace(json(Response, "data.link"),"\\")

@@ -59,6 +59,9 @@ Gosub, Build_VolOSD ; <volosd.ahk>
 ; Turn On/Off various hotkeys
 Gosub, Activate_Hotkeys ; <hotkeys.ahk>
 
+; Require for screenshots
+Gdip_Startup() ; <gdip.ahk> (thank you tic)
+
 Return			; End of the auto-execute section
 ; Everything below this line is a separate thread,
 ; and will have no effect unless explicitly called,

@@ -1,7 +1,7 @@
 /**
  * Open the selected file in sublime
  *
- * I am too lazy to even right-click :)
+ * Todo: GetSelectedFiles via SFV
  */
 OpenInSublime:
 	files := GetSelectedText()

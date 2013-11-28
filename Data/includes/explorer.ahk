@@ -105,7 +105,10 @@ GetCurrentFolderPath() {
 				path := sfv.Folder.Self.Path
 			}
 		}
-		Return %path%
+		If InStr(path, ".library-ms")
+			Return ""
+		Else
+			Return path
 	}
 	Else If WinActive("ahk_group Desktop_Group")
 		Return %A_Desktop%

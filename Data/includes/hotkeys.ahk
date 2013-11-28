@@ -52,7 +52,10 @@ Activate_Hotkeys:
    Hotkey,     ^#e,     RestartShell,     On
    Hotkey,     #Down,   Minimize,         On
 
-   Hotkey, IfWinNotActive, ahk_class QWidget       ; VLC Media Player
+
+   ; Avoid conflict with the default volume control of VLC
+   SetTitleMatchMode, 2 ; Match title anywhere
+   Hotkey, IfWinNotActive, VLC media player
    Hotkey,     ^Up,     VolumeUp,         On
    Hotkey,     ^Down,   VolumeDown,       On
    Hotkey, IfWinNotActive

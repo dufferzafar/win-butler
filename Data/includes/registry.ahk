@@ -1,21 +1,16 @@
-; Also deletes the "LastKey". So, basically starts from scratch
+/**
+ * Open registry editor.
+ *
+ * If a key is selected then jump to that key else, start from scratch.
+ *
+ * Todo: GetSelectedText
+ */
 RunRegedit:
-	RegDelete, HKCU, Software\Microsoft\Windows\CurrentVersion\Policies
+	RegDelete, HKCU, Software\Microsoft\Windows\CurrentVersion\Policies ; Remove any restrictions
 	RegDelete, HKCU, Software\Microsoft\Windows\CurrentVersion\Applets\Regedit, LastKey
 
-	tmp = %ClipboardAll% 	;save clipboard
-	Clipboard := "" 			;clear
-	Send, ^c 					;copy the selection
-	ClipWait, 1
-	Selection = %Clipboard% ;save the selection
-	Clipboard = %tmp% 		;restore old content of the clipboard
-
-	If InStr(Selection, "HKEY_")	;if registry key is selected
-		RegJump(Selection) 		;Go to Registry path
-	Else
-		Run Regedit.exe, , Max
+	RegJump(GetSelectedText()) 	; Go to Registry path
 Return
-
 
 ;Open Regedit and navigate to RegPath.
 ;RegPath accepts both HKEY_LOCAL_MACHINE and HKLM formats.
