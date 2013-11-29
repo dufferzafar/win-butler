@@ -81,21 +81,6 @@ Return			; End of the auto-execute section
 ^+r::Reload
 
 /**
- * WHY WAS THIS KEY CREATED?
- */
-CapsLock::
-	SendInput, {BS}
-Return
-
-^CapsLock::
-	SendInput, ^{BS}
-Return
-
-+CapsLock::
-	SendInput, {Del}
-Return
-
-/**
  * Always On Top
  *
  * The "current" window becomes the topmost.

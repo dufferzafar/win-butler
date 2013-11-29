@@ -108,10 +108,10 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 * Features from 7Plus: (Filter on accounts of usability)
   [] Make Backspace go upwards
   [X] Select files by entering a file filter such as ".jpg"
+  [X] Kill programs by pressing ALT+F5 or right clicking the close button
   [] Automatically select first file when you enter a directory
   [] Copy filenames (ALT+C) and paths (CTRL+ALT+C)
   [] Set windows to be "Always on top" by right clicking the title bar
-  [] Kill programs by pressing ALT+F5 or right clicking the close button
   [] Adjust audio volume with mouse wheel up/down over taskbar
   [] Store favorite folders and recall them
   [] Create new folders and textfiles. F8/F7.

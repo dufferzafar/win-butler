@@ -26,9 +26,6 @@ Activate_Hotkeys:
    GroupAdd, Console_Group, ahk_class ConsoleWindowClass
    GroupAdd, Console_Group, ahk_class PuTTY
 
-   ; CapsLock Be Gone!!
-   SetCapsLockState, AlwaysOff
-
    ; Hotkey,   KeyName, Label,         Options
 
    Hotkey,     ^+Esc,   RunTaskMan,       On
@@ -50,8 +47,8 @@ Activate_Hotkeys:
 
    Hotkey,     #s,      AutoShutdown,     On
    Hotkey,     ^#e,     RestartShell,     On
-   Hotkey,     #Down,   Minimize,         On
-
+   Hotkey,     #Down,   MinimizeWindow,   On
+   Hotkey,     !F5,     KillWindow,       On
 
    ; Avoid conflict with the default volume control of VLC
    SetTitleMatchMode, 2 ; Match title anywhere
@@ -76,13 +73,14 @@ Activate_Hotkeys:
 
    ; Extend windows explorer
    Hotkey, IfWinActive, ahk_group Explorer_Group
-   Hotkey,     #y,      ToggleExt,        On
-   Hotkey,     #j,      ToggleHidden,     On
-   Hotkey,     !^f,     OpenInSublime,    On
-   Hotkey,     ^PgDn,   QtTabDn,          On
-   Hotkey,     ^PgUp,   QtTabUp,          On
-   Hotkey,     ^s,      Show_SelectFiles_Gui, On
-   Hotkey,     Esc,     DeselectAll, On
+   Hotkey,     #y,         ToggleExt,              On
+   Hotkey,     #j,         ToggleHidden,           On
+   Hotkey,     !^f,        OpenInSublime,          On
+   Hotkey,     ^PgDn,      QtTabDn,                On
+   Hotkey,     ^PgUp,      QtTabUp,                On
+   Hotkey,     CapsLock,   GoUpwardDirectory,      On
+   Hotkey,     ^s,         Show_SelectFiles_Gui,   On
+   Hotkey,     Esc,        DeselectAll,            On
    Hotkey, IfWinActive
 
    ; Screener Hotkeys - <screenshot.ahk>
@@ -92,4 +90,9 @@ Activate_Hotkeys:
    Hotkey,  !PrintScreen,  GrabWindow,             On
    Hotkey,  #LButton,      GrabArea,               On
 
+   ; CapsLock Be Gone!!
+   SetCapsLockState, AlwaysOff
+   CapsLock::SendInput, {BS}
+   ^CapsLock::SendInput, ^{BS}
+   +CapsLock::SendInput, {Del}
 Return

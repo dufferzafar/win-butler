@@ -23,9 +23,28 @@ QtTabUp:
 	Send, ^+{Tab}
 Return
 
-Minimize:
+/**
+ * I trust and like AHK commands more than the default functions
+ */
+
+MinimizeWindow:
 	; Send, #m
 	WinMinimize, A
+Return
+
+/**
+ * Todo: Add support to kill not responding processes...
+ */
+
+KillWindow:
+	WinKill, % "ahk_id " WinExist("A")
+Return
+
+GoUpwardDirectory:
+	If !InStr(GetCurrentFolderPath(), ".search-ms")
+		Send !{Up}
+	Else
+		Send {Backspace}
 Return
 
 /**
@@ -155,4 +174,21 @@ GetSelectedText() {
 	; Msgbox, %ToReturn%
 
 	Return ToReturn
+}
+
+RefreshTray() {
+	WM_MOUSEMOVE := 0x200
+
+	ControlGetPos, xTray,, wTray,, ToolbarWindow321, ahk_class Shell_TrayWnd
+	endX := xTray + wTray
+	x := 5, y := 12 ; Hackety Hack :)
+
+	Loop
+	{
+		if (x > endX)
+			break
+		point := (y << 16) + x
+		PostMessage, %WM_MOUSEMOVE%, 0, %point%, ToolbarWindow321, ahk_class Shell_TrayWnd
+		x += 18
+	}
 }
