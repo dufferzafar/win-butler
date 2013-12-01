@@ -90,9 +90,4 @@ Activate_Hotkeys:
    Hotkey,  !PrintScreen,  GrabWindow,             On
    Hotkey,  #LButton,      GrabArea,               On
 
-   ; CapsLock Be Gone!!
-   SetCapsLockState, AlwaysOff
-   CapsLock::SendInput, {BS}
-   ^CapsLock::SendInput, ^{BS}
-   +CapsLock::SendInput, {Del}
 Return

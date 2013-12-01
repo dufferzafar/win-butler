@@ -11,7 +11,9 @@
 ::i'm::I'm
 
 ; My Octopress Blog.
-:*:/dz::dufferzafar.github.com
+:*:/dz::
+   SendInput, {BS} dufferzafar.github.com
+Return
 
 :*:/d1::
    FormatTime, CurrentDate,, d/M/yyyy

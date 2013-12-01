@@ -1,9 +1,15 @@
+/**
+ * Get the currently playing song and add it to the
+ * overlay
+ *
+ * WinGetTitle, CurrentSong, ahk_class WMPlayerApp
+ */
+
 Build_VolOSD:
 	;Create a layered window
 	Gui, 97:-Caption +E0x80000 +LastFound +AlwaysOnTop +ToolWindow
 	hVolumeOSD := WinExist()
 Return
-
 
 VolumeUp:
 	iOldMaster := VA_GetMasterVolume()

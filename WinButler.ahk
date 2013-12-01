@@ -67,6 +67,12 @@ Return			; End of the auto-execute section
 ; and will have no effect unless explicitly called,
 ; except for the #includes, they are pre-processed.
 
+; CapsLock Be Gone!!
+SetCapsLockState, AlwaysOff
+CapsLock::SendInput, {BS}
+^CapsLock::SendInput, ^{BS}
++CapsLock::SendInput, {Del}
+
 ; ######################## Script Ends #########################
 
 /**

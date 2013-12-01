@@ -95,6 +95,7 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 * Volume Control
   * Better Gui
   * Bottom Right Corner
+  * CurrentSong in WMP
   * Mute/Unmute
 
 * Select Files
