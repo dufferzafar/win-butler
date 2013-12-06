@@ -113,7 +113,7 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   [] Automatically select first file when you enter a directory
   [] Copy filenames (ALT+C) and paths (CTRL+ALT+C)
   [] Set windows to be "Always on top" by right clicking the title bar
-  [] Adjust audio volume with mouse wheel up/down over taskbar
+  [X] Adjust audio volume with mouse wheel up/down over taskbar
   [] Store favorite folders and recall them
   [] Create new folders and textfiles. F8/F7.
   [] Paste text or image from clipboard as file
@@ -156,6 +156,8 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * But in some applications to Ctrl+W
 
 ## <a name="changelog"></a>Changelog
+
+* Added: Adjust audio volume with mouse wheel up/down over taskbar.
 
 * Bugfix: RunRegedit now launches the selected key properly.
 

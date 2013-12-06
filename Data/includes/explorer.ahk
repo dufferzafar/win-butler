@@ -39,7 +39,7 @@ Return
 KillWindow:
 	; WinKill, % "ahk_id " WinExist("A")
 	WinGet, Process, ProcessName, A
-	Run, % "taskkill /f /im " Process, Hide
+	Run, % comspec " /c taskkill /f /im " Process, Hide
 	; Msgbox, % Process
 Return
 

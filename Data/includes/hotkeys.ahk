@@ -50,6 +50,9 @@ Activate_Hotkeys:
    Hotkey,     #Down,   MinimizeWindow,   On
    Hotkey,     !F5,     KillWindow,       On
 
+   Hotkey,     WheelUp,   MWheelUp,       On
+   Hotkey,     WheelDown,   MWheelDown,       On
+
    ; Avoid conflict with the default volume control of VLC
    SetTitleMatchMode, 2 ; Match title anywhere
    Hotkey, IfWinNotActive, VLC media player

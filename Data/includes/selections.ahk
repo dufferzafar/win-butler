@@ -62,7 +62,8 @@ SaveRunScript:
       Path := "C:\Users\dufferzafar\Downloads\Scripts"
       WinGetActiveTitle, Title
       Title := SubStr(Title, 1, 15)
-      FileName = %Title%-%A_Hour%-%A_Min%-%A_Sec%.ahk
+      ; FileName = %Title%-%A_Hour%-%A_Min%-%A_Sec%.ahk
+      FileName = %A_Hour%-%A_Min%-%A_Sec%.ahk
       FileAppend, %selection%, %Path%\%FileName%
       Run, %Path%\%FileName%, %Path%
    }

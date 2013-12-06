@@ -5,6 +5,20 @@
  * WinGetTitle, CurrentSong, ahk_class WMPlayerApp
  */
 
+MWheelUp:
+	If IsMouseOverTaskbar()
+		Gosub, VolumeUp
+	Else
+		Send, {WheelUp}
+Return
+
+MWheelDown:
+	If IsMouseOverTaskbar()
+		Gosub, VolumeDown
+	Else
+		Send, {WheelDown}
+Return
+
 Build_VolOSD:
 	;Create a layered window
 	Gui, 97:-Caption +E0x80000 +LastFound +AlwaysOnTop +ToolWindow
@@ -37,6 +51,17 @@ Return
 HideGui:
 	Gui, 97:Hide
 Return
+
+IsMouseOverTaskbar()
+{
+	CoordMode, Mouse, Screen
+	MouseGetPos, , , WindowUnderMouseID
+	WinGetClass, winclass , ahk_id %WindowUnderMouseID%
+	result:=false
+	if(winclass="Shell_TrayWnd")
+		result:=true
+	return result
+}
 
 ;hwnd       - Handle of the GUI
 ;iX         - X coordinate of the GUI
