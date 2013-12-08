@@ -11,25 +11,6 @@ Show_SelectFiles_Gui:
   ControlSend, Edit1, ^a, Select Files
 Return
 
-DeselectAll:
-  hWnd := WinExist("A")
-  shellApp := ComObjCreate("Shell.Application")
-
-  for Item in shellApp.Windows
-  {
-    If (Item.hwnd = hWnd)
-    {
-      sfv := Item.Document ; ShellFolderView
-      count := sfv.Folder.Items.Count
-      If(count > 0)
-      {
-        item := sfv.Folder.Items.Item(0)
-        sfv.SelectItem(item, 4) ; Deselect All
-      }
-    }
-  }
-Return
-
 SelectFiles:
   Gui, 3:Submit
 
@@ -54,6 +35,25 @@ SelectFiles:
           Else
             sfv.SelectItem(Item, 0) ; Deselect Item
         }
+      }
+    }
+  }
+Return
+
+DeselectAll:
+  hWnd := WinExist("A")
+  shellApp := ComObjCreate("Shell.Application")
+
+  for Item in shellApp.Windows
+  {
+    If (Item.hwnd = hWnd)
+    {
+      sfv := Item.Document ; ShellFolderView
+      count := sfv.Folder.Items.Count
+      If(count > 0)
+      {
+        item := sfv.Folder.Items.Item(0)
+        sfv.SelectItem(item, 4) ; Deselect All
       }
     }
   }

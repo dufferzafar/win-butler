@@ -92,6 +92,13 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="todo"></a>To Do ASAP
 
+* Favorite folders 
+  * Middle Click Menu | Hotkey ?
+  * JnLnd's Fav Folder Script
+  * Sublime's Folder
+
+* Clipboard History?
+
 * Volume Control
   * Better Gui
   * Bottom Right Corner
