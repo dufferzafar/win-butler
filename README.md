@@ -92,6 +92,11 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="todo"></a>To Do ASAP
 
+* Volumouse: http://www.nirsoft.net/utils/volumouse.html
+* BugShooting: http://www.bugshooting.com/
+
+* Ensure ManicTime and Networx are running always.
+
 * Favorite folders 
   * Middle Click Menu | Hotkey ?
   * JnLnd's Fav Folder Script

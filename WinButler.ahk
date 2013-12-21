@@ -133,6 +133,9 @@ CloseMe:
 
 ; ------------------------------------------
 
+	; Autobackup functionality
+	#Include Data\buddy\backup.ahk
+
 	; WinExplorer improvements
 	#Include Data\includes\explorer.ahk
 
@@ -149,7 +152,6 @@ CloseMe:
 
 	; Select something...
 	#Include Data\includes\selections.ahk
-
 
 	; Run based hotkeys like RunTaskMan and HelpFolder
 	#Include Data\includes\run.ahk

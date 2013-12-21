@@ -46,7 +46,7 @@ Activate_Hotkeys:
    Hotkey,     !^x,     RunGitShell,      On
 
    Hotkey,     #s,      AutoShutdown,     On
-   Hotkey,     ^#e,     RestartShell,     On
+   Hotkey,     ^#e,     RestartExplorer,  On
    Hotkey,     #Down,   MinimizeWindow,   On
    Hotkey,     !F5,     KillWindow,       On
 
@@ -83,7 +83,7 @@ Activate_Hotkeys:
    Hotkey,     ^PgUp,      QtTabUp,                On
    Hotkey,     CapsLock,   GoUpwardDirectory,      On
    Hotkey,     ^s,         Show_SelectFiles_Gui,   On
-   Hotkey,     Esc,        DeselectAll,            On
+   Hotkey,     Esc,        DeselectAll,            Off
    Hotkey, IfWinActive
 
    ; Screener Hotkeys - <screenshot.ahk>

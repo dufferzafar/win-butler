@@ -1,14 +1,4 @@
 /**
- * The *proper* way to restart the shell
- */
-RestartShell:
-	WinGet, h, ID, ahk_class Progman	        ; use ahk_class WorkerW for XP
-	PostMessage, 0x12, 0, 0, , ahk_id %h%	;wm_quit
-	Sleep, 25
-	Run, %A_WinDir%\explorer.exe
-Return
-
-/**
  * Some Improvements to the default settings of QtTabBar
  *
  * Ctrl+PgDn is the same as Ctrl+Tab
@@ -195,3 +185,28 @@ RefreshTray() {
 		x += 18
 	}
 }
+
+
+ReStartExplorer:    ; SKAN, CD:07-Dec-2013 LM:14-Dec-2014 | goo.gl/UnS2rl
+ ;  Credit: Gracefully Exit Explorer (Programmatically) - Stack Overflow   | goo.gl/tAA9HY
+ ;  Thanks to chaz - http://ahkscript.org/boards/viewtopic.php?p=7099#p7099
+
+	WaitSecs = 3
+
+	If A_OSVersion not in WIN_XP,WIN_VISTA,WIN_7
+		Return
+
+	If ( A_OSVersion = "WIN_XP" )
+	{
+		WinGet, ShellPID, PID,     ahk_class Progman
+		PostMessage, 0x012, 0, 0,, ahk_class Progman        ; WM_QUIT = 0x12
+	}
+	Else
+	{
+		WinGet, ShellPID, PID,     ahk_class Shell_TrayWnd
+		PostMessage, 0x5B4, 0, 0,, ahk_class Shell_TrayWnd  ; WM_USER + 0x1B4
+	}
+
+	Process, WaitClose, %ShellPID%, %WaitSecs%
+	IfEqual, ErrorLevel, 0, Run %A_WinDir%\explorer.exe
+Return

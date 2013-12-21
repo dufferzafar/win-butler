@@ -22,7 +22,8 @@ RegJump(RegPath)
 	If (SubStr(RegPath, 0) = "\") ;remove trailing "\" if present
 		RegPath := SubStr(RegPath, 1, -1)
 
-	;Extract RootKey part of supplied registry path
+	; Extract RootKey part of supplied registry path
+	; Todo: What if the seperator is /
 	Loop, Parse, RegPath, \
 	{
 		RootKey := A_LoopField
@@ -43,6 +44,8 @@ RegJump(RegPath)
 		Else If RootKey = HKCC
 			StringReplace, RegPath, RegPath, %RootKey%, HKEY_CURRENT_CONFIG
 	}
+
+	; Msgbox, % RootKey
 
 	;Make target key the last selected key, which is the selected key next time Regedit runs
 	RegWrite, REG_SZ, HKCU, Software\Microsoft\Windows\CurrentVersion\Applets\Regedit, LastKey, %RegPath%
