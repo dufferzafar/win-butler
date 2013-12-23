@@ -24,6 +24,7 @@ Activate_Hotkeys:
    GroupAdd, Taskbar_Group, ahk_class DV2ControlHost
 
    GroupAdd, Console_Group, ahk_class ConsoleWindowClass
+   GroupAdd, Console_Group, ahk_class Console_2_Main
    GroupAdd, Console_Group, ahk_class PuTTY
 
    ; Hotkey,   KeyName, Label,         Options

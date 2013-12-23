@@ -48,11 +48,17 @@ HelpAHK:
 Return
 
 HelpLUA:
-   Run, % "D:\I, Coder\Scripts, Codes & Tut\[Help]\Lua AIO.chm", , Max
+   If wnd := WinExist("Lua AIO")
+      WinActivate, ahk_id %wnd%
+   Else
+      Run, % "D:\I, Coder\Scripts, Codes & Tut\[Help]\Lua AIO.chm", , Max
 Return
 
 HelpPython:
-   Run, % "D:\I, Coder\Scripts, Codes & Tut\[Help]\Python 330.chm", , Max
+   If wnd := WinExist("Python v3.3.0 documentation")
+      WinActivate, ahk_id %wnd%
+   Else
+      Run, % "D:\I, Coder\Scripts, Codes & Tut\[Help]\Python 330.chm", , Max
 Return
 
 HelpPHP:

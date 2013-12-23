@@ -14,7 +14,7 @@ RunConsole:
 Return
 
 RunGitShell:
-	GitShell := "C:\Users\dufferzafar\AppData\Local\GitHub\PortableGit_0f65d050d0c352fd38a0b25d82ee942deb19ef87\bin\sh.exe"
+	GitShell := "C:\Users\dufferzafar\AppData\Local\GitHub\PortableGit_fed20eba68b3e238e49a47cdfed0a45783d93651\bin\sh.exe"
 
 	Path := GetCurrentFolderPath()
 	Path := (Path = "") ? "D:\I, Coder\@ GitHub" : Path
