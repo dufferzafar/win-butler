@@ -27,24 +27,31 @@ Return
 
 VolumeUp:
 	iOldMaster := VA_GetMasterVolume()
-
 	iNewMaster := (iOldMaster + 5.00) > 100 ? 100 : (iOldMaster + 5.00)
-
 	VA_SetMasterVolume(iNewMaster)
 
-	VolumeOSD(hVolumeOSD, iNewMaster, 0xFFCCCCCC, (bMaster = "OFF") ? 0xFF0F0FFF : 0xFFFF0000)
+	; This only works because I have Windows Media Player Plus! plugin enabled
+	; Get the plugin and enable currently playing media in title bar
+	; %title%[ - %artist%] - Windows Media Player
+	SetTitleMatchMode, 2 ; Match title anywhere
+	WinGetTitle, Title, Windows Media Player
+	RegExMatch(Title, "^(.*) - (.*) - Windows Media Player", Song)
+
+	VolumeOSD(hVolumeOSD, iNewMaster, "Song: " . Song1)
 
 	SetTimer, HideGui, -750
 Return
 
 VolumeDown:
 	iOldMaster := VA_GetMasterVolume()
-
 	iNewMaster := (iOldMaster - 5.00) < 0 ? 0 : (iOldMaster - 5.00)
-
 	VA_SetMasterVolume(iNewMaster)
 
-	VolumeOSD(hVolumeOSD, iNewMaster, 0xFFCCCCCC, (bMaster = "OFF") ? 0xFF0F0FFF : 0xFFFF0000)
+	SetTitleMatchMode, 2 ; Match title anywhere
+	WinGetTitle, Title, Windows Media Player
+	RegExMatch(Title, "^(.*) - (.*) - Windows Media Player", Song)
+
+	VolumeOSD(hVolumeOSD, iNewMaster, "Song: " . Song1)
 	SetTimer, HideGui, -750
 Return
 
@@ -75,19 +82,21 @@ IsMouseOverTaskbar()
 ;cPercent   - Forecolor of sProgText in ARGB
 
 ; VolumeOSD(hwnd, iX, iY, sText, iProgress, sProgText, cText, cProgFill, cProgShape, cPercent)
-VolumeOSD(hwnd, iProgress, cText, cProgFill)
+VolumeOSD(hwnd, iProgress, sText)
 {
 	;ScreenCenter
 	iX := (A_ScreenWidth - 200) / 2
 	iY := (A_ScreenHeight - 170) / 2
 
 	;Default Text
-	sText := "Volume"
+	; sText := "Volume"
 
 	;Deafault Progress Bar Text
 	sProgText := Round(iProgress) "%"
 
 	;Default Colours
+	cText := 0xFFCCCCCC
+	cProgFill := 0xFF0F0FFF
 	cProgShape := 0xFF000000
 	cPercent := 0xFFFFFFFF
 
@@ -106,8 +115,8 @@ VolumeOSD(hwnd, iProgress, cText, cProgFill)
 	;Fix cText and cPercent so that they become option compatible with Gdip_TextToGraphic()
 	cText := "c" SubStr(cText, 3), cPercent := "c" SubStr(cPercent, 3)
 
-	;Draw the main text at (6, 6) in specified color with AA at size 16
-	Options = x6 y6 %cText% r4 s16
+	;Draw the main text at (6, 6) in specified color
+	Options = x6 y6 %cText% r4 s13
 	Gdip_TextToGraphics(G, sText, Options, "Arial")
 
 	;Fill the shape

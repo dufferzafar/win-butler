@@ -7,6 +7,7 @@ RunConsole:
 	Path := GetCurrentFolderPath()
 	Path := (Path = "") ? "C:\" : Path
 
+	; Todo: Path from Settings
 	If FileExist("Data\console2\console.exe")
 		Run, Data\console2\console.exe -d "%Path%"
 	Else

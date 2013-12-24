@@ -31,7 +31,7 @@ Activate_Hotkeys:
 
    Hotkey,     ^+Esc,   RunTaskMan,       On
    Hotkey,     !^r,     RunRegedit,       On
-   Hotkey,     #t,      TopMost,          On
+
    Hotkey,     !^d,     OneLook,          On
 
    Hotkey,     !^s,     SaveText,         On
@@ -46,13 +46,15 @@ Activate_Hotkeys:
    Hotkey,     !^c,     RunConsole,       On
    Hotkey,     !^x,     RunGitShell,      On
 
-   Hotkey,     #s,      AutoShutdown,     On
-   Hotkey,     ^#e,     RestartExplorer,  On
-   Hotkey,     #Down,   MinimizeWindow,   On
-   Hotkey,     !F5,     KillWindow,       On
+   Hotkey,     $^0,      Focus,            On
+   Hotkey,     $Esc,     FocusEsc,         On
 
-   Hotkey,     WheelUp,   MWheelUp,       On
-   Hotkey,     WheelDown,   MWheelDown,       On
+   Hotkey,     #s,      AutoShutdown,     On
+
+   Hotkey,     ^#e,     RestartExplorer,  On
+   Hotkey,     #t,      TopMost,          On
+   Hotkey,     !F5,     KillWindow,       On
+   Hotkey,     #Down,   MinimizeWindow,   On
 
    ; Avoid conflict with the default volume control of VLC
    SetTitleMatchMode, 2 ; Match title anywhere
@@ -61,12 +63,16 @@ Activate_Hotkeys:
    Hotkey,     ^Down,   VolumeDown,       On
    Hotkey, IfWinNotActive
 
-   ; Run files open in sublime text
+   ; Volume Control
+   Hotkey,     WheelUp,   MWheelUp,       On
+   Hotkey,     WheelDown, MWheelDown,     On
+
+   ; Run files open in sublime text - <sublime.ahk>
    Hotkey, IfWinActive, ahk_class PX_WINDOW_CLASS  ; Sublime Text 3
    Hotkey,     ^+s,     RunFromSublime,   On
    Hotkey, IfWinActive
 
-   ; Command prompt improvements
+   ; Command prompt improvements - <console.ahk>
    Hotkey, IfWinActive, ahk_group Console_Group
    Hotkey,     ^v,      PasteClipboard,   On
    Hotkey,     ^w,      CloseCMD,         On
@@ -75,16 +81,15 @@ Activate_Hotkeys:
    Hotkey,     Home,    ScrollTop,        On
    Hotkey, IfWinActive
 
-   ; Extend windows explorer
+   ; Extend windows explorer - <explorer.ahk>
    Hotkey, IfWinActive, ahk_group Explorer_Group
    Hotkey,     #y,         ToggleExt,              On
    Hotkey,     #j,         ToggleHidden,           On
-   Hotkey,     !^f,        OpenInSublime,          On
    Hotkey,     ^PgDn,      QtTabDn,                On
    Hotkey,     ^PgUp,      QtTabUp,                On
+   Hotkey,     !^f,        OpenInSublime,          On
    Hotkey,     CapsLock,   GoUpwardDirectory,      On
    Hotkey,     ^s,         Show_SelectFiles_Gui,   On
-   Hotkey,     Esc,        DeselectAll,            Off
    Hotkey, IfWinActive
 
    ; Screener Hotkeys - <screenshot.ahk>

@@ -105,7 +105,6 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 * Clipboard History?
 
 * Volume Control
-  * Better Gui
   * Bottom Right Corner
   * CurrentSong in WMP
   * Mute/Unmute
@@ -169,9 +168,18 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
-* Added: Adjust audio volume with mouse wheel up/down over taskbar.
+* Added: Shows the currently playing song in Volume OSD. Works because I have Windows Media Player Plus! plugin enabled. Get it from http://www.bm-productions.tk/
 
-* Bugfix: RunRegedit now launches the selected key properly.
+* **2.7**:
+
+  * Backup Buddy added. NOT activated though.
+  
+  * Added: Ctrl + 0 sets focus to navigation pane in Windows Explorer.
+  * Updated: RestartExplorer. Now uses a function by SKAN.
+  * Updated: Help files are now SingleInstance <run.ahk>
+  * Minor Tweaks in <console.ahk>
+  * Added: Adjust audio volume with mouse wheel up/down over taskbar.
+  * Bugfix: RunRegedit now launches the selected key properly.
 
 * **2.6**:
 

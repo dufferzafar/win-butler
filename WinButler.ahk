@@ -148,6 +148,9 @@ CloseMe:
 	; Console2 and Command prompt
 	#Include Data\includes\console.ahk
 
+	; Focus various controls
+	#Include Data\includes\focus.ahk
+
 ; ------------------------------------------
 
 	; Select something...
@@ -157,7 +160,7 @@ CloseMe:
 	#Include Data\includes\run.ahk
 
 	; Run files directly to/from sublime
-	#Include Data\includes\runFromSublime.ahk
+	#Include Data\includes\sublime.ahk
 
 ; ------------------------------------------
 

@@ -39,12 +39,17 @@ Return
  * Make sure the paths are correct
  */
 HelpAHK:
-   SplitPath, A_AhkPath,, ahk_dir
+   SplitPath, A_AhkPath,, AHK_Dir
 
    If wnd := WinExist("AutoHotkey_L Help")
       WinActivate, ahk_id %wnd%
    Else
-      Run, %ahk_dir%\AutoHotkey.chm, , Max
+   {
+      ; Todo: Open Command Directly in Help File
+      Run, %AHK_Dir%\AutoHotkey.chm, , Max
+      ; Msgbox, %  AHK_Dir "\AutoHotkey.chm::/docs/commands/SetTitleMatchMode.htm"
+      ; Run, hh.exe "C:\Program Files\AutoHotkey\AutoHotkey.chm::/docs/commands/SetTitleMatchMode.htm"
+   }
 Return
 
 HelpLUA:

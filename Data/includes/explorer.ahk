@@ -16,7 +16,6 @@ Return
 /**
  * I trust and like AHK commands more than the default functions
  */
-
 MinimizeWindow:
 	; Send, #m
 	WinMinimize, A
