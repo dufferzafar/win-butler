@@ -3,10 +3,6 @@
 		by Rajat
 		edited by Toralf
 		edited again by dufferZafar
-
-Added:-
-
-Removed:-
 */
 
 #NoEnv  									;Recommended for performance.

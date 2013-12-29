@@ -37,7 +37,7 @@ VolumeUp:
 	WinGetTitle, Title, Windows Media Player
 	RegExMatch(Title, "^(.*) - (.*) - Windows Media Player", Song)
 
-	VolumeOSD(hVolumeOSD, iNewMaster, "Song: " . Song1)
+	VolumeOSD(hVolumeOSD, iNewMaster, Song1 = "" ? "Volume" : Song1)
 
 	SetTimer, HideGui, -750
 Return
@@ -51,7 +51,7 @@ VolumeDown:
 	WinGetTitle, Title, Windows Media Player
 	RegExMatch(Title, "^(.*) - (.*) - Windows Media Player", Song)
 
-	VolumeOSD(hVolumeOSD, iNewMaster, "Song: " . Song1)
+	VolumeOSD(hVolumeOSD, iNewMaster, Song1 = "" ? "Volume" : Song1)
 	SetTimer, HideGui, -750
 Return
 
@@ -116,7 +116,7 @@ VolumeOSD(hwnd, iProgress, sText)
 	cText := "c" SubStr(cText, 3), cPercent := "c" SubStr(cPercent, 3)
 
 	;Draw the main text at (6, 6) in specified color
-	Options = x6 y6 %cText% r4 s13
+	Options = x6 y6 %cText% r4 s12
 	Gdip_TextToGraphics(G, sText, Options, "Arial")
 
 	;Fill the shape

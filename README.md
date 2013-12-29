@@ -174,17 +174,17 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
   * Backup Buddy added. NOT activated though.
   
-  * Added: Ctrl + 0 sets focus to navigation pane in Windows Explorer.
+  * Added: Ctrl + 0 - Sets focus to navigation pane in Windows Explorer.
   * Updated: RestartExplorer. Now uses a function by SKAN.
   * Updated: Help files are now SingleInstance <run.ahk>
   * Minor Tweaks in <console.ahk>
-  * Added: Adjust audio volume with mouse wheel up/down over taskbar.
+  * Added: Mouse wheel up/down over taskbar - Adjust audio volume.
   * Bugfix: RunRegedit now launches the selected key properly.
 
 * **2.6**:
 
   * Miscellaneous improvements in <explorer.ahk>
-  * Added: Restart Shell. Ctrl + Windows + E.
+  * Added: Ctrl + Windows + E - Restart Shell.
   * Modified: GetCurrentFolderPath() to use ShellFolderView. Far better method.
   * Removed: Console2 has been removed from the package, download seperately and put it in Data/console2/. This reduces the size of the repo by 1 MB :)
 
@@ -193,9 +193,9 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * Refactored: Broke the code into more different files.
 
   * Refactored: Selectfiles. Leaner Code.
-  * Added: Select multiple files in explorer. Ctrl + S.
-  * Fixed: Ctrl+Up, Ctrl+Down now don't mess with VLC's default volume control.
-  * Added: PgUp, PgDn Scrolling in any console window.
+  * Added: Ctrl + S - Select multiple files in explorer. 
+  * Fixed: Ctrl+Up/Down - Doesn't mess with VLC's default volume control.
+  * Added: PgUp, PgDn - Scrolling in any console window.
   * Added: Date/Time Hotstrings.
 
 * **2.3**:
@@ -206,28 +206,28 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 * **2.1**:
 
-  * Added: Volume Control (On Screen Display). Ctrl+Up. Ctrl+Down.
+  * Added: Ctrl + Up/Down - Volume Control (On Screen Display).
 
-  * Enabled: SelectArea. Bug Fixed :)
-  * Modified: Scriptlet Library opens with Windows+Space instead of Ctrl+Space.
+  * Enabled: SelectArea. Bug Fixed.
+  * Modified: Windows + Space instead of Ctrl + Space - Opens Scriptlet Library.
 
 * **2.0**:
 
-  * Added: GrabAndUpload - Upload screenshots to Imgur (Shift + Printscreen)
+  * Added: Shift + Printscreen - Upload screenshots to Imgur 
 
   * Refactored: Screenshot.ahk
   * Disabled: SelectArea Screenshot (not reliable)
   * Added Windows + LButton to grab screen area.
 
-  * Added: Alt+Shift+S - Save and Run AHK Scripts
+  * Added: Alt + Shift + S - Save and Run AHK Scripts
   * Modified: Minor improvements to SaveScript:
 
-  * Modified: Windows+Down minimizes instead of restoring.
+  * Modified: Windows + Down - Minimizes instead of restoring.
 
-  * Added: Windows+S - Autoshutdown in X minutes.
+  * Added: Windows + S - Autoshutdown in X minutes.
   * Updated: Multiple files can be opened in sublime from explorer.
-  * Added: QtTabBar Improvements. Ctrl+PgDn, Ctrl+PgUp.
-  * Added: ALt+Ctrl+F Opens the selected file in sublime text.
+  * Added: Ctrl + PgDn/PgUp - QtTabBar Improvements. 
+  * Added: ALt + Ctrl + F - Opens the selected file in sublime text.
   * Remapped: CapsLock to Backspace.
 
 * **1.8**:
@@ -252,16 +252,16 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 * **1.5**:
 
-  * Modified: Ctrl+Shift+Z to open Help Folder instead of PHP.
-  * Added: Alt+Ctrl+C to launch Console2
-  * Added: Ctrl+W closes the Command Prompt.
-  * Added: Ctrl+N to create a new file in folder.
+  * Modified: Ctrl + Shift + Z - to open Help Folder instead of PHP.
+  * Added: Alt + Ctrl + C - to launch Console2
+  * Added: Ctrl + W - closes the Command Prompt.
+  * Added: Ctrl + N - to create a new file in folder.
 
   * Added Gdip.ahk incase it is not present in your standard library.
 
 * **1.4** :
 
-  * Added: Alt+Ctrl+D to reverse lookup words on OneLook.
+  * Added: Alt + Ctrl + D to reverse lookup words on OneLook.
   * Added: Some naive hotstrings. Like "i'm" gets converted to "I'm" and such.
   * Fixed: The Screenshot directory will be created if it doesn't already exist.
 

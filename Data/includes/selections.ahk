@@ -3,7 +3,7 @@
  *
  * Opens a Chrome tab with onelookup reverse search.
  *
- * Changed: Modified Sublime's setting so that Ctrl+C does nothing
+ * Modified: Sublime's setting so that Ctrl+C does nothing
  * if selection is empty.
  */
 OneLook:
