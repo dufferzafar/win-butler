@@ -78,15 +78,6 @@ Activate_Hotkeys:
    Hotkey,     ^+s,     RunFromSublime,   On
    Hotkey, IfWinActive
 
-   ; Command prompt improvements - <console.ahk>
-   Hotkey, IfWinActive, ahk_group Console_Group
-   Hotkey,     ^v,      PasteClipboard,   On
-   Hotkey,     ^w,      CloseCMD,         On
-   Hotkey,     PgUp,    ScrollUp,         On
-   Hotkey,     PgDn,    ScrollDown,       On
-   Hotkey,     Home,    ScrollTop,        On
-   Hotkey, IfWinActive
-
    ; Extend windows explorer - <explorer.ahk>
    Hotkey, IfWinActive, ahk_group Explorer_Group
    Hotkey,     #y,         ToggleExt,              On

@@ -118,6 +118,7 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 * **2.8**:
 
   * Modified: Alt + Ctrl + C - Now launches Cmder instead of Console2.
+  * Removed: All other hacky command prompt improvements as they seem childish infront of the power of cmder.
   * Removed: RunGitShell. Use Cmder instead.
 
   * Created a separate file to log all the wild ideas that come to mind. Later.md
