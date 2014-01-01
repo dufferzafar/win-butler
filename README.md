@@ -97,6 +97,9 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 * Ensure ManicTime and Networx are running always.
 
+* Auto-Commit every x minutes
+  * Similar to backup buddy.
+
 * Favorite folders 
   * Middle Click Menu | Hotkey ?
   * JnLnd's Fav Folder Script
@@ -106,7 +109,6 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 * Volume Control
   * Bottom Right Corner
-  * CurrentSong in WMP
   * Mute/Unmute
 
 * Select Files
@@ -167,6 +169,8 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * But in some applications to Ctrl+W
 
 ## <a name="changelog"></a>Changelog
+
+* Added: Backup Buddy. Modify settings in <buddy\backup.ahk>.
 
 * Added: Shows the currently playing song in Volume OSD. Works because I have Windows Media Player Plus! plugin enabled. Get it from http://www.bm-productions.tk/
 

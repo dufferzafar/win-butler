@@ -27,11 +27,11 @@ Build_TrayMenu:
 Return
 
 Show_TrayMenu:
-
    ; Set the icon
    Menu, Tray, Icon, Data\icons\Butler.ico
 
-   Menu, Tray, Icon  ;Else show default icon
+   ;Else show default icon
+   Menu, Tray, Icon
 
    ; Let the user know we have started
    TrayTip, Windows Butler %Version%,
@@ -42,7 +42,6 @@ Show_TrayMenu:
    Consult readme for usage instructions.
    ), , 1
    SetTimer, RemoveTrayTip, 3000
-
 Return
 
 SS_Menu_Handler:
@@ -60,13 +59,13 @@ BB_ToggleBackup:
    {
       BB_Toggle := 0
       ; Todo: Correct Menu
-      Menu, Tray, Rename, &Pause Backups, &Resume Backups
+      Menu, Tray, Rename, Pause Backups, Resume Backups
       SetTimer, BB_Backup, Off
    }
    Else
    {
       BB_Toggle := 1
-      Menu, Tray, Rename, &Resume Backups, &Pause Backups
+      Menu, Tray, Rename, Resume Backups, Pause Backups
       SetTimer, BB_Backup, % Period * 60 * 1000
    }
 Return

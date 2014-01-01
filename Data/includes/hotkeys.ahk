@@ -11,6 +11,9 @@
 
 Activate_Hotkeys:
 
+   ; CapsLock Be Gone!!
+   SetCapsLockState, AlwaysOff
+
    ; Create a group of windows
    ; Note: Groups are used to club different windows together
    GroupAdd, Explorer_Group, ahk_class CabinetWClass
@@ -24,10 +27,12 @@ Activate_Hotkeys:
    GroupAdd, Taskbar_Group, ahk_class DV2ControlHost
 
    GroupAdd, Console_Group, ahk_class ConsoleWindowClass
-   GroupAdd, Console_Group, ahk_class Console_2_Main
+   ; GroupAdd, Console_Group, ahk_class Console_2_Main
    GroupAdd, Console_Group, ahk_class PuTTY
 
    ; Hotkey,   KeyName, Label,         Options
+
+   ; Hotkey,     End,     DoubleTab_End,    Off
 
    Hotkey,     ^+Esc,   RunTaskMan,       On
    Hotkey,     !^r,     RunRegedit,       On
@@ -88,7 +93,7 @@ Activate_Hotkeys:
    Hotkey,     ^PgDn,      QtTabDn,                On
    Hotkey,     ^PgUp,      QtTabUp,                On
    Hotkey,     !^f,        OpenInSublime,          On
-   Hotkey,     CapsLock,   GoUpwardDirectory,      On
+   ; Hotkey,     CapsLock,   GoUpwardDirectory,      Off
    Hotkey,     ^s,         Show_SelectFiles_Gui,   On
    Hotkey, IfWinActive
 

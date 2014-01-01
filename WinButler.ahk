@@ -20,7 +20,7 @@
 SetWorkingDir %A_ScriptDir%
 SendMode, Input
 
-Version := "v2.6", Version_Date := "27/11/2013"
+Version := "v2.7", Version_Date := "27/12/2013"
 
 ; ####################### User Settings ########################
 
@@ -59,7 +59,10 @@ Gosub, Build_VolOSD ; <volosd.ahk>
 ; Turn On/Off various hotkeys
 Gosub, Activate_Hotkeys ; <hotkeys.ahk>
 
-; Require for screenshots
+; Setup and Start Automated Backups
+Gosub, Setup_BackupBuddy ; <backup.ahk>
+
+; Required for screenshots
 Gdip_Startup() ; <gdip.ahk> (thank you tic)
 
 Return			; End of the auto-execute section
@@ -67,11 +70,8 @@ Return			; End of the auto-execute section
 ; and will have no effect unless explicitly called,
 ; except for the #includes, they are pre-processed.
 
-; CapsLock Be Gone!!
-SetCapsLockState, AlwaysOff
 CapsLock::SendInput, {BS}
-^CapsLock::SendInput, ^{BS}
-+CapsLock::SendInput, {Del}
++CapsLock::SendInput, +{Del}
 
 ; ######################## Script Ends #########################
 
@@ -153,7 +153,7 @@ CloseMe:
 
 ; ------------------------------------------
 
-	; Select something...
+	; Select something and do something
 	#Include Data\includes\selections.ahk
 
 	; Run based hotkeys like RunTaskMan and HelpFolder
@@ -164,11 +164,11 @@ CloseMe:
 
 ; ------------------------------------------
 
-	; Screencapture related functions
-	#Include Data\screenshot\screenshot.ahk
-
 	; Needed for Screenshot features
 	#Include Data\includes\Gdip.ahk
+
+	; Screencapture related functions
+	#Include Data\screenshot\screenshot.ahk
 
 	; JSON library used to handle response from Imgur
 	#Include Data\screenshot\json.inc.ahk

@@ -1,99 +1,101 @@
+; Todo: All settings in a new tab of gui
 Setup_BackupBuddy:
+   7ZipPath := "Data\Buddy\7z.exe"
 
-	7ZipPath := "Data\7z.exe"
+   Sources =
+   ( LTrim Join|
+   D:\I, Coder\@ GitHub\backup-buddy
+   D:\I, Coder\@ GitHub\win-butler
+   C:\xampp\htdocs\cryptex
+   )
 
-	Sources =
-	( LTrim Join|
-	D:\I, Coder\@ GitHub\backup-buddy
-	D:\I, Coder\@ GitHub\win-butler
-	)
+   Destination := "F:\Backups"
+   FileCreateDir, %Destination%
 
-	Destination := "F:\Backups"
-	FileCreateDir, %Destination%
+   Period := 30 ; In Minutes
+   BackupsToKeep := 3
 
-	Password := ""
-	Period := 15
-	BackupsToKeep := 5
+   Password := "" ; Set Password Here
+   If (Password != "")
+      PSwitch := "-p" . Password . " -mhe"
+   Else
+      PSwitch := ""
 
-	Method := "-mx0"
-	Yes := "-y"
+   Method := "-mx0"
+   Yes := "-y"
 
-	If (Password != "")
-		PSwitch := "-p" . Password . " -mhe"
-	Else
-		PSwitch := ""
+   ; Used to detect if automated backup is on
+   BB_Toggle := 1
 
-	PlayPause := 1
+   ; There should be atleast one backup
+   If (BackupsToKeep < 1)
+      BackupsToKeep := 1
+   Else ; Make sure it isn't a fraction
+      BackupsToKeep := Floor(BackupsToKeep)
 
-	; There should be atleast one backup
-	If (BackupsToKeep < 1)
-		BackupsToKeep := 1
-	Else ; Make sure it isn't a fraction
-		BackupsToKeep := Floor(BackupsToKeep)
+   ; ExcludeFiles := "-xr!*.ahk"
+   ; ExcludeFolders := "-xr!Help"
+   ; Params = %Destination%\%DestDir%\%FileName%.7z "%Source%" %Yes% %Method% %ExcludeFiles% %ExcludeFolders%
+   ; FileDelete, %Destination%\%DestDir%\*.7z ; delete previous ones
 
-	; ExcludeFiles := "-xr!*.ahk"
-	; ExcludeFolders := "-xr!Help"
-	; Params = %Destination%\%DestDir%\%FileName%.7z "%Source%" %Yes% %Method% %ExcludeFiles% %ExcludeFolders%
-	; FileDelete, %Destination%\%DestDir%\*.7z ; delete previous ones
+   SetTimer, BB_Backup, % Period * 60 * 1000
 
-	SetTimer, BB_Backup, % Period * 60 * 1000
-
-Return	 ; End of Auto Execute Section
+Return    ; End of Auto Execute Section
 
 BB_Backup:
-	; SetTimer, SwapIcon, 500
+   ; SetTimer, SwapIcon, 500
 
-	Loop, Parse, Sources, |
-	{
-		SplitPath, A_LoopField, FolderName
-		DestDir := Destination "\" FolderName
+   Loop, Parse, Sources, |
+   {
+      SplitPath, A_LoopField, FolderName
+      DestDir := Destination "\" FolderName
 
-		If FileExist(A_LoopField)
-		{
-			FileName = %A_DD%-%A_MMM%-%A_YYYY%-%A_Hour%-%A_Min%-%A_Sec%
+      If FileExist(A_LoopField)
+      {
+         FileName = %A_DD%-%A_MMM%-%A_YYYY%-%A_Hour%-%A_Min%-%A_Sec%
 
-			Params = %DestDir%\%FileName%.7z "%A_LoopField%" %Yes% %Method% %PSwitch%
-			; Msgbox, Params
+         Params = %DestDir%\%FileName%.7z "%A_LoopField%" %Yes% %Method% %PSwitch%
+         ; Msgbox, Params
 
-			RunWait, % 7ZipPath . " a " . Params, %A_ScriptDir% , Hide
+         RunWait, % 7ZipPath . " a " . Params, %A_ScriptDir% , Hide
 
-			Files := CountFiles(DestDir, "7z")
-			; Msgbox, % Files
+         Files := CountFiles(DestDir, "7z")
+         ; Msgbox, % Files
 
-			; Delete Older Files
-			If ( Files > BackupsToKeep)
-			{
-				Count := Files - BackupsToKeep
-				Loop, %DestDir%\*.7z
-				{
-					FileDelete, %A_LoopFileFullPath%
-					Count--
-					If (Count == 0)
-						Break
-				}
-			}
-		}
-	}
-TrayTip, Windows Butler,
+         ; Delete Older Files
+         If ( Files > BackupsToKeep)
+         {
+            Count := Files - BackupsToKeep
+            Loop, %DestDir%\*.7z
+            {
+               FileDelete, %A_LoopFileFullPath%
+               Count--
+               If (Count == 0)
+                  Break
+            }
+         }
+      }
+   }
+TrayTip, Windows Butler %Version%,
 (
 
 Backup Done!
-)
-SetTimer, RemoveTrayTip, 2500
+), , 1
+SetTimer, RemoveTrayTip, 1500
 
 Return
 
 /**
- * Returns the number of files of the specified typ
+ * Returns the number of files of the specified type
  *  present in a the given folder
  */
 CountFiles(Dir, Ext)
 {
-	Count := 0
-	Loop, %Dir%\*.%Ext%
-	{
-		; Msgbox, % A_LoopFileName
-		Count++
-	}
-	Return Count
+   Count := 0
+   Loop, %Dir%\*.%Ext%
+   {
+      ; Msgbox, % A_LoopFileName
+      Count++
+   }
+   Return Count
 }
