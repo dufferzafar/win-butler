@@ -5,6 +5,7 @@
  */
 
 RunCmder:
+   ; Todo: Settings - Get the path of Cmder directory
    CmderPath := "F:\[Softwares]\[PowerPack]\Cmder"
 
    If WinActive("ahk_class PX_WINDOW_CLASS")

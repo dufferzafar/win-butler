@@ -25,7 +25,7 @@ FocusEsc:
    {
       ControlGetFocus, OutControl, ahk_group Explorer_Group
       ; Msgbox, % OutControl
-      If (OutControl = "SysTreeView321")
+      If ((OutControl = "SysTreeView321") or (OutControl = "DirectUIHWND1"))
          ControlFocus, DirectUIHWND3, ahk_group Explorer_Group ; The file browser
    }
    Else

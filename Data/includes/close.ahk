@@ -1,15 +1,20 @@
+
+/**
+ * Maps Ctrl + W to Alt + F4 in some applications
+ *
+ * For the rest, it sends back Ctrl + W for default functionality
+ */
 Close:
-   WinGetActiveTitle, Title
+   WinGetClass, Class, A
 
    ; Todo: Global Ctrl+W List
-   If (InStr(Title, "Notepad") or InStr(Title, "MyUninstaller"))
-   {
+   WhiteList := "Notepad, HH Parent, MyUninstaller100, Everything"
+
+   If InStr(WhiteList, Class)
       Send, !{F4}
-   }
    Else
       Send, ^w
 Return
-
 
 ; Todo: Add support to kill not responding processes...
 KillWindow:

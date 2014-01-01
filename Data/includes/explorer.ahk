@@ -1,4 +1,16 @@
 /**
+ * Launches Everything in the current directory
+ */
+
+FindEverything:
+	; Todo: Settings - Get Everything Path
+	EverythingPath := "F:\[Softwares]\[PowerPack]\Everything"
+
+   Path := GetCurrentFolderPath()
+	Run, %EverythingPath%\Everything.exe -path "%Path%\\", %EverythingPath%
+Return
+
+/**
  * Some Improvements to the default settings of QtTabBar
  *
  * Ctrl+PgDn is the same as Ctrl+Tab

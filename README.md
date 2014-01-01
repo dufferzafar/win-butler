@@ -115,6 +115,9 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
+* Ctrl + F - Launches Everything search in the current folder.
+* Added: Alt + Ctrl + X - Launches the currently opened file's folder from sublime.
+
 * **2.8**:
 
   * Modified: Alt + Ctrl + C - Now launches Cmder instead of Console2.

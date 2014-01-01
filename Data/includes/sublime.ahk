@@ -1,4 +1,14 @@
 /**
+ * Launches the currently opened file's folder
+ */
+FolderFromSublime:
+   FilePath := GetPathFromSublime()
+   SplitPath, FilePath, , Path ; The Directory
+   Run, % Path, , Max
+Return
+
+
+/**
  * Extracts the current file's path from sublime text.
  */
 GetPathFromSublime()
