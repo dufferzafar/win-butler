@@ -1,6 +1,10 @@
 Build_MainGui:
 Gui, 1:Add, Tab2, x-1 y0 h500 w480, About
 
+; Gui, 1:Add, Tab2, x-1 y0 h500 w480, Screenshots|About
+; Gui, 1:Tab,Screenshots
+   ; Gui, 1:Add, Picture, Section x7 y30, Data\gui\Butler-Logo.png
+
 Gui, 1:Tab,About
    Gui, 1:Add, Picture, Section x7 y30, Data\gui\Butler-Logo.png
 

@@ -48,8 +48,9 @@ Activate_Hotkeys:
    Hotkey,     ^+a,     HelpAHK,          On
    Hotkey,     ^+z,     HelpFolder,       On
 
-   Hotkey,     !^c,     RunConsole,       On
+   Hotkey,     !^z,     RunCmder,         On
    Hotkey,     !^x,     RunGitShell,      On
+   Hotkey,     !^c,     RunConsole,       On
 
    Hotkey,     $^0,      Focus,            On
    Hotkey,     $Esc,     FocusEsc,         On
@@ -58,8 +59,10 @@ Activate_Hotkeys:
 
    Hotkey,     ^#e,     RestartExplorer,  On
    Hotkey,     #t,      TopMost,          On
-   Hotkey,     !F5,     KillWindow,       On
    Hotkey,     #Down,   MinimizeWindow,   On
+
+   Hotkey,     $^w,      Close,           On
+   ; Hotkey,     !F5,     KillWindow,       On
 
    ; Avoid conflict with the default volume control of VLC
    SetTitleMatchMode, 2 ; Match title anywhere

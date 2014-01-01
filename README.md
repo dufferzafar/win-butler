@@ -1,4 +1,4 @@
-# Windows Butler v2.6
+# Windows Butler v2.7
 
 ![Butler](/Data/butler.png)
 
@@ -9,7 +9,6 @@ An Autohotkey script to help you with common windows tasks, a life-saver that I 
 * [Usage Instructions](#usage)
 * [List of Shortcuts](#hotkeys)
 * [Stuff to do](#todo)
-* [Could be added later](#later)
 * [Changelog](#changelog)
 
 ## <a name="usage"></a>Usage Instructions
@@ -47,6 +46,8 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 * **Alt + Ctrl + C** : Launch Console in the current directory.
 
   Launches to root "C:\" if path cannot be grabbed.
+
+* **Alt + Ctrl + X** : Launch Git Shell in the current directory.
 
 * **Windows + Space** : Launch Scriptlet Library
 
@@ -92,56 +93,8 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="todo"></a>To Do ASAP
 
-* Volumouse: http://www.nirsoft.net/utils/volumouse.html
-* BugShooting: http://www.bugshooting.com/
-
-* Ensure ManicTime and Networx are running always.
-
-* Auto-Commit every x minutes
-  * Similar to backup buddy.
-
-* Favorite folders 
-  * Middle Click Menu | Hotkey ?
-  * JnLnd's Fav Folder Script
-  * Sublime's Folder
-
-* Clipboard History?
-
-* Volume Control
-  * Bottom Right Corner
-  * Mute/Unmute
-
-* Select Files
-  * Handle extensions
-  * Regex
-
-* Run last run script !+s.
-
-## <a name="later"></a>Could be added later
-
-* Features from 7Plus: (Filter on accounts of usability)
-  [] Make Backspace go upwards
-  [X] Select files by entering a file filter such as ".jpg"
-  [X] Kill programs by pressing ALT+F5 or right clicking the close button
-  [] Automatically select first file when you enter a directory
-  [] Copy filenames (ALT+C) and paths (CTRL+ALT+C)
-  [] Set windows to be "Always on top" by right clicking the title bar
-  [X] Adjust audio volume with mouse wheel up/down over taskbar
-  [] Store favorite folders and recall them
-  [] Create new folders and textfiles. F8/F7.
-  [] Paste text or image from clipboard as file
-  [] Open any file in your favorite text/image editor. F3.
-  [] Advanced Renaming and Replacing in files
-  [] Paste previous clipboard text entries by pressing WIN+V
-  [] Rotate images in Windows Picture Viewer by pressing R and L
-
-* Other Scripts
-  * Backup Buddy. Animated TrayIcon.
-  * Core part of Sorting Hat.
-  * Renamer
-
-* Screenshots
-  * Add Shift to upload in all...
+* Delete Empty Folders
+* Search Everything
 
 * Settings GUI
   * Folder Paths
@@ -149,19 +102,13 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * Backup
   * Hotkeys - Bindings, On/Off
 
-* Imgur User Account
-  * Authorization Headers
+* Ensure ManicTime and Networx are running always.
 
-* Hotstrings
-  * Date/Time
-  * Address, State, ZipCode
-  * Emails
-  * WebURLs
+* Auto-Commit every x minutes
+  * Similar to backup buddy.
 
-* Goo.gl URL Shortner
-  * OnClipboardChange ?
-  * On Ctrl+V if IsURL()
-  * Authorization Headers
+* Screenshots
+  * Add Shift to upload in all...
 
 * Global Ctrl + W
   * WhiteList/BlackList
@@ -170,6 +117,11 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
+* Added: Alt + Ctrl + Z - Runs Cmder. Updates Left.
+
+* Created a separate file to log all the wild ideas that come to mind. Later.md
+
+* Added: Ctrl + W - Maps to Alt + F4 in some applications.
 * Added: Backup Buddy. Modify settings in <buddy\backup.ahk>.
 
 * Added: Shows the currently playing song in Volume OSD. Works because I have Windows Media Player Plus! plugin enabled. Get it from http://www.bm-productions.tk/
@@ -196,6 +148,7 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
   * Refactored: Broke the code into more different files.
 
+  * Added: Alt + Ctrl + X - Launch Git Shell in current directory.
   * Refactored: Selectfiles. Leaner Code.
   * Added: Ctrl + S - Select multiple files in explorer. 
   * Fixed: Ctrl+Up/Down - Doesn't mess with VLC's default volume control.

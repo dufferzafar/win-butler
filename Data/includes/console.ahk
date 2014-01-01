@@ -1,6 +1,23 @@
 /**
- * Run Console/CMD
+ * Run Cmder in current folder.
  *
+ * Would Override Console2
+ */
+
+RunCmder:
+   Path := GetCurrentFolderPath()
+   Path := (Path = "") ? "C:\" : Path
+
+   CmderPath := "F:\[Softwares]\[PowerPack]\Cmder"
+
+   ; This environment variable is used by "init.bat" of the Cmder Project
+   EnvSet, CMDER_ROOT, %CmderPath%
+
+   ; Copied from "Cmder.bat"
+   Run, %CmderPath%/vendor/conemu-maximus5/ConEmu.exe /Icon "%CmderPath%\icons\cmder.ico" /Title Cmder /LoadCfgFile "%CmderPath%\config\ConEmu.xml"
+Return
+
+/**
  * Run console (or command prompt) in the current folder.
  */
 RunConsole:
@@ -13,6 +30,10 @@ RunConsole:
    Else
       Run, cmd /K cd /D "%Path%"
 Return
+
+/**
+ * Run the git shell (sh.exe) in the current folder.
+ */
 
 RunGitShell:
    GitShell := "C:\Users\dufferzafar\AppData\Local\GitHub\PortableGit_fed20eba68b3e238e49a47cdfed0a45783d93651\bin\sh.exe"

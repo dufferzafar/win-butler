@@ -145,6 +145,9 @@ CloseMe:
 	; Registry Editor launch/jump
 	#Include Data\includes\registry.ahk
 
+	; Closes application via Ctrl+W
+	#Include Data\includes\close.ahk
+
 	; Console2 and Command prompt
 	#Include Data\includes\console.ahk
 

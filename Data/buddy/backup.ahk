@@ -81,7 +81,7 @@ TrayTip, Windows Butler %Version%,
 
 Backup Done!
 ), , 1
-SetTimer, RemoveTrayTip, 1500
+SetTimer, RemoveTrayTip, 2000
 
 Return
 

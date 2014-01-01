@@ -5,6 +5,7 @@
  * Ctrl+PgUp is the same as Ctrl+Shift+Tab
  */
 
+; Todo: Map these to other applications too.
 QtTabDn:
 	Send, ^{Tab}
 Return
@@ -19,17 +20,6 @@ Return
 MinimizeWindow:
 	; Send, #m
 	WinMinimize, A
-Return
-
-/**
- * Todo: Add support to kill not responding processes...
- */
-
-KillWindow:
-	; WinKill, % "ahk_id " WinExist("A")
-	WinGet, Process, ProcessName, A
-	Run, % comspec " /c taskkill /f /im " Process, Hide
-	; Msgbox, % Process
 Return
 
 GoUpwardDirectory:
