@@ -1,4 +1,4 @@
-# Windows Butler v2.7
+# Windows Butler v2.8
 
 ![Butler](/Data/butler.png)
 
@@ -43,11 +43,9 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * **Ctrl + Printscreen** : Save the screen but not the taskbar portion.
   * **Alt + Printscreen** : Save the active window.
 
-* **Alt + Ctrl + C** : Launch Console in the current directory.
+* **Alt + Ctrl + C** : Launch Cmder in the current directory.
 
-  Launches to root "C:\" if path cannot be grabbed.
-
-* **Alt + Ctrl + X** : Launch Git Shell in the current directory.
+  Launches to root "C:\" if a valid path cannot be grabbed.
 
 * **Windows + Space** : Launch Scriptlet Library
 
@@ -117,14 +115,17 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
-* Added: Alt + Ctrl + Z - Runs Cmder. Updates Left.
+* **2.8**:
 
-* Created a separate file to log all the wild ideas that come to mind. Later.md
+  * Modified: Alt + Ctrl + C - Now launches Cmder instead of Console2.
+  * Removed: RunGitShell. Use Cmder instead.
 
-* Added: Ctrl + W - Maps to Alt + F4 in some applications.
-* Added: Backup Buddy. Modify settings in <buddy\backup.ahk>.
+  * Created a separate file to log all the wild ideas that come to mind. Later.md
 
-* Added: Shows the currently playing song in Volume OSD. Works because I have Windows Media Player Plus! plugin enabled. Get it from http://www.bm-productions.tk/
+  * Added: Ctrl + W - Maps to Alt + F4 in some applications.
+  * Added: Backup Buddy. Modify settings in <buddy\backup.ahk>.
+
+  * Added: Shows the currently playing song in Volume OSD. Works because I have Windows Media Player Plus! plugin enabled. Get it from http://www.bm-productions.tk/
 
 * **2.7**:
 

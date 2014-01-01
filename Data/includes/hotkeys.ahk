@@ -48,9 +48,7 @@ Activate_Hotkeys:
    Hotkey,     ^+a,     HelpAHK,          On
    Hotkey,     ^+z,     HelpFolder,       On
 
-   Hotkey,     !^z,     RunCmder,         On
-   Hotkey,     !^x,     RunGitShell,      On
-   Hotkey,     !^c,     RunConsole,       On
+   Hotkey,     !^c,     RunCmder,         On
 
    Hotkey,     $^0,      Focus,            On
    Hotkey,     $Esc,     FocusEsc,         On

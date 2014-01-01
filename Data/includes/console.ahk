@@ -5,38 +5,7 @@
  */
 
 RunCmder:
-   Path := GetCurrentFolderPath()
-   Path := (Path = "") ? "C:\" : Path
-
    CmderPath := "F:\[Softwares]\[PowerPack]\Cmder"
-
-   ; This environment variable is used by "init.bat" of the Cmder Project
-   EnvSet, CMDER_ROOT, %CmderPath%
-
-   ; Copied from "Cmder.bat"
-   Run, %CmderPath%/vendor/conemu-maximus5/ConEmu.exe /Icon "%CmderPath%\icons\cmder.ico" /Title Cmder /LoadCfgFile "%CmderPath%\config\ConEmu.xml"
-Return
-
-/**
- * Run console (or command prompt) in the current folder.
- */
-RunConsole:
-   Path := GetCurrentFolderPath()
-   Path := (Path = "") ? "C:\" : Path
-
-   ; Todo: Path from Settings
-   If FileExist("Data\console2\console.exe")
-      Run, Data\console2\console.exe -d "%Path%"
-   Else
-      Run, cmd /K cd /D "%Path%"
-Return
-
-/**
- * Run the git shell (sh.exe) in the current folder.
- */
-
-RunGitShell:
-   GitShell := "C:\Users\dufferzafar\AppData\Local\GitHub\PortableGit_fed20eba68b3e238e49a47cdfed0a45783d93651\bin\sh.exe"
 
    If WinActive("ahk_class PX_WINDOW_CLASS")
    {
@@ -57,8 +26,16 @@ RunGitShell:
 
    Path := (Path = "") ? "D:\I, Coder\@ GitHub" : Path
 
-   Run, %GitShell% --login -i, %Path%, Max
+   ; This environment variable is used by "init.bat" of the Cmder Project
+   EnvSet, CMDER_ROOT, %CmderPath%
+
+   ; Copied from "Cmder.bat"
+   Run, %CmderPath%/vendor/conemu-maximus5/ConEmu.exe /Icon "%CmderPath%\icons\cmder.ico" /Dir "%Path%" /Title Cmder /LoadCfgFile "%CmderPath%\config\ConEmu.xml"
 Return
+
+/**
+ * Run the git shell (sh.exe) in the current folder.
+ */
 
 CloseCMD:
    WinKill, A
