@@ -31,8 +31,8 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 * In windows explorer...
 
-  * **Windows + J** : Show/Hide hidden files and folders.
-  * **Windows + Y** : Show/Hide file extensions.
+  * **Windows + Q** : Show/Hide hidden files and folders.
+  * **Windows + W** : Show/Hide file extensions.
 
 * Screenshot capabilities
 
@@ -92,7 +92,8 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 ## <a name="todo"></a>To Do ASAP
 
 * Delete Empty Folders
-* Search Everything
+
+* Paste paths as text
 
 * Settings GUI
   * Folder Paths
@@ -106,17 +107,15 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * Similar to backup buddy.
 
 * Screenshots
-  * Add Shift to upload in all...
-
-* Global Ctrl + W
-  * WhiteList/BlackList
-  * Maps to Alt+F4
-  * But in some applications to Ctrl+W
+  * Upload any image via a Traymenu
+  * Add Shift to upload in all
 
 ## <a name="changelog"></a>Changelog
 
-* Ctrl + F - Launches Everything search in the current folder.
-* Added: Alt + Ctrl + X - Launches the currently opened file's folder from sublime.
+* Remapped a few hotkeys.
+* Windows + F - Launches Everything search in the current folder.
+* Added: Alt + Ctrl + X - Launches the currently opened file's folder from sublime. This hotkey is off by default, as I use a [Sublime Plugin](https://github.com/dufferzafar/homepages/python-scripts/Sublime%20Text%203%20Plugins/
+) to open the project/file folder. 
 
 * **2.8**:
 

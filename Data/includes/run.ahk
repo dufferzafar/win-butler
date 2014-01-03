@@ -52,6 +52,8 @@ HelpAHK:
    }
 Return
 
+; Todo: Settings - Get help file paths
+
 HelpLUA:
    If wnd := WinExist("Lua AIO")
       WinActivate, ahk_id %wnd%

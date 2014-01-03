@@ -71,6 +71,7 @@ Return			; End of the auto-execute section
 ; except for the #includes, they are pre-processed.
 
 CapsLock::SendInput, {BS}
+^CapsLock::SendInput, ^{BS}
 +CapsLock::SendInput, +{Del}
 
 ; ######################## Script Ends #########################

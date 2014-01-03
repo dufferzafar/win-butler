@@ -8,7 +8,7 @@ Close:
    WinGetClass, Class, A
 
    ; Todo: Global Ctrl+W List
-   WhiteList := "Notepad, HH Parent, MyUninstaller100, Everything"
+   WhiteList := "Notepad, HH Parent, MyUninstaller100, Everything, Photo_Lightweight_Viewer, FM"
 
    If InStr(WhiteList, Class)
       Send, !{F4}

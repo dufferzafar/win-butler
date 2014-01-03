@@ -72,21 +72,20 @@ RunFromSublime:
    If FileExist(ScriptPath := GetPathFromSublime())
    {
       ; Use the default handler for scripts
-      If InStr(wTitle, ".lua") or InStr(wTitle, ".ahk") or InStr(wTitle, ".py")
+      If InStr(ScriptPath, ".lua") or InStr(ScriptPath, ".ahk") or InStr(ScriptPath, ".py")
       {
-         SplitPath, wTitle,,workingDir
+         SplitPath, ScriptPath,,workingDir
          Run, %ScriptPath%, %workingDir%
       }
       ; If this is an octopress post. Preview.
-      Else If InStr(wTitle, ".markdown")
+      Else If InStr(ScriptPath, ".markdown")
       {
          Run, % "Chrome.exe http://localhost:4000/blog/"
       }
-      Else If InStr(wTitle, ".php") or InStr(wTitle, ".html")
+      Else If InStr(ScriptPath, ".php") or InStr(ScriptPath, ".html")
       {
          ; If the file is in any other folder, the line below won't have any effect
          StringReplace, NewScriptPath, ScriptPath,% "C:\xampp\htdocs\", % "http://localhost/"
-
          Run, chrome.exe "%NewScriptPath%"
       }
       Else

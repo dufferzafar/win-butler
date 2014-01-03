@@ -4,8 +4,10 @@ Setup_BackupBuddy:
 
    Sources =
    ( LTrim Join|
-   D:\I, Coder\@ GitHub\backup-buddy
    D:\I, Coder\@ GitHub\win-butler
+   D:\I, Coder\@ GitHub\dufferzafar.github.com
+   D:\I, Coder\@ GitHub\personal-analytics
+   D:\I, Coder\@ GitHub\Tasks
    C:\xampp\htdocs\cryptex
    )
 

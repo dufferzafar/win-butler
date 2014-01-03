@@ -76,17 +76,17 @@ Activate_Hotkeys:
    ; Run files open in sublime text - <sublime.ahk>
    Hotkey, IfWinActive, ahk_class PX_WINDOW_CLASS  ; Sublime Text 3
    Hotkey,     ^+s,     RunFromSublime,      On
-   Hotkey,     !^x,     FolderFromSublime,   On
+   Hotkey,     !^x,     FolderFromSublime,   Off
    Hotkey, IfWinActive
 
    ; Extend windows explorer - <explorer.ahk>
    Hotkey, IfWinActive, ahk_group Explorer_Group
-   Hotkey,     #y,         ToggleExt,              On
-   Hotkey,     #j,         ToggleHidden,           On
+   Hotkey,     #q,         ToggleHidden,           On
+   Hotkey,     #w,         ToggleExt,              On
+   Hotkey,     #f,         FindEverything,         On
    Hotkey,     ^PgDn,      QtTabDn,                On
    Hotkey,     ^PgUp,      QtTabUp,                On
    Hotkey,     !^f,        OpenInSublime,          On
-   Hotkey,     ^f,         FindEverything,         On
    Hotkey,     ^s,         Show_SelectFiles_Gui,   On
    Hotkey, IfWinActive
 
