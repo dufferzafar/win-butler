@@ -21,6 +21,6 @@ RunCmder:
    ; This environment variable is used by "init.bat" of the Cmder Project
    EnvSet, CMDER_ROOT, %CmderPath%
 
-   ; Copied from "Cmder.bat"
-   Run, %CmderPath%/vendor/conemu-maximus5/ConEmu.exe /Icon "%CmderPath%\icons\cmder.ico" /Dir "%Path%" /Title Cmder /LoadCfgFile "%CmderPath%\config\ConEmu.xml"
+   ; Launch ConEmu
+   Run, %CmderPath%/vendor/conemu/ConEmu64.exe /Single /Dir "%Path%" /Title Cmder /Icon "%CmderPath%\Cmder.ico" /LoadCfgFile "%CmderPath%\config\ConEmu.xml"
 Return

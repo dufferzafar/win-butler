@@ -93,7 +93,8 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 * Delete Empty Folders
 
-* Paste paths as text
+* Paste clipboard as text: Paths
+* Task Switcher Hotspot like Preme
 
 * Settings GUI
   * Folder Paths
@@ -111,6 +112,8 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * Add Shift to upload in all
 
 ## <a name="changelog"></a>Changelog
+
+* Updated: Cmder overhaul.
 
 * Remapped a few hotkeys.
 * Windows + F - Launches Everything search in the current folder.
