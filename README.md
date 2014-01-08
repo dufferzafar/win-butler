@@ -113,11 +113,12 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
+* Added: Alt + Ctrl + X - Launch GitShell here (but in Cmder).
 * Updated: Cmder overhaul.
 
 * Remapped a few hotkeys.
 * Windows + F - Launches Everything search in the current folder.
-* Added: Alt + Ctrl + X - Launches the currently opened file's folder from sublime. This hotkey is off by default, as I use a [Sublime Plugin](https://github.com/dufferzafar/homepages/python-scripts/Sublime%20Text%203%20Plugins/
+* Added: Alt + Ctrl + Z - Launches the currently opened file's folder from sublime. This hotkey is off by default, as I use a [Sublime Plugin](https://github.com/dufferzafar/homepages/python-scripts/Sublime%20Text%203%20Plugins/
 ) to open the project/file folder. 
 
 * **2.8**:

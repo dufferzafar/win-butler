@@ -49,9 +49,10 @@ Activate_Hotkeys:
    Hotkey,     ^+z,     HelpFolder,       On
 
    Hotkey,     !^c,     RunCmder,         On
+   Hotkey,     !^x,     RunGitShell,      On
 
-   Hotkey,     $^0,      Focus,            On
-   Hotkey,     $Esc,     FocusEsc,         On
+   Hotkey,     $^0,      Focus,           On
+   Hotkey,     $Esc,     FocusEsc,        On
 
    Hotkey,     #s,      AutoShutdown,     On
 
@@ -76,7 +77,7 @@ Activate_Hotkeys:
    ; Run files open in sublime text - <sublime.ahk>
    Hotkey, IfWinActive, ahk_class PX_WINDOW_CLASS  ; Sublime Text 3
    Hotkey,     ^+s,     RunFromSublime,      On
-   Hotkey,     !^x,     FolderFromSublime,   Off
+   Hotkey,     !^z,     FolderFromSublime,   Off
    Hotkey, IfWinActive
 
    ; Extend windows explorer - <explorer.ahk>

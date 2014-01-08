@@ -7,7 +7,7 @@ Setup_BackupBuddy:
    D:\I, Coder\@ GitHub\win-butler
    D:\I, Coder\@ GitHub\dufferzafar.github.com
    D:\I, Coder\@ GitHub\personal-analytics
-   D:\I, Coder\@ GitHub\Tasks
+   D:\I, Coder\@ GitHub\Todo
    C:\xampp\htdocs\cryptex
    )
 
