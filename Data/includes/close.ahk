@@ -1,4 +1,3 @@
-
 /**
  * Maps Ctrl + W to Alt + F4 in some applications
  *

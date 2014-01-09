@@ -16,14 +16,14 @@ RunCmder:
 
    Path := (Path = "") ? "D:\I, Coder\@ GitHub" : Path
 
-   ; This environment variable is used by "init.bat" of the Cmder Project
+   ; This environment variable is used by Cmder Project
    EnvSet, CMDER_ROOT, %CmderPath%
 
    ; Launch ConEmu
    Run, %CmderPath%/vendor/conemu/ConEmu64.exe /Single /Dir "%Path%" /Title Cmder /Icon "%CmderPath%\Cmder.ico" /LoadCfgFile "%CmderPath%\config\ConEmu.xml"
 Return
 
-RunGitShell:
+RunBash:
    CmderPath := "F:\[Softwares]\[PowerPack]\Cmder"
 
    If WinActive("ahk_class PX_WINDOW_CLASS")
@@ -36,10 +36,8 @@ RunGitShell:
 
    Path := (Path = "") ? "D:\I, Coder\@ GitHub" : Path
 
-   ; This environment variable is used by "init.bat" of the Cmder Project
    EnvSet, CMDER_ROOT, %CmderPath%
 
    ; Launch ConEmu
-   Run, %CmderPath%/vendor/conemu/ConEmu64.exe /Single /Dir "%Path%" /Title Cmder /Icon "%CmderPath%\Cmder.ico" /LoadCfgFile "%CmderPath%\config\ConEmu.xml" /cmd %CmderPath%\vendor\msysgit\bin\sh.exe --login -i
-Return
+   Run, %CmderPath%/vendor/conemu/ConEmu64.exe /Single /Dir "%Path%" /Title Cmder /Icon "%CmderPath%\Cmder.ico" /LoadCfgFile "%CmderPath%\config\ConEmu.xml" /cmd %CmderPath%\vendor\msysgit\bin\sh.exe -l -i
 Return

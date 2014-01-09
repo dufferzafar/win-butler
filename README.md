@@ -113,7 +113,7 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
-* Added: Alt + Ctrl + X - Launch GitShell here (but in Cmder).
+* Added: Alt + Ctrl + X - Launch Bash Shell here (but in Cmder).
 * Updated: Cmder overhaul.
 
 * Remapped a few hotkeys.

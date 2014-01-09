@@ -49,7 +49,7 @@ Activate_Hotkeys:
    Hotkey,     ^+z,     HelpFolder,       On
 
    Hotkey,     !^c,     RunCmder,         On
-   Hotkey,     !^x,     RunGitShell,      On
+   Hotkey,     !^x,     RunBash,          On
 
    Hotkey,     $^0,      Focus,           On
    Hotkey,     $Esc,     FocusEsc,        On
