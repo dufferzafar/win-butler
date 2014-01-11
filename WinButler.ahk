@@ -20,7 +20,7 @@
 SetWorkingDir %A_ScriptDir%
 SendMode, Input
 
-Version := "v2.8", Version_Date := "1/1/2014"
+Version := "v3.0", Version_Date := "11/1/2014"
 
 ; ####################### User Settings ########################
 

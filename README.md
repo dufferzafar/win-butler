@@ -1,4 +1,4 @@
-# Windows Butler v2.8
+# Windows Butler v3.0
 
 ![Butler](/Data/butler.png)
 
@@ -102,24 +102,29 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * Backup
   * Hotkeys - Bindings, On/Off
 
-* Ensure ManicTime and Networx are running always.
+* Ensure ManicTime and Networx are always running.
 
 * Auto-Commit every x minutes
   * Similar to backup buddy.
 
 * Screenshots
-  * Upload any image via a Traymenu
+  * Upload any image via Traymenu
   * Add Shift to upload in all
 
 ## <a name="changelog"></a>Changelog
 
-* Added: Alt + Ctrl + X - Launch Bash Shell here (but in Cmder).
-* Updated: Cmder overhaul.
+* **3.0**
 
-* Remapped a few hotkeys.
-* Windows + F - Launches Everything search in the current folder.
-* Added: Alt + Ctrl + Z - Launches the currently opened file's folder from sublime. This hotkey is off by default, as I use a [Sublime Plugin](https://github.com/dufferzafar/homepages/python-scripts/Sublime%20Text%203%20Plugins/
-) to open the project/file folder. 
+  * Updated: Volume OSD shows both Song and Artist.
+  * Updated: Ctrl+Esc focuses the sidebars in _some_ programs. See <includes/focus.ahk>
+
+  * Added: Alt + Ctrl + X - Launch Bash Shell here (but in Cmder).
+  * Updated: Cmder overhaul.
+
+  * Remapped a few hotkeys.
+  * Windows + F - Launches Everything search in the current folder.
+  * Added: Alt + Ctrl + Z - Launches the currently opened file's folder from sublime. This hotkey is off by default, as I use a [Sublime Plugin](https://github.com/dufferzafar/homepages/python-scripts/Sublime%20Text%203%20Plugins/
+  ) to open the project/file folder. 
 
 * **2.8**:
 
@@ -138,7 +143,7 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
   * Backup Buddy added. NOT activated though.
   
-  * Added: Ctrl + 0 - Sets focus to navigation pane in Windows Explorer.
+  * Added: Ctrl + Esc - Sets focus to navigation pane in Windows Explorer.
   * Updated: RestartExplorer. Now uses a function by SKAN.
   * Updated: Help files are now SingleInstance <run.ahk>
   * Minor Tweaks in <console.ahk>

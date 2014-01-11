@@ -37,7 +37,7 @@ VolumeUp:
 	WinGetTitle, Title, Windows Media Player
 	RegExMatch(Title, "^(.*) - (.*) - Windows Media Player", Song)
 
-	VolumeOSD(hVolumeOSD, iNewMaster, Song1 = "" ? "Volume" : Song1)
+	VolumeOSD(hVolumeOSD, iNewMaster, Song1 = "" ? "Volume" : Song1 " - " Song2)
 
 	SetTimer, HideGui, -750
 Return
@@ -51,7 +51,7 @@ VolumeDown:
 	WinGetTitle, Title, Windows Media Player
 	RegExMatch(Title, "^(.*) - (.*) - Windows Media Player", Song)
 
-	VolumeOSD(hVolumeOSD, iNewMaster, Song1 = "" ? "Volume" : Song1)
+	VolumeOSD(hVolumeOSD, iNewMaster, Song1 = "" ? "Volume" : Song1 " - " Song2)
 	SetTimer, HideGui, -750
 Return
 

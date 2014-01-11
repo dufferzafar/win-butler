@@ -51,8 +51,8 @@ Activate_Hotkeys:
    Hotkey,     !^c,     RunCmder,         On
    Hotkey,     !^x,     RunBash,          On
 
-   Hotkey,     $^0,      Focus,           On
-   Hotkey,     $Esc,     FocusEsc,        On
+   Hotkey,     $^Esc,   Focus,            On
+   Hotkey,     $Esc,    FocusEsc,         On
 
    Hotkey,     #s,      AutoShutdown,     On
 

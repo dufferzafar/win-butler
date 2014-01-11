@@ -39,7 +39,7 @@ GrabAndUpload:
    sW := A_ScreenWidth, sH := A_ScreenHeight
    WinGetPos,,, tbW, tbH, ahk_class Shell_TrayWnd
 
-   Area := 0 "|" 0 "|" sW "|" sH-tbH
+   Area := 0 "|" 0 "|" sW "|" sH
    FileName = Temp-%A_DD%-%A_MMM%-%A_YYYY%-%A_Hour%-%A_Min%-%A_Sec%
 
    OutputScreenshot := Screenshot(Screenshot_Size, Area, A_Temp, FileName)

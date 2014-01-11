@@ -13,11 +13,10 @@ Focus:
 
       ; Msgbox, % OutputControl
    }
-   Else
-   {
-      RegExMatch(A_ThisHotkey, "\$(.*)", ThisHotkey)
-      Send, % ThisHotkey1
-   }
+   Else If WinActive("ahk_class classFoxitReader")
+      ControlFocus, SysTreeView323, ahk_class classFoxitReader
+   Else If WinActive("ahk_class PX_WINDOW_CLASS")
+      Send, ^0 ; Focus Sidebar
 Return
 
 FocusEsc:
@@ -28,8 +27,13 @@ FocusEsc:
       If ((OutControl = "SysTreeView321") or (OutControl = "DirectUIHWND1"))
          ControlFocus, DirectUIHWND3, ahk_group Explorer_Group ; The file browser
    }
-   Else
+   Else If WinActive("ahk_class classFoxitReader")
    {
-      Send, {Esc}
+      ; AfxWnd100su17
+      ControlFocus, AfxWnd100su17, ahk_class classFoxitReader
    }
+   ; Else If WinActive("ahk_class PX_WINDOW_CLASS")
+      ; Send, ^0 ; Focus Sidebar
+   Else
+      Send, {Esc}
 Return

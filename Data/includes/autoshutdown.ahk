@@ -1,6 +1,10 @@
 /**
  * Display a timer, and shutdown computer
  */
+
+; Bug: Esc On Abort
+; Todo: Shutdown Now
+
 AutoShutdown:
 	InputBox, MinuteInput, Shutdown in..., This computer will Shutdown in...... (minutes), ,250, 150, , , , , 20
 
@@ -10,7 +14,6 @@ AutoShutdown:
 	; Convert string to number
 	Minutes := ("0" . MinuteInput), Minutes += 0
 	Gdip_Startup()
-
 	Gosub, GdipSetup
 	StartCount := A_TickCount
 	SetTimer, ShutdownTimer, % 1000
@@ -78,7 +81,7 @@ Abort:
 	DeleteDC(hdc), Gdip_DeleteGraphics(G)
 	Gdip_DeleteBrush(pBrush)
 
-	Gui, 99:Destroy
 	SetTimer, ShutdownTimer, Off
 	Hotkey, Esc, Abort, Off
+	Gui, 99:Destroy
 Return
