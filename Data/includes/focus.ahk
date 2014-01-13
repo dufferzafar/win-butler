@@ -26,6 +26,8 @@ FocusEsc:
       ; Msgbox, % OutControl
       If ((OutControl = "SysTreeView321") or (OutControl = "DirectUIHWND1"))
          ControlFocus, DirectUIHWND3, ahk_group Explorer_Group ; The file browser
+
+      Send, {Esc}
    }
    Else If WinActive("ahk_class classFoxitReader")
    {

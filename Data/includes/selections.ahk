@@ -17,7 +17,7 @@ OneLook:
    If (selection != "")    ;if something is selected
    {
       url := "http://www.onelook.com/?w=*:" . selection
-      Run, chrome.exe "%url%"
+      Run, firefox.exe "%url%"
    }
 Return
 

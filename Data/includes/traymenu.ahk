@@ -17,6 +17,7 @@ Build_TrayMenu:
    Menu, Tray, Add
    Menu, Tray, Add, &About, ShowGui
    Menu, Tray, Add
+   ; Todo: HIGH! - Reload Menu
    Menu, Tray, Add, &Suspend, SuspendMe
    Menu, Tray, Add, &Exit, CloseMe
 

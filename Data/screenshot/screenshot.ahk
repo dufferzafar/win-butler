@@ -4,6 +4,8 @@
  * Modify global variables to alter behaviour.
  */
 
+; Todo: Easier way to share links after some time.
+
 GrabArea:
    RawArea := SelectArea()
    StringSplit, AreaArr, RawArea, |

@@ -113,6 +113,9 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
+* Added: A check to ensure that some required applications are always running. See <always.ahk>
+* Updated: All Urls etc now open in Firefox.
+
 * **3.0**
 
   * Updated: Volume OSD shows both Song and Artist.

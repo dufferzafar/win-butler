@@ -54,7 +54,7 @@ Activate_Hotkeys:
    Hotkey,     $^Esc,   Focus,            On
    Hotkey,     $Esc,    FocusEsc,         On
 
-   Hotkey,     #s,      AutoShutdown,     On
+   ; Hotkey,     #s,      AutoShutsdown,     On
 
    Hotkey,     ^#e,     RestartExplorer,  On
    Hotkey,     #t,      TopMost,          On

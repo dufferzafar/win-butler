@@ -62,6 +62,9 @@ Gosub, Activate_Hotkeys ; <hotkeys.ahk>
 ; Setup and Start Automated Backups
 Gosub, Setup_BackupBuddy ; <backup.ahk>
 
+; Ensure always running apps
+SetTimer, AlwaysRunning, % 15 * 60 * 1000 ; <always.ahk>
+
 ; Required for screenshots
 Gdip_Startup() ; <gdip.ahk> (thank you tic)
 
@@ -80,12 +83,12 @@ CapsLock::SendInput, {BS}
  * Debugging related
  */
 
-; ^F12::
-	; dbg := Debug("Hotkeys") ; Debugger
-	; Msgbox, % dbg
-; Return
+^F12::
+	dbg := Debug("Hotkeys") ; Debugger
+	Msgbox, % dbg
+Return
 
-^+r::Reload
+; ^+r::Reload
 
 /**
  * Always On Top
@@ -165,6 +168,11 @@ CloseMe:
 
 	; Run files directly to/from sublime
 	#Include Data\includes\sublime.ahk
+
+; ------------------------------------------
+
+	; Some applications should always be running
+	#Include Data\includes\always.ahk
 
 ; ------------------------------------------
 

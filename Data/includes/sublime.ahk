@@ -80,13 +80,13 @@ RunFromSublime:
       ; If this is an octopress post. Preview.
       Else If InStr(ScriptPath, ".markdown")
       {
-         Run, % "Chrome.exe http://localhost:4000/blog/"
+         Run, % "firefox.exe http://localhost:4000/blog/"
       }
       Else If InStr(ScriptPath, ".php") or InStr(ScriptPath, ".html")
       {
          ; If the file is in any other folder, the line below won't have any effect
-         StringReplace, NewScriptPath, ScriptPath,% "C:\xampp\htdocs\", % "http://localhost/"
-         Run, chrome.exe "%NewScriptPath%"
+         StringReplace, NewScriptPath, ScriptPath,% "C:\xampp\htdocs\", % "localhost\"
+         Run, firefox.exe "%NewScriptPath%"
       }
       Else
          Run, %ScriptPath%
