@@ -113,8 +113,9 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
-* Added: A check to ensure that some required applications are always running. See <always.ahk>
-* Updated: All Urls etc now open in Firefox.
+* Added: Delays some applications so as to reduce load on startup. <applications.ahk>
+* Added: A check to ensure that some required applications are always running. See <applications.ahk>
+* Updated: All Urls and HTML files now open in Firefox.
 
 * **3.0**
 
