@@ -8,7 +8,11 @@ Close:
    WinGetClass, Class, A
 
    ; Note: Global Ctrl+W List
-   WhiteList := "Notepad, HH Parent, MyUninstaller100, Everything, Photo_Lightweight_Viewer, FM, µTorrent4823DF041B09, WMPlayerApp"
+   WhiteList =
+   (
+      Notepad, HH Parent, MyUninstaller100, Everything, Photo_Lightweight_Viewer, FM,
+      µTorrent4823DF041B09, WMPlayerApp, WindowsForms10.Window.20008.app.0.232467a
+   )
 
    ; Foxit closes only when no tabs exist
    If InStr(WhiteList, Class) or (Title = "Foxit PhantomPDF")

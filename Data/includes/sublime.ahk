@@ -77,10 +77,15 @@ RunFromSublime:
          SplitPath, ScriptPath,,workingDir
          Run, %ScriptPath%, %workingDir%
       }
-      ; If this is an octopress post. Preview.
+      ; An octopress post - Preview via blog.
       Else If InStr(ScriptPath, ".markdown")
       {
          Run, % "firefox.exe http://localhost:4000/blog/"
+      }
+      ; Other Markdown - Preview via Sublime's Plugin.
+      Else If InStr(ScriptPath, ".md")
+      {
+         Send, !m
       }
       Else If InStr(ScriptPath, ".php") or InStr(ScriptPath, ".html")
       {

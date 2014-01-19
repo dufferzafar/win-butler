@@ -1,4 +1,6 @@
 ; Todo: All settings in a new tab of gui
+; Bug: Pause Backups Doesn't work
+; Todo: Backup Log, Last backup at:
 Setup_BackupBuddy:
    7ZipPath := "Data\Buddy\7z.exe"
 

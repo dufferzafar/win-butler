@@ -11,8 +11,14 @@ StartupDelay:
    ; Run Listed Apps
    Loop, Parse, AppList, |
    {
-      Sleep, 15 * 1000
-      Run, % A_LoopField
+      Sleep, 30 * 1000
+
+      SplitPath, A_LoopField, OutFileName
+      RegExMatch(OutFileName, "(.*.exe)", JustExe)
+
+      ; If process is not already running
+      If !FindProc(JustExe)
+         Run, % A_LoopField
    }
 
 Return
