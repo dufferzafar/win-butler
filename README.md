@@ -15,7 +15,11 @@ An Autohotkey script to help you with common windows tasks, a life-saver that I 
 
 You'll need to have [Autohotkey](http://l.autohotkey.net/AutoHotkey_L_Install.exe) installed.
 
-Once you have AHK installed, download the [zip](https://github.com/dufferzafar/win-butler/archive/master.zip), extract the contents, and Run WinButler.ahk
+Once you have AHK installed, download the [zip](https://github.com/dufferzafar/win-butler/archive/master.zip), extract the contents, and Run WinButler.ahk and be prepared to face some AHK errors.
+
+I created this script for myself and haven't had the time to make it 'user-friendly'. So if don't have prior AHK experience - please delete the Zip file you just downloaded.
+
+Also, Autohotkey has some 'issues' on Windows 8, so it won't work there. The only thing I know is that it works smoooothly for me - Windows 7 x64.
 
 Have fun!
 
@@ -113,6 +117,7 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
+* Updated: Startup applications only run if not already running.
 * Added: Delays some applications so as to reduce load on startup. <applications.ahk>
 * Added: A check to ensure that some required applications are always running. See <applications.ahk>
 * Updated: All Urls and HTML files now open in Firefox.
