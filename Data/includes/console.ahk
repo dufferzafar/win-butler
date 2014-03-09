@@ -28,4 +28,6 @@ GetPath() {
       Path := GetCurrentFolderPath()
 
    Path := (Path = "") ? "E:\dufferZafar\@ Github" : Path
+
+   Return Path
 }

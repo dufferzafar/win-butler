@@ -63,10 +63,10 @@ Gosub, Activate_Hotkeys ; <hotkeys.ahk>
 ; Gosub, Setup_BackupBuddy ; <backup.ahk>
 
 ; Ensure always running apps
-; SetTimer, AlwaysRunning, % 10 * 60 * 1000 ; <applications.ahk>
+SetTimer, AlwaysRunning, % 10 * 60 * 1000 ; <applications.ahk>
 
 ; Delay some applications on startup
-; SetTimer, StartupDelay,  % -1 * 60 * 1000 ; <applications.ahk>
+SetTimer, StartupDelay,  % -1 * 60 * 1000 ; <applications.ahk>
 
 ; Required for screenshots
 Gdip_Startup() ; <gdip.ahk> (thank you tic)

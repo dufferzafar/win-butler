@@ -78,7 +78,7 @@ Activate_Hotkeys:
    ; Run files open in sublime text - <sublime.ahk>
    Hotkey, IfWinActive, ahk_class PX_WINDOW_CLASS  ; Sublime Text 3
    Hotkey,     ^+s,     RunFromSublime,      On
-   Hotkey,     !^z,     FolderFromSublime,   Off
+   Hotkey,     !^z,     FolderFromSublime,   On
    Hotkey, IfWinActive
 
    ; Extend windows explorer - <explorer.ahk>
