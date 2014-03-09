@@ -38,30 +38,30 @@ Activate_Hotkeys:
    Hotkey,     ^+Esc,   RunTaskMan,       On
    Hotkey,     !^r,     RunRegedit,       On
 
-   Hotkey,     !^d,     OneLook,          On
+   ; Hotkey,     !^d,     OneLook,          On
 
-   Hotkey,     !^s,     SaveText,         On
-   Hotkey,     !+s,     SaveRunScript,    On
+   ; Hotkey,     !^s,     SaveText,         On
+   ; Hotkey,     !+s,     SaveRunScript,    On
 
-   Hotkey,     #Space,  RunScriptlet,     On
+   ; Hotkey,     #Space,  RunScriptlet,     On
 
-   Hotkey,     ^+q,     HelpPHP,       On
-   Hotkey,     ^+a,     HelpAHK,          On
-   Hotkey,     ^+z,     HelpFolder,       On
+   ; Hotkey,     ^+q,     HelpPHP,       On
+   ; Hotkey,     ^+a,     HelpAHK,          On
+   ; Hotkey,     ^+z,     HelpFolder,       On
 
    Hotkey,     !^c,     RunCmder,         On
    Hotkey,     !^x,     RunBash,          On
 
-   Hotkey,     $^Esc,   Focus,            On
-   Hotkey,     $Esc,    FocusEsc,         On
+   ; Hotkey,     $^Esc,   Focus,            On
+   ; Hotkey,     $Esc,    FocusEsc,         On
 
    ; Hotkey,     #s,      AutoShutsdown,     On
 
-   Hotkey,     ^#e,     RestartExplorer,  On
-   Hotkey,     #t,      TopMost,          On
-   Hotkey,     #Down,   MinimizeWindow,   On
+   ; Hotkey,     ^#e,     RestartExplorer,  On
+   ; Hotkey,     #t,      TopMost,          On
+   ; Hotkey,     #Down,   MinimizeWindow,   On
 
-   Hotkey,     $^w,      Close,           On
+   ; Hotkey,     $^w,      Close,           On
    ; Hotkey,     !F5,     KillWindow,       On
 
    ; Avoid conflict with the default volume control of VLC
@@ -85,11 +85,11 @@ Activate_Hotkeys:
    Hotkey, IfWinActive, ahk_group Explorer_Group
    Hotkey,     #q,         ToggleHidden,           On
    Hotkey,     #w,         ToggleExt,              On
-   Hotkey,     #f,         FindEverything,         On
-   Hotkey,     ^PgDn,      QtTabDn,                On
-   Hotkey,     ^PgUp,      QtTabUp,                On
-   Hotkey,     !^f,        OpenInSublime,          On
-   Hotkey,     ^s,         Show_SelectFiles_Gui,   On
+   ; Hotkey,     #f,         FindEverything,         On
+   ; Hotkey,     ^PgDn,      QtTabDn,                On
+   ; Hotkey,     ^PgUp,      QtTabUp,                On
+   ; Hotkey,     !^f,        OpenInSublime,          On
+   ; Hotkey,     ^s,         Show_SelectFiles_Gui,   On
    Hotkey, IfWinActive
 
    ; Screener Hotkeys - <screenshot.ahk>

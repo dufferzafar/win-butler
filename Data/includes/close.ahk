@@ -7,7 +7,6 @@ Close:
    WinGetTitle, Title, A
    WinGetClass, Class, A
 
-   ; Note: Global Ctrl+W List
    WhiteList =
    (
       Notepad, HH Parent, MyUninstaller100, Everything, Photo_Lightweight_Viewer, FM,

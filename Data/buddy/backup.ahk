@@ -11,6 +11,7 @@ Setup_BackupBuddy:
    D:\I, Coder\@ GitHub\personal-analytics
    D:\I, Coder\@ GitHub\Todo
    C:\xampp\htdocs\cryptex
+   D:\I, Coder\@ GitHub\picard-website
    )
 
    Destination := "F:\Backups"

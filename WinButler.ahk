@@ -51,7 +51,7 @@ Gosub, Show_TrayMenu
 Gosub, Build_MainGui ; <gui.ahk>
 
 ; An explorer addon to select files
-Gosub, Build_SelectFiles_Gui ; <selectfiles.ahk>
+; Gosub, Build_SelectFiles_Gui ; <selectfiles.ahk>
 
 ; Volume control display
 Gosub, Build_VolOSD ; <volosd.ahk>
@@ -60,13 +60,13 @@ Gosub, Build_VolOSD ; <volosd.ahk>
 Gosub, Activate_Hotkeys ; <hotkeys.ahk>
 
 ; Setup and Start Automated Backups
-Gosub, Setup_BackupBuddy ; <backup.ahk>
+; Gosub, Setup_BackupBuddy ; <backup.ahk>
 
 ; Ensure always running apps
-SetTimer, AlwaysRunning, % 10 * 60 * 1000 ; <applications.ahk>
+; SetTimer, AlwaysRunning, % 10 * 60 * 1000 ; <applications.ahk>
 
 ; Delay some applications on startup
-SetTimer, StartupDelay,  % -1 * 60 * 1000 ; <applications.ahk>
+; SetTimer, StartupDelay,  % -1 * 60 * 1000 ; <applications.ahk>
 
 ; Required for screenshots
 Gdip_Startup() ; <gdip.ahk> (thank you tic)
@@ -143,30 +143,30 @@ CloseMe:
 ; ------------------------------------------
 
 	; Autobackup functionality
-	#Include Data\buddy\backup.ahk
+	; #Include Data\buddy\backup.ahk
 
 	; WinExplorer improvements
 	#Include Data\includes\explorer.ahk
 
 	; Select files in explorer
-	#Include Data\includes\selectfiles.ahk
+	; #Include Data\includes\selectfiles.ahk
 
 	; Registry Editor launch/jump
 	#Include Data\includes\registry.ahk
 
 	; Closes application via Ctrl+W
-	#Include Data\includes\close.ahk
+	; #Include Data\includes\close.ahk
 
 	; Console2 and Command prompt
 	#Include Data\includes\console.ahk
 
 	; Focus various controls
-	#Include Data\includes\focus.ahk
+	; #Include Data\includes\focus.ahk
 
 ; ------------------------------------------
 
 	; Select something and do something
-	#Include Data\includes\selections.ahk
+	; #Include Data\includes\selections.ahk
 
 	; Run based hotkeys like RunTaskMan and HelpFolder
 	#Include Data\includes\run.ahk
@@ -201,4 +201,4 @@ CloseMe:
 ; ------------------------------------------
 
 	; Display a beautiful timer and say goodbye
-	#Include Data\includes\autoshutdown.ahk
+	; #Include Data\includes\autoshutdown.ahk

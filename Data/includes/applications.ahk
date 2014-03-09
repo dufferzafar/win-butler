@@ -4,10 +4,10 @@ StartupDelay:
    ( LTrim Join|
       C:\Users\dufferzafar\AppData\Local\FluxSoftware\Flux\flux.exe /noshow
       C:\Program Files\NetWorx\networx.exe /auto
-      F:\[Softwares]\[PowerPack]\Listary\Listary.exe
       F:\[Softwares]\[PowerPack]\Manic Time\ManicTime.exe /minimized /name:
    )
 
+      ; F:\[Softwares]\[PowerPack]\Listary\Listary.exe
    ; Run Listed Apps
    Loop, Parse, AppList, |
    {
@@ -17,7 +17,8 @@ StartupDelay:
       RegExMatch(OutFileName, "(.*.exe)", JustExe)
 
       ; If process is not already running
-      If !FindProc(JustExe)
+      ; Todo: Whatif the files don't exist?
+      If !FindProc(JustExe) ; And FileExist(A_LoopField)
          Run, % A_LoopField
    }
 
