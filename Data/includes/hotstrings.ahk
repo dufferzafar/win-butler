@@ -4,7 +4,7 @@
  */
 
 ; Avoid common grammar mistakes
-::i::I
+; ::i::I
 ::i'd::I'd
 ::i've::I've
 ::i'll::I'll

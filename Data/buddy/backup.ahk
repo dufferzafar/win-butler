@@ -10,7 +10,10 @@ Setup_BackupBuddy:
    D:\I, Coder\@ GitHub\dufferzafar.github.com
    D:\I, Coder\@ GitHub\personal-analytics
    D:\I, Coder\@ GitHub\Todo
-   C:\xampp\htdocs\cryptex
+   D:\I, Coder\@ GitHub\picard
+   D:\I, Coder\@ GitHub\picard-plugins
+   D:\I, Coder\@ GitHub\picard-website
+   F:\[Softwares]\[PowerPack]\Manic Time
    )
 
    Destination := "F:\Backups"
@@ -43,8 +46,7 @@ Setup_BackupBuddy:
    ; FileDelete, %Destination%\%DestDir%\*.7z ; delete previous ones
 
    SetTimer, BB_Backup, % Period * 60 * 1000
-
-Return    ; End of Auto Execute Section
+Return
 
 BB_Backup:
    ; SetTimer, SwapIcon, 500
@@ -57,25 +59,30 @@ BB_Backup:
       If FileExist(A_LoopField)
       {
          FileName = %A_DD%-%A_MMM%-%A_YYYY%-%A_Hour%-%A_Min%-%A_Sec%
-
          Params = %DestDir%\%FileName%.7z "%A_LoopField%" %Yes% %Method% %PSwitch%
-         ; Msgbox, Params
 
-         RunWait, % 7ZipPath . " a " . Params, %A_ScriptDir% , Hide
+         RunWait, % 7ZipPath . " a " . Params, %A_ScriptDir%, Hide
 
-         Files := CountFiles(DestDir, "7z")
-         ; Msgbox, % Files
+         nFiles := CountFiles(DestDir, "7z")
 
          ; Delete Older Files
-         If ( Files > BackupsToKeep)
+         If (nFiles > BackupsToKeep)
          {
-            Count := Files - BackupsToKeep
+            Count := nFiles - BackupsToKeep
+            Files := Object()
+
             Loop, %DestDir%\*.7z
             {
-               FileDelete, %A_LoopFileFullPath%
-               Count--
-               If (Count == 0)
-                  Break
+               Files.Insert(A_LoopFileTimeCreated, A_LoopFileFullPath)
+            }
+
+            For Time, Path in Files
+            {
+               If (A_Index <= Count)
+               {
+                  MsgBox, % Path
+                  FileDelete, % Path
+               }
             }
          }
       }

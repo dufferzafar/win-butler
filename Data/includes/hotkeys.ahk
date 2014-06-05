@@ -45,7 +45,8 @@ Activate_Hotkeys:
 
    Hotkey,     #Space,  RunScriptlet,     On
 
-   Hotkey,     ^+q,     HelpPHP,       On
+   ; Hotkey,     ^+q,     HelpPHP,       On
+   Hotkey,     ^+q,     HelpPython,       On
    Hotkey,     ^+a,     HelpAHK,          On
    Hotkey,     ^+z,     HelpFolder,       On
 

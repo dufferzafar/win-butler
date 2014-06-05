@@ -36,6 +36,10 @@ FocusEsc:
    }
    ; Else If WinActive("ahk_class PX_WINDOW_CLASS")
       ; Send, ^0 ; Focus Sidebar
+   Else If WinActive("Buddy List") ; Closes Pidgin. I like it that way...
+   {
+      Send, !{F4}
+   }
    Else
       Send, {Esc}
 Return

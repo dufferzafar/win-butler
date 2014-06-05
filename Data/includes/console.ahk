@@ -20,7 +20,7 @@ RunCmder:
    EnvSet, CMDER_ROOT, %CmderPath%
 
    ; Launch ConEmu
-   Run, %CmderPath%/vendor/conemu/ConEmu64.exe /Single /Dir "%Path%" /Title Cmder /Icon "%CmderPath%\Cmder.ico" /LoadCfgFile "%CmderPath%\config\ConEmu.xml"
+   Run, %CmderPath%/vendor/conemu/ConEmu64.exe /Single /Dir "%Path%" /Icon "%CmderPath%\Cmder.ico" /LoadCfgFile "%CmderPath%\config\ConEmu.xml"
 Return
 
 RunBash:
@@ -39,5 +39,5 @@ RunBash:
    EnvSet, CMDER_ROOT, %CmderPath%
 
    ; Launch ConEmu
-   Run, %CmderPath%/vendor/conemu/ConEmu64.exe /Single /Dir "%Path%" /Title Cmder /Icon "%CmderPath%\Cmder.ico" /LoadCfgFile "%CmderPath%\config\ConEmu.xml" /cmd %CmderPath%\vendor\msysgit\bin\sh.exe -l -i
+   Run, %CmderPath%/vendor/conemu/ConEmu64.exe /Single /Dir "%Path%" /Icon "%CmderPath%\Cmder.ico" /LoadCfgFile "%CmderPath%\config\ConEmu.xml" /cmd %CmderPath%\vendor\msysgit\bin\sh.exe -l -i
 Return
