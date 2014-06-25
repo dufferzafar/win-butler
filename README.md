@@ -1,4 +1,4 @@
-# Windows Butler v3.0
+# Windows Butler v3.3
 
 ![Butler](/Data/butler.png)
 
@@ -29,7 +29,7 @@ The capslock key's functionality has been disabled in versions greater than 1.8.
 
 Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor but if you don't think so, Download the [older version](https://github.com/dufferzafar/win-butler/archive/v1.8.zip) instead.
 
-![The About Gui](/Data/about.jpg)
+<!-- ![The About Gui](/Data/about.jpg) -->
 
 ## <a name="hotkeys"></a>List of Shortcuts
 
@@ -108,14 +108,12 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * Backup
   * Hotkeys - Bindings, On/Off
 
-* Ensure ManicTime and Networx are always running.
-
 * Auto-Commit every x minutes
-  * Similar to backup buddy.
+  * Similar to backup buddy
 
 * Screenshots
   * Upload any image via Traymenu
-  * Add Shift to upload in all
+  * Add Shift to upload in all hotkeys
 
 ## <a name="changelog"></a>Changelog
 
