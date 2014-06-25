@@ -4,7 +4,7 @@
 
 RunCmder:
    ; Todo: Settings - Get the path of Cmder directory
-   CmderPath := "F:\[Softwares]\[PowerPack]\Cmder"
+   CmderPath := "F:\PowerPack\Cmder"
 
    If WinActive("ahk_class PX_WINDOW_CLASS")
    {
@@ -14,7 +14,7 @@ RunCmder:
    Else
       Path := GetCurrentFolderPath()
 
-   Path := (Path = "") ? "D:\I, Coder\@ GitHub" : Path
+   Path := (Path = "") ? "D:\GitHub" : Path
 
    ; This environment variable is used by Cmder Project
    EnvSet, CMDER_ROOT, %CmderPath%
@@ -24,7 +24,7 @@ RunCmder:
 Return
 
 RunBash:
-   CmderPath := "F:\[Softwares]\[PowerPack]\Cmder"
+   CmderPath := "F:\PowerPack\Cmder"
 
    If WinActive("ahk_class PX_WINDOW_CLASS")
    {
@@ -34,7 +34,7 @@ RunBash:
    Else
       Path := GetCurrentFolderPath()
 
-   Path := (Path = "") ? "D:\I, Coder\@ GitHub" : Path
+   Path := (Path = "") ? "D:\GitHub" : Path
 
    EnvSet, CMDER_ROOT, %CmderPath%
 

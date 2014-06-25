@@ -6,14 +6,15 @@ Setup_BackupBuddy:
 
    Sources =
    ( LTrim Join|
-   D:\I, Coder\@ GitHub\win-butler
-   D:\I, Coder\@ GitHub\dufferzafar.github.com
-   D:\I, Coder\@ GitHub\personal-analytics
-   D:\I, Coder\@ GitHub\Todo
-   D:\I, Coder\@ GitHub\picard
-   D:\I, Coder\@ GitHub\picard-plugins
-   D:\I, Coder\@ GitHub\picard-website
-   F:\[Softwares]\[PowerPack]\Manic Time
+   D:\Documents\Journal
+   D:\Github\win-butler
+   D:\Github\dufferzafar.github.com
+   D:\Github\personal-analytics
+   D:\Github\Todo
+   D:\Github\picard
+   D:\Github\picard-plugins
+   D:\Github\picard-website
+   F:\PowerPack\Manic Time
    )
 
    Destination := "F:\Backups"
@@ -80,7 +81,6 @@ BB_Backup:
             {
                If (A_Index <= Count)
                {
-                  MsgBox, % Path
                   FileDelete, % Path
                }
             }
