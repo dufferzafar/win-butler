@@ -20,7 +20,7 @@
 SetWorkingDir %A_ScriptDir%
 SendMode, Input
 
-Version := "v3.0", Version_Date := "11/1/2014"
+Version := "v3.2", Version_Date := "11/1/2014"
 
 ; ####################### User Settings ########################
 
@@ -67,6 +67,9 @@ SetTimer, AlwaysRunning, % 10 * 60 * 1000 ; <applications.ahk>
 
 ; Delay some applications on startup
 SetTimer, StartupDelay,  % -1 * 60 * 1000 ; <applications.ahk>
+
+; Create a jrnl entry every thirty minutes
+SetTimer, Jrnl,  % 30 * 60 * 1000 ; <applications.ahk>
 
 ; Required for screenshots
 Gdip_Startup() ; <gdip.ahk> (thank you tic)

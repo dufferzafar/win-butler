@@ -100,4 +100,6 @@ Activate_Hotkeys:
    Hotkey,  !PrintScreen,  GrabWindow,             On
    Hotkey,  #LButton,      GrabArea,               On
 
+   ; Launch Journal - <applications.ahk>
+   Hotkey,  !^j,           Jrnl,                   On
 Return
