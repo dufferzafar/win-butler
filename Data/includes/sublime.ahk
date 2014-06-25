@@ -14,16 +14,16 @@ Return
 GetPathFromSublime()
 {
    WinGetTitle, wTitle, ahk_class PX_WINDOW_CLASS
-   ; wTitle := "D:\I, Coder\@ GitHub\win-butler\Test.ahk (WinButler) - Sublime Text"
+   ; wTitle := "D:\I, Coder\@ GitHub\win-butler\Test.ahk (WinButler) - Sublime Text (UNREGISTERED)"
 
-   StringTrimRight, File, wTitle, 15
+   StringTrimRight, File, wTitle, 30
 
    If FileExist(File)
       ScriptPath := File
    Else
    {
-      pos := InStr(wTitle, "(", False, 0)
-      ScriptPath := SubStr(wTitle, 1, pos-1)
+      pos := InStr(File, "(", False, 0)
+      ScriptPath := SubStr(File, 1, pos-1)
    }
 
    Return %ScriptPath%
