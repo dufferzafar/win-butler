@@ -33,6 +33,8 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="hotkeys"></a>List of Shortcuts
 
+*Note: This list is incomplete and I don't see any reason to update it now, as I'm the only person who's using this :/*
+
 * In windows explorer...
 
   * **Windows + Q** : Show/Hide hidden files and folders.
@@ -117,10 +119,17 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
 
 ## <a name="changelog"></a>Changelog
 
-* Updated: Startup applications only run if not already running.
-* Added: Delays some applications so as to reduce load on startup. <applications.ahk>
-* Added: A check to ensure that some required applications are always running. See <applications.ahk>
-* Updated: All Urls and HTML files now open in Firefox.
+* **3.3**
+
+  * Added: A timer that runs opens a Jrnl entry every thirty minutes.
+  * Changed: GetPathFromSublime() now works only with Unregistered version.
+
+* **3.2**
+
+  * Updated: Startup applications only run if not already running.
+  * Added: Delays some applications so as to reduce load on startup. <applications.ahk>
+  * Added: A check to ensure that some required applications are always running. See <applications.ahk>
+  * Updated: All Urls and HTML files now open in Firefox.
 
 * **3.0**
 
