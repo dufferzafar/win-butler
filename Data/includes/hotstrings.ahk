@@ -26,3 +26,13 @@ Return
    FormatTime, CurrentTime,, h:mm tt
    SendInput, %CurrentTime%
 Return
+
+:*:/l1::
+   ; Delhi
+   SendInput, 28.6766622`,77.2705794
+Return
+
+:*:/l2::
+   ; Gurgaon
+   SendInput, 28.477770`, 77.018293
+Return
