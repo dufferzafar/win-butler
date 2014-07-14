@@ -36,3 +36,7 @@ Return
    ; Gurgaon
    SendInput, 28.477770`, 77.018293
 Return
+
+:*:/np::
+   SendInput, % nowPlaying(" by ", "")
+Return

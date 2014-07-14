@@ -30,15 +30,7 @@ VolumeUp:
 	iNewMaster := (iOldMaster + 5.00) > 100 ? 100 : (iOldMaster + 5.00)
 	VA_SetMasterVolume(iNewMaster)
 
-	; This only works because I have Windows Media Player Plus! plugin enabled
-	; Get the plugin and enable currently playing media in title bar
-	; %title%[ - %artist%] - Windows Media Player
-	SetTitleMatchMode, 2 ; Match title anywhere
-	WinGetTitle, Title, Windows Media Player
-	RegExMatch(Title, "^(.*) - (.*) - Windows Media Player", Song)
-
-	VolumeOSD(hVolumeOSD, iNewMaster, Song1 = "" ? "Volume" : Song1 " - " Song2)
-
+	VolumeOSD(hVolumeOSD, iNewMaster, nowPlaying(" - ", "Volume"))
 	SetTimer, HideGui, -750
 Return
 
@@ -47,17 +39,25 @@ VolumeDown:
 	iNewMaster := (iOldMaster - 5.00) < 0 ? 0 : (iOldMaster - 5.00)
 	VA_SetMasterVolume(iNewMaster)
 
-	SetTitleMatchMode, 2 ; Match title anywhere
-	WinGetTitle, Title, Windows Media Player
-	RegExMatch(Title, "^(.*) - (.*) - Windows Media Player", Song)
-
-	VolumeOSD(hVolumeOSD, iNewMaster, Song1 = "" ? "Volume" : Song1 " - " Song2)
+	VolumeOSD(hVolumeOSD, iNewMaster, nowPlaying(" - ", "Volume"))
 	SetTimer, HideGui, -750
 Return
 
 HideGui:
 	Gui, 97:Hide
 Return
+
+nowPlaying(joinPhrase, defaultText)
+{
+	; This only works because I have Windows Media Player Plus! plugin enabled
+	; Get the plugin and enable currently playing media in title bar
+	; %title%[ - %artist%] - Windows Media Player
+	SetTitleMatchMode, 2 ; Match title anywhere
+	WinGetTitle, Title, Windows Media Player
+	RegExMatch(Title, "^(.*) - (.*) - Windows Media Player", Song)
+
+	return Song1 = "" ? defaultText : Song1 . joinPhrase . Song2
+}
 
 IsMouseOverTaskbar()
 {
