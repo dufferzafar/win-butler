@@ -15,7 +15,7 @@
    SendInput, {BS} dufferzafar.github.com
 Return
 
-:*:/gitme::https://github.com/dufferzafar
+:*:/git::github.com/dufferzafar/
 
 :*:/d1::
    FormatTime, CurrentDate,, d/M/yyyy
@@ -38,5 +38,5 @@ Return
 Return
 
 :*:/np::
-   SendInput, % nowPlaying(" by ", "")
+   SendInput, % """" . nowPlaying(" by ", "") . """"
 Return
