@@ -185,7 +185,7 @@ CloseMe:
 ; ------------------------------------------
 
 	; Needed for Screenshot features
-	#Include Data\includes\Gdip.ahk
+	#Include Data\includes\Gdip_All.ahk
 
 	; Screencapture related functions
 	#Include Data\screenshot\screenshot.ahk
