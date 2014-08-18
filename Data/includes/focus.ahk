@@ -40,6 +40,10 @@ FocusEsc:
    {
       Send, !{F4}
    }
+   Else If WinActive("ahk_class WindowsForms10.Window.8.app.0.3e799b_r11_ad1")
+   {
+      Send, !{F4}
+   }
    Else
       Send, {Esc}
 Return

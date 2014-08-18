@@ -62,6 +62,8 @@ Activate_Hotkeys:
    Hotkey,     #t,      TopMost,          On
    Hotkey,     #Down,   MinimizeWindow,   On
 
+   Hotkey,     #x,      ShowShareX,       On
+
    Hotkey,     $^w,      Close,           On
    ; Hotkey,     !F5,     KillWindow,       On
 

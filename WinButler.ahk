@@ -188,10 +188,10 @@ CloseMe:
 	#Include Data\includes\Gdip_All.ahk
 
 	; Screencapture related functions
-	#Include Data\screenshot\screenshot.ahk
+	; #Include Data\screenshot\screenshot.ahk
 
 	; JSON library used to handle response from Imgur
-	#Include Data\screenshot\json.inc.ahk
+	; #Include Data\screenshot\json.inc.ahk
 
 ; ------------------------------------------
 
