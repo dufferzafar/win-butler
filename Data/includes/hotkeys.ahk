@@ -58,7 +58,7 @@ Activate_Hotkeys:
 
    ; Hotkey,     #s,      AutoShutsdown,     On
 
-   Hotkey,     ^#e,     RestartExplorer,  On
+   Hotkey,     #e,      LaunchXYplorer,   On
    Hotkey,     #t,      TopMost,          On
    Hotkey,     #Down,   MinimizeWindow,   On
 

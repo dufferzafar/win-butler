@@ -4,7 +4,7 @@
 
 FindEverything:
 	; Todo: Settings - Get Everything Path
-	EverythingPath := "F:\[Softwares]\[PowerPack]\Everything"
+	EverythingPath := "F:\PowerPack\Everything"
 
    Path := GetCurrentFolderPath()
 	Run, %EverythingPath%\Everything.exe -path "%Path%\\", %EverythingPath%

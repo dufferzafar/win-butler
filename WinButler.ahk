@@ -151,6 +151,9 @@ CloseMe:
 	; WinExplorer improvements
 	#Include Data\includes\explorer.ahk
 
+	; XYplorer thingies
+	#Include Data\includes\XYplorer.ahk
+
 	; Select files in explorer
 	#Include Data\includes\selectfiles.ahk
 

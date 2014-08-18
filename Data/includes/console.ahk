@@ -11,6 +11,8 @@ RunCmder:
       FilePath := GetPathFromSublime()
       SplitPath, FilePath, , Path ; The Directory
    }
+   Else If WinActive("ahk_class ThunderRT6FormDC")
+      Path := GetPathFromXYplorer()
    Else
       Path := GetCurrentFolderPath()
 
@@ -31,6 +33,8 @@ RunBash:
       FilePath := GetPathFromSublime()
       SplitPath, FilePath, , Path ; The Directory
    }
+   Else If WinActive("ahk_class ThunderRT6FormDC")
+      Path := GetPathFromXYplorer()
    Else
       Path := GetCurrentFolderPath()
 
