@@ -1,4 +1,4 @@
-# Windows Butler v3.3
+# Windows Butler v3.4
 
 ![Butler](/Data/butler.png)
 
@@ -116,6 +116,10 @@ Though I know I've done you a [great](http://www.ihatethecapslockkey.com/) favor
   * Add Shift to upload in all hotkeys
 
 ## <a name="changelog"></a>Changelog
+
+* **3.4**
+
+  * Added: Windows + F12 Hides/Shows the Mouse Cursor.
 
 * **3.3**
 

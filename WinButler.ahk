@@ -20,7 +20,7 @@
 SetWorkingDir %A_ScriptDir%
 SendMode, Input
 
-Version := "v3.3", Version_Date := "25/6/2014"
+Version := "v3.4", Version_Date := "2/9/2014"
 
 ; ####################### User Settings ########################
 
@@ -61,6 +61,10 @@ Gosub, Activate_Hotkeys ; <hotkeys.ahk>
 
 ; Setup and Start Automated Backups
 Gosub, Setup_BackupBuddy ; <backup.ahk>
+
+; Used by <cursor.ahk>
+CursorHidden := False
+SystemCursor("INIT")
 
 ; Ensure always running apps
 SetTimer, AlwaysRunning, % 10 * 60 * 1000 ; <applications.ahk>
@@ -195,6 +199,11 @@ CloseMe:
 
 	; JSON library used to handle response from Imgur
 	; #Include Data\screenshot\json.inc.ahk
+
+; ------------------------------------------
+
+	; Hide/Show Cursor
+	#Include Data\includes\cursor.ahk
 
 ; ------------------------------------------
 
