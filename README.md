@@ -1,4 +1,5 @@
 # Windows Butler v3.4
+*Status: I refrain from adding awesome new features as I won't have AHK once I move to Linux. The updates now are silly little fixes here 'n' there, since I think I am the only one using this script.*
 
 ![Butler](/Data/butler.png)
 
