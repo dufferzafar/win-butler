@@ -6,7 +6,11 @@ FindEverything:
 	; Todo: Settings - Get Everything Path
 	EverythingPath := "F:\PowerPack\Everything"
 
-   Path := GetCurrentFolderPath()
+	If WinActive("ahk_class ThunderRT6FormDC")
+		Path := GetPathFromXYplorer()
+	Else
+		Path := GetCurrentFolderPath()
+
 	Run, %EverythingPath%\Everything.exe -path "%Path%\\", %EverythingPath%
 Return
 
