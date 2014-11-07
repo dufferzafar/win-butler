@@ -31,6 +31,10 @@ Activate_Hotkeys:
    GroupAdd, Console_Group, ahk_class VirtualConsoleClass
    GroupAdd, Console_Group, ahk_class PuTTY
 
+   SetTitleMatchMode, 2 ; Match title anywhere
+   GroupAdd, VolumeOSD_Blacklist, VLC media player
+   GroupAdd, VolumeOSD_Blacklist, ahk_class gdkWindowToplevel
+
    ; Hotkey,   KeyName, Label,         Options
 
    ; Hotkey,     End,     DoubleTab_End,    Off
@@ -40,12 +44,11 @@ Activate_Hotkeys:
 
    Hotkey,     !^d,     OneLook,          On
 
-   Hotkey,     !^s,     SaveText,         On
-   Hotkey,     !+s,     SaveRunScript,    On
+   Hotkey,     !^s,     SaveText,         Off
+   Hotkey,     !+s,     SaveRunScript,    Off
 
    Hotkey,     #Space,  RunScriptlet,     On
 
-   ; Hotkey,     ^+q,     HelpPHP,       On
    Hotkey,     ^+q,     HelpPython,       On
    Hotkey,     ^+a,     HelpAHK,          On
    Hotkey,     ^+z,     HelpFolder,       On
@@ -56,7 +59,7 @@ Activate_Hotkeys:
    Hotkey,     $^Esc,   Focus,            On
    Hotkey,     $Esc,    FocusEsc,         On
 
-   ; Hotkey,     #s,      AutoShutsdown,     On
+   Hotkey,     #s,      AutoShutdown,     Off
 
    Hotkey,     #e,      LaunchXYplorer,   On
    Hotkey,     #t,      TopMost,          On
@@ -65,18 +68,19 @@ Activate_Hotkeys:
    Hotkey,     #x,      ShowShareX,       On
 
    Hotkey,     $^w,      Close,           On
-   ; Hotkey,     !F5,     KillWindow,       On
+   Hotkey,     !F5,     KillWindow,       Off
 
-   ; Avoid conflict with the default volume control of VLC
-   SetTitleMatchMode, 2 ; Match title anywhere
-   Hotkey, IfWinNotActive, VLC media player
-   Hotkey,     ^Up,     VolumeUp,         On
-   Hotkey,     ^Down,   VolumeDown,       On
+   Hotkey,     #F12,    ToggleCursor,     On
+
+   ; Disable VolumeOSD in some applications
+   Hotkey, IfWinNotActive, ahk_group VolumeOSD_Blacklist
+   Hotkey,     $^Up,     VolumeUp,         On
+   Hotkey,     $^Down,   VolumeDown,       On
    Hotkey, IfWinNotActive
 
    ; Volume Control
-   Hotkey,     WheelUp,   MWheelUp,       On
-   Hotkey,     WheelDown, MWheelDown,     On
+   Hotkey,     WheelUp,   MWheelUp,       Off
+   Hotkey,     WheelDown, MWheelDown,     Off
 
    ; Run files open in sublime text - <sublime.ahk>
    Hotkey, IfWinActive, ahk_class PX_WINDOW_CLASS  ; Sublime Text 3
@@ -95,13 +99,17 @@ Activate_Hotkeys:
    Hotkey,     ^s,         Show_SelectFiles_Gui,   On
    Hotkey, IfWinActive
 
-   ; Screener Hotkeys - <screenshot.ahk>
-   Hotkey,  PrintScreen,   GrabScreen,             On
-   Hotkey,  +PrintScreen,  GrabAndUpload,          On
-   Hotkey,  ^PrintScreen,  GrabScreenSansTaskbar,  On
-   Hotkey,  !PrintScreen,  GrabWindow,             On
-   Hotkey,  #LButton,      GrabArea,               On
+   ; XYplorer
+   Hotkey, IfWinActive, ahk_class ThunderRT6FormDC
+   Hotkey,     #f,         FindEverything,         On
+   Hotkey, IfWinActive
 
    ; Launch Journal - <applications.ahk>
    Hotkey,  !^j,           Jrnl,                   On
+
+   ; Pidgin message history - <WinButler.ahk>
+   Hotkey, IfWinActive, ahk_class gdkWindowToplevel
+   Hotkey,     !Left,     PidginHistoryUp,           On
+   Hotkey,     !Right,    PidginHistoryDown,         On
+   Hotkey, IfWinActive
 Return
