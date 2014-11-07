@@ -12,10 +12,12 @@
 
 ; My Octopress Blog.
 :*:/dz::
-   SendInput, {BS} dufferzafar.github.com
+   SendInput, {BS} http://dufferzafar.me/
 Return
 
-:*:/git::github.com/dufferzafar/
+:*:/git::
+   SendInput, {BS} http://github.com/dufferzafar/
+Return
 
 :*:/d1::
    FormatTime, CurrentDate,, d/M/yyyy
@@ -27,16 +29,26 @@ Return
    SendInput, %CurrentTime%
 Return
 
+; Delhi
 :*:/l1::
-   ; Delhi
-   SendInput, 28.6766622`,77.2705794
+   SendInput, https://maps.google.com/maps?q=28.6766622`,+77.2705794
 Return
 
+; Gurgaon
 :*:/l2::
-   ; Gurgaon
-   SendInput, 28.477770`, 77.018293
+   SendInput, https://maps.google.com/maps?q=28.477770`,+77.018293
 Return
 
 :*:/np::
-   SendInput, % """" . nowPlaying(" by ", "") . """"
+   SendRaw, % """" . nowPlaying(" by ", "") . """"
+Return
+
+; Download Now Playing
+:*:/dlnp::
+   SendRaw, % "https://www.google.co.in/search?q=" . nowPlaying(" by ", "")
+Return
+
+; Let Me Google That For You
+:*:/lmgtfy::
+   SendRaw, http://lmgtfy.com/?q=
 Return
