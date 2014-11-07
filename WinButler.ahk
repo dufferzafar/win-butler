@@ -72,11 +72,14 @@ SetTimer, AlwaysRunning, % 10 * 60 * 1000 ; <applications.ahk>
 ; Delay some applications on startup
 SetTimer, StartupDelay,  % -1 * 60 * 1000 ; <applications.ahk>
 
-; Create a jrnl entry every thirty minutes
-SetTimer, Jrnl,  % 30 * 60 * 1000 ; <applications.ahk>
+; Create a jrnl entry every sixty minutes
+; SetTimer, Jrnl,  % 60 * 60 * 1000 ; <applications.ahk>
 
 ; Required for screenshots
 Gdip_Startup() ; <gdip.ahk> (thank you tic)
+
+; Wait for headphones to be connected
+; Gosub, SetupHeadphones
 
 Return			; End of the auto-execute section
 ; Everything below this line is a separate thread,
@@ -212,6 +215,9 @@ CloseMe:
 
 	; Control Volume
 	#Include Data\volume\volumeOSD.ahk
+
+	; Reduce volume when earphones are connected
+	; #Include, Data\volume\headphones.ahk
 
 ; ------------------------------------------
 
