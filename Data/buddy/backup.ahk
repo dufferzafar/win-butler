@@ -14,6 +14,7 @@ Setup_BackupBuddy:
    D:\Github\picard
    D:\Github\picard-plugins
    D:\Github\picard-website
+   D:\Github\IdeaBin
    F:\PowerPack\Manic Time
    )
 

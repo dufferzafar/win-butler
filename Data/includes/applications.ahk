@@ -3,10 +3,10 @@ StartupDelay:
    ( LTrim Join|
       C:\Users\dufferzafar\AppData\Local\FluxSoftware\Flux\flux.exe /noshow
       C:\Program Files\NetWorx\networx.exe /auto
-      F:\Powerpack\ShareX\ShareX.exe
       F:\PowerPack\Manic Time\ManicTime.exe /minimized /name:
    )
 
+      ; F:\Powerpack\ShareX\ShareX.exe
    ; Run Listed Apps
    Loop, Parse, AppList, |
    {

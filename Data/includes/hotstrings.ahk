@@ -19,6 +19,11 @@ Return
    SendInput, {BS} http://github.com/dufferzafar/
 Return
 
+; BE LAZY
+:*:/hah::
+   SendInput, {BS} hahahahahaahahahaahahahaahah!
+Return
+
 :*:/d1::
    FormatTime, CurrentDate,, d/M/yyyy
    SendInput, %CurrentDate%
