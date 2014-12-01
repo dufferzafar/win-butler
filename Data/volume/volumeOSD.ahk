@@ -27,10 +27,8 @@ Return
 
 VolumeUp:
 	iOldMaster := VA_GetMasterVolume()
-	if (iOldMaster <= 10) ; Fine grained control
-		iNewMaster := (iOldMaster + 1.00) > 100 ? 100 : (iOldMaster + 1.00)
-	else
-		iNewMaster := (iOldMaster + 5.00) > 100 ? 100 : (iOldMaster + 5.00)
+	newVolume := iOldMaster + Floor(0.08 * iOldMaster) + 1
+	iNewMaster := (newVolume > 100) ? 100 : newVolume
 	VA_SetMasterVolume(iNewMaster)
 
 	VolumeOSD(hVolumeOSD, iNewMaster, nowPlaying(" - ", "Volume"))
@@ -39,10 +37,8 @@ Return
 
 VolumeDown:
 	iOldMaster := VA_GetMasterVolume()
-	if (iOldMaster <= 10) ; Fine grained control
-		iNewMaster := (iOldMaster - 1.00) < 0 ? 0 : (iOldMaster - 1.00)
-	else
-		iNewMaster := (iOldMaster - 5.00) < 0 ? 0 : (iOldMaster - 5.00)
+	newVolume := iOldMaster - Floor(0.08 * iOldMaster) - 1
+	iNewMaster := (newVolume < 0) ? 0 : newVolume
 
 	VA_SetMasterVolume(iNewMaster)
 
