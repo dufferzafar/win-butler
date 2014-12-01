@@ -158,6 +158,9 @@ CloseMe:
 	; WinExplorer improvements
 	#Include Data\includes\explorer.ahk
 
+	; WinExplorer improvements
+	#Include Data\includes\maximize.ahk
+
 	; XYplorer thingies
 	#Include Data\includes\XYplorer.ahk
 

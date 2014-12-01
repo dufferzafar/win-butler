@@ -71,6 +71,7 @@ Activate_Hotkeys:
    Hotkey,     !F5,     KillWindow,       Off
 
    Hotkey,     #F12,    ToggleCursor,     On
+   Hotkey,     #F11,    ToggleTitleBar,     On
 
    ; Disable VolumeOSD in some applications
    Hotkey, IfWinNotActive, ahk_group VolumeOSD_Blacklist
